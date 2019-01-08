@@ -21,6 +21,7 @@ installdir ".config/trizen"
 installdir ".config/yay"
 installdir ".config/nvim"
 installdir ".config/dunst"
+installdir ".config/sway"
 
 if [[ -d "$HOME/.config/oni" ]]; then
     ln -sf "$DIR/.config/oni/config.js" "$HOME/.config/oni/config.js"
