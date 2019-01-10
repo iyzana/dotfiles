@@ -54,8 +54,8 @@ default_border pixel
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 exec swayidle \
-  timeout 60 'physlock -sm' \
-  timeout 45 'notify-send -u critical -t 15000 swayidle "locking due to inactivity"' \
+  timeout 120 'physlock -sm' \
+  timeout 105 'notify-send -u critical -t 15000 swayidle "locking due to inactivity"' \
   before-sleep 'physlock -sm'
 
 ### Input configuration
@@ -104,7 +104,7 @@ input "1102:4639:DELL0817:00_044E:121F_Mouse" {
     bindsym $mod+Return exec $term
     bindsym $mod+f exec $browser
     bindsym Alt+space exec albert toggle
-    bindsym Ctrl+Shift+l exec physlock -ms
+    bindsym Ctrl+Shift+l exec physlock -sm
     bindsym $mod+Shift+q kill
     bindsym $mod+d exec $menu
 
