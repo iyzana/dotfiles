@@ -7,7 +7,6 @@ Plug 'tomtom/tcomment_vim'
 
 " format
 Plug 'editorconfig/editorconfig-vim'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " files
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

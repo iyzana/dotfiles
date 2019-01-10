@@ -23,13 +23,14 @@ tnoremap <Esc> <C-\><C-n>
 
 " custom mappings
 let mapleader=" "
-nnoremap <leader>p :PrettierAsync<CR>
 nnoremap <leader>n :noh<CR>
 nnoremap <leader>c :100vs +terminal<CR>aalias vim='echo no'<CR>clear<CR>
 nnoremap <silent> <leader>k <Plug>(ale_previous_wrap)
 nnoremap <silent> <leader>j <Plug>(ale_next_wrap)
-nnoremap <C-p> :GFiles<CR>
+nnoremap <leader>p :GFiles<CR>
+nnoremap <leader>l :Files<CR>
 nnoremap <C-6> <C-^>
 
 " nerdtree
 map <leader>t :NERDTreeFind<CR>
+map <leader>o :NERDTreeToggle<CR>
