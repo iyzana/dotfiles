@@ -25,8 +25,8 @@ tnoremap <Esc> <C-\><C-n>
 let mapleader=" "
 nnoremap <leader>n :noh<CR>
 nnoremap <leader>c :100vs +terminal<CR>aalias vim='echo no'<CR>clear<CR>
-nnoremap <silent> <leader>k <Plug>(ale_previous_wrap)
-nnoremap <silent> <leader>j <Plug>(ale_next_wrap)
+nmap <silent> <leader>k <Plug>(ale_previous_wrap)
+nmap <silent> <leader>j <Plug>(ale_next_wrap)
 nnoremap <leader>p :GFiles<CR>
 nnoremap <leader>l :Files<CR>
 nnoremap <C-6> <C-^>
