@@ -56,7 +56,7 @@ play() {
         <(youtube-dl -f bestaudio/best --audio-quality 0 --default-search "ytsearch:" -o - "$*")
 }
 
-alias battery="upower -i $(upower -e | grep BAT) | grep percent | awk '{ print \$2 }'"
+alias battery='upower -i $(upower -e | grep BAT) | grep percent | awk "{ print \$2 }"'
 
 open() {
     xdg-open "$@" &
