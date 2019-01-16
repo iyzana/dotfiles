@@ -1,7 +1,16 @@
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rls'],
-    \ 'kotlin': ['kls'],
-    \ }
+\   'rust': ['rls'],
+\   'kotlin': ['kls'],
+\}
+let g:LanguageClient_diagnosticsEnable = 0
+
+let g:ale_fixers = {
+\   'rust': ['rustfmt'],
+\}
+let g:ale_linters = {
+\   'rust': ['rls'],
+\}
+let g:ale_rust_rls_toolchain = 'stable'
 
 autocmd FileType rust,kotlin
   \ map <buffer> <F5> :call LanguageClient_contextMenu()<CR> |
