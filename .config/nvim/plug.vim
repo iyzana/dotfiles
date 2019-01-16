@@ -24,14 +24,9 @@ Plug 'ayu-theme/ayu-vim'
 
 " languages
 Plug 'w0rp/ale'
-Plug 'udalov/kotlin-vim'
-Plug 'elixir-lang/vim-elixir'
-Plug 'aklt/plantuml-syntax'
-Plug 'leafgarland/typescript-vim'
+Plug 'sheerun/vim-polyglot'
 Plug 'mattn/emmet-vim'
-Plug 'posva/vim-vue'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+Plug 'docunext/closetag.vim'
 
 " completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
