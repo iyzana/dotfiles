@@ -24,6 +24,8 @@ set hidden
 
 set undofile
 
+set noshowmode
+
 " autosave
 autocmd FocusLost * silent! wa
 set autowriteall
