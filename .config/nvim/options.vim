@@ -28,6 +28,7 @@ set noshowmode
 
 " autosave
 autocmd FocusLost * silent! wa
+autocmd BufEnter term://* silent! wa
 set autowriteall
 
 " reduce update time for gitgutter
