@@ -17,6 +17,7 @@ alias df='df -h'
 alias rm='rm -I'
 
 alias vim='nvim'
+alias sudo='nocorrect sudo ' # expand aliases after sudo
 
 # fs helpers
 
