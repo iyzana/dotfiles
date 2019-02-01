@@ -53,8 +53,10 @@ alias glg="glog"
 alias youtube-audio='youtube-dl -x -f bestaudio/best --audio-quality 0 --default-search "ytsearch:" --add-metadata --metadata-from-title "(?P<artist>.+?) - (?P<title>.+?)( \(.*\).*)?$" -o "%(title)s.%(ext)s"'
 
 play() {
-    mplayer -volume 50 -softvol -novideo \
-        <(youtube-dl -f bestaudio/best --audio-quality 0 --default-search "ytsearch:" -o - "$*")
+    mpv --volume 80 --video no \
+        --ytdl-format=bestaudio/best \
+        --ytdl-raw-options=default-search=ytsearch \
+        "ytdl://$*"
 }
 
 alias battery='upower -i $(upower -e | grep BAT) | grep percent | awk "{ print \$2 }"'
