@@ -28,9 +28,17 @@ nnoremap <leader>n :noh<CR>
 nnoremap <leader>c :100vs +terminal<CR>a
 nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <leader>j <Plug>(ale_next_wrap)
-nnoremap <leader>p :GFiles<CR>
-nnoremap <leader>l :Files<CR>
 nnoremap <C-6> <C-^>
+
+" fzf
+nnoremap <C-p> :GFiles<CR>
+nnoremap <leader>p :Files<CR>
+nnoremap <C-f> :GLines<CR>
+
+command! -bang -nargs=* GLines
+    \ call fzf#vim#grep(
+    \   'rg --fixed-strings --smart-case --column --line-number --no-heading --color=always --hidden --glob "!.git/*" '.shellescape(<q-args>),
+    \   1, <bang>0)
 
 " nerdtree
 map <leader>t :NERDTreeFind<CR>
