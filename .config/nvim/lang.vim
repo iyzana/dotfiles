@@ -7,6 +7,9 @@ let g:LanguageClient_diagnosticsEnable = 0
 let g:ale_fixers = {
 \   'rust': ['rustfmt'],
 \}
+let g:ale_linter_aliases = {
+\   'jsx': ['javascript'],
+\}
 let g:ale_linters = {
 \   'rust': ['rls'],
 \}
