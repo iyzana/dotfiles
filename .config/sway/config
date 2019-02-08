@@ -281,5 +281,9 @@ include /etc/sway/config.d/*
 # Autostart
 #
 
+exec gsettings set org.gnome.desktop.interface gtk-theme 'Adapta-Nokto'
+exec gsettings set org.gnome.desktop.wm.preferences theme 'Adapta-Nokto'
+exec gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
+
 exec albert
 exec dunst
