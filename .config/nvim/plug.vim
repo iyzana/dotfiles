@@ -34,6 +34,7 @@ Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'mattn/emmet-vim'
 Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
+Plug 'reasonml-editor/vim-reason-plus'
 
 " completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
