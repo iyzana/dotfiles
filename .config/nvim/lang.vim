@@ -9,6 +9,7 @@ let g:LanguageClient_diagnosticsEnable = 0
 let g:ale_fixers = {
 \   'rust': ['rustfmt'],
 \   'typescript': ['prettier', 'tslint'],
+\   'markdown': ['prettier'],
 \}
 let g:ale_linter_aliases = {
 \   'jsx': ['javascript'],
@@ -26,7 +27,6 @@ autocmd FileType rust,kotlin,reason,typescript
   \ map <buffer> <F7> :call LanguageClient#textDocument_references()<CR> |
   \ map <buffer> <leader>f :call LanguageClient#textDocument_formatting()<CR>
 
-nnoremap <C-f> :PrettierAsync<CR>
 " autocmd FileType typescript
 "   \ map <buffer> K :echo tsuquyomi#hint()<CR> |
 "   \ map <buffer> gd :TsuDefinition<CR> |

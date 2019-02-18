@@ -28,6 +28,7 @@ nnoremap <leader>n :noh<CR>
 nnoremap <leader>c :100vs +terminal<CR>a
 nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <leader>j <Plug>(ale_next_wrap)
+nmap <silent> <leader>f <Plug>(ale_fix)
 nnoremap <C-6> <C-^>
 
 " fzf
