@@ -32,7 +32,7 @@ set $resize_step 25px
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-output * bg $HOME/visuals/bg/anime/simple-woman-choker.png fill
+output * bg $HOME/visuals/bg/power-landscape.jpg fill
 
 output eDP-1 position 0,0
 output DP-1 position 1920,0
@@ -269,9 +269,9 @@ bar {
     font "Hack" 10
 
     colors {
-        statusline #ffffff
-        background #32323200
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        statusline #000000
+        background #f8eadf
+        inactive_workspace #f8eadf #f8eadf #000000
     }
 }
 
