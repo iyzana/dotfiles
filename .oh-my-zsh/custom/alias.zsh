@@ -19,6 +19,9 @@ alias rm='rm -I'
 alias vim='nvim'
 alias sudo='nocorrect sudo ' # expand aliases after sudo
 
+alias ls='exa -l'
+alias la='exa -la'
+
 # fs helpers
 
 alias md='mkdir -p'
