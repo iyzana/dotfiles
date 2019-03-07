@@ -30,6 +30,8 @@ nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <leader>j <Plug>(ale_next_wrap)
 nmap <silent> <leader>f <Plug>(ale_fix)
 nnoremap <C-6> <C-^>
+vnoremap > >gv
+vnoremap < <gv
 
 " fzf
 nnoremap <C-p> :GFiles<CR>
