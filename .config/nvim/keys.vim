@@ -33,6 +33,14 @@ nnoremap <C-6> <C-^>
 vnoremap > >gv
 vnoremap < <gv
 
+" kakoune
+nnoremap gh 0
+nnoremap gl $
+nnoremap gk gg
+nnoremap gj G
+nnoremap gi ^
+nnoremap m %
+
 " fzf
 nnoremap <C-p> :GFiles<CR>
 nnoremap <leader>p :Files<CR>
