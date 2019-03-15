@@ -36,6 +36,7 @@ Plug 'mattn/emmet-vim'
 Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'lervag/vimtex'
 
 " completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

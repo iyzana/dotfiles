@@ -10,6 +10,7 @@ let g:ale_fixers = {
 \   'rust': ['rustfmt'],
 \   'typescript': ['prettier', 'tslint'],
 \   'markdown': ['prettier'],
+\   'tex': ['textlint'],
 \}
 let g:ale_linter_aliases = {
 \   'jsx': ['javascript'],
@@ -40,3 +41,5 @@ let g:user_emmet_settings = {
     \      'extends' : 'jsx',
     \  },
   \}
+
+let g:polyglot_disabled = ['latex']
