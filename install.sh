@@ -52,6 +52,7 @@ install_dir ".config/trizen"
 install_dir ".config/yay"
 install_dir ".config/nvim"
 install_dir ".config/dunst"
+install_dir ".config/mako"
 install_dir ".config/sway"
 install_dir ".config/swaylock"
 

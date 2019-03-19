@@ -289,4 +289,5 @@ exec gsettings set org.gnome.desktop.wm.preferences theme 'Adapta-Nokto'
 exec gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
 
 exec albert
-exec dunst
+exec mako
+exec sh ~/.config/sway/battery-warn.sh
