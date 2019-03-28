@@ -108,7 +108,6 @@ input "1102:4639:DELL0817:00_044E:121F_Mouse" {
     bindsym Alt+space exec albert toggle
     bindsym Ctrl+Shift+l exec swaylock
     bindsym $mod+Shift+q kill
-    bindsym $mod+d exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -220,6 +219,8 @@ input "1102:4639:DELL0817:00_044E:121F_Mouse" {
     bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
     bindsym XF86MonBrightnessUp exec brightnessctl set +10%
     bindsym --release Print exec grim -g \"$(slurp)"
+
+    bindsym $mod+d exec makoctl dismiss
 
 #
 # Resizing containers:
