@@ -34,9 +34,11 @@ td() {
 
 # shorter pipes
 
-alias -g G='| grep'
+alias -g G='| rg'
 alias -g W='| wc'
 alias -g L='| less'
+alias -g S='| sed'
+alias -g X='| xargs'
 
 # no I did not mean .config
 
