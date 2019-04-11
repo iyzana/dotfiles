@@ -55,6 +55,7 @@ install_dir ".config/dunst"
 install_dir ".config/mako"
 install_dir ".config/sway"
 install_dir ".config/swaylock"
+install_dir ".config/zathura"
 
 install_in_dir ".config/oni" "config.js" "config.tsx"
 install_in_dir ".oh-my-zsh/custom" "alias.zsh" "startx.zsh" "start-wayland.zsh" "kitty.zsh" "themes/succcubbus.zsh-theme"
