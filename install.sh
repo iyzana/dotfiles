@@ -57,6 +57,6 @@ install_dir ".config/sway"
 install_dir ".config/swaylock"
 
 install_in_dir ".config/oni" "config.js" "config.tsx"
-install_in_dir ".oh-my-zsh/custom" "alias.zsh" "startx.zsh" "kitty.zsh" "themes/succcubbus.zsh-theme"
+install_in_dir ".oh-my-zsh/custom" "alias.zsh" "startx.zsh" "start-wayland.zsh" "kitty.zsh" "themes/succcubbus.zsh-theme"
 
 echo -e "\e[32mdone"
