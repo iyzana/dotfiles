@@ -3,3 +3,4 @@ set recolor true
 set guioptions ""
 set window-width 2560
 set window-height 1440
+set recolor-darkcolor "#dddddd"
