@@ -88,6 +88,13 @@ input "1130:35:HID_046a:0023" {
     xkb_numlock enabled
 }
 
+input "5426:515:Razer_Razer_BlackWidow_Chroma" {
+    xkb_layout de
+    xkb_variant nodeadkeys
+    xkb_options caps:escape
+    xkb_numlock enabled
+}
+
 input "1102:4639:DELL0817:00_044E:121F_Touchpad" {
     dwt enabled
     tap enabled
