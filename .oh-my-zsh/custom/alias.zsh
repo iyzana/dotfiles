@@ -21,6 +21,8 @@ alias sudo='nocorrect sudo ' # expand aliases after sudo
 
 alias ls='exa -l'
 alias la='exa -la'
+unalias l
+unalias ll
 
 # fs helpers
 
