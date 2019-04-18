@@ -2,8 +2,12 @@
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 install() {
-    echo -e "\e[90minstalling $1"
-    ln -sf "$DIR/$1" "$HOME/$1"
+    if [[ -e "$DIR/$1" ]]; then
+        echo -e "\e[90minstalling $1"
+        ln -sf "$DIR/$1" "$HOME/$1"
+    else
+        echo -e "\e[91mcould not install $1"
+    fi
 }
 
 skip() {
@@ -39,7 +43,6 @@ install_in_dir() {
     fi
 }
 
-install ".vimrc"
 install ".zshrc"
 install ".Xmodmap"
 install ".tmux.conf"
