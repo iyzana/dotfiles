@@ -17,7 +17,6 @@ set smartcase
 
 set scrolloff=3
 
-set splitbelow
 set splitright
 
 set hidden
