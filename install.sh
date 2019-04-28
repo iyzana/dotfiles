@@ -45,6 +45,7 @@ install_in_dir() {
 
 install ".zshrc"
 install ".Xmodmap"
+install ".xinitrc"
 install ".tmux.conf"
 install ".gitconfig"
 install_existing ".gnome2/accels/nemo"
