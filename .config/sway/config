@@ -111,7 +111,7 @@ input "1102:4639:DELL0817:00_044E:121F_Mouse" {
 # Basics:
 #
     bindsym $mod+Return exec $term
-    bindsym $mod+f exec $browser
+    bindsym $mod+shift+f exec $browser
     bindsym Alt+space exec albert toggle
     bindsym Ctrl+Shift+l exec swaylock
     bindsym $mod+Shift+q kill
@@ -194,7 +194,7 @@ input "1102:4639:DELL0817:00_044E:121F_Mouse" {
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+shift+f fullscreen
+    bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
