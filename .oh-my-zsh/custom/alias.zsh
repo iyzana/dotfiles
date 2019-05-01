@@ -49,9 +49,6 @@ alias yay='nocorrect yay'
 alias git='nocorrect git'
 alias cargo='nocorrect cargo'
 
-# psutil python package is throwing errors that mess up the display
-alias glances='glances 2> /dev/null'
-
 # otherwise too long
 
 alias glog="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
