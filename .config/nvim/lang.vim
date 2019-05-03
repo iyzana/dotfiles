@@ -42,4 +42,6 @@ let g:user_emmet_settings = {
     \  },
   \}
 
+let g:tex_flavor = 'latex'
 let g:polyglot_disabled = ['latex']
+let g:vimtex_view_method = 'zathura'
