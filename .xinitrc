@@ -8,6 +8,9 @@ export LC_TIME=en_DK.UTF-8
 setxkbmap -model pc104 -layout de -variant nodeadkeys
 xmodmap ~/.Xmodmap
 
+# enable numlock
+numlockx &
+
 # disable turning off screen
 xset -dpms
 xset s off
