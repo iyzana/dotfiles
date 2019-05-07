@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term kitty
+set $term alacritty
 set $browser firefox
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
@@ -179,6 +179,12 @@ input "1102:4639:DELL0817:00_044E:121F_Mouse" {
     bindsym $mod+Shift+0 move container to workspace 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+    # move workspace to different output
+    bindsym $mod+Ctrl+h move workspace to output left
+    bindsym $mod+Ctrl+j move workspace to output up
+    bindsym $mod+Ctrl+k move workspace to output down
+    bindsym $mod+Ctrl+l move workspace to output right
 #
 # Layout stuff:
 #
