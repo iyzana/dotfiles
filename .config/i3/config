@@ -30,7 +30,7 @@ font pango:Hack 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 
 # start firefox
 bindsym $mod+Shift+f exec firefox
