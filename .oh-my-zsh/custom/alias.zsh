@@ -41,6 +41,8 @@ alias -g W='| wc'
 alias -g L='| less'
 alias -g S='| sed'
 alias -g X='| xargs'
+alias -g U='| sort | uniq'
+alias -g C='| cuts'
 
 # no I did not mean .config
 
@@ -48,6 +50,7 @@ alias trizen='nocorrect trizen'
 alias yay='nocorrect yay'
 alias git='nocorrect git'
 alias cargo='nocorrect cargo'
+alias cuts='nocorrect cuts'
 
 # otherwise too long
 
