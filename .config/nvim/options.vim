@@ -24,6 +24,8 @@ set hidden
 set undofile
 
 set noshowmode
+set shortmess+=c
+set signcolumn=yes
 
 " autosave
 autocmd FocusLost * silent! wa

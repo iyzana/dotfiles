@@ -26,8 +26,6 @@ autocmd BufEnter term://* startinsert
 let mapleader=" "
 nnoremap <leader>n :noh<CR>
 nnoremap <leader>c :100vs +terminal<CR>a
-nmap <silent> <leader>k <Plug>(ale_previous_wrap)
-nmap <silent> <leader>j <Plug>(ale_next_wrap)
 nmap <silent> <leader>f <Plug>(ale_fix)
 nnoremap <C-6> <C-^>
 vnoremap > >gv
@@ -54,3 +52,7 @@ command! -bang -nargs=* GLines
 " nerdtree
 map <leader>t :NERDTreeFind<CR>
 map <leader>o :NERDTreeToggle<CR>
+
+" completion
+inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
