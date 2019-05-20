@@ -23,3 +23,4 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>f <Plug>(coc-format)
+nmap <leader>qf <Plug>(coc-fix-current)
