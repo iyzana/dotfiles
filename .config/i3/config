@@ -198,5 +198,6 @@ for_window [class="albert" instance="albert"] floating enable
 # start programs
 exec albert
 exec redshift-gtk
+exec nm-applet
 exec keepassxc
 
