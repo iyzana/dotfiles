@@ -30,12 +30,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ayu-theme/ayu-vim'
 
 " languages
-Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
-Plug 'mattn/emmet-vim'
 Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
-Plug 'reasonml-editor/vim-reason-plus'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'lervag/vimtex'
 
 " completion
