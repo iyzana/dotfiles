@@ -68,6 +68,8 @@ play() {
 
 alias battery='upower -i $(upower -e | grep BAT) | grep percent | awk "{ print \$2 }"'
 
-alias open='xdg-open'
+open() {
+    xdg-open $@ &
+}
 
 alias irc='ssh -t ctdo tmux a'
