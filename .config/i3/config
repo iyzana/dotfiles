@@ -29,11 +29,9 @@ font pango:Hack 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
 bindsym $mod+Return exec alacritty
-
-# start firefox
 bindsym $mod+Shift+f exec firefox
+bindsym $mod+Shift+s exec teamspeak3
 
 # take screenshot
 bindsym Print exec flameshot gui
