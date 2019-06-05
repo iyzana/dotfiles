@@ -27,6 +27,10 @@ set noshowmode
 set shortmess+=c
 set signcolumn=yes
 
+set lazyredraw
+
+set inccommand=nosplit
+
 " autosave
 autocmd FocusLost * silent! wa
 autocmd BufEnter term://* silent! wa
