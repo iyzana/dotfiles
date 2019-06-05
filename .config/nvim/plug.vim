@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tomtom/tcomment_vim'
+Plug 'machakann/vim-swap'
 
 " format
 Plug 'editorconfig/editorconfig-vim'
