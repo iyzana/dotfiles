@@ -2,6 +2,9 @@ let g:tex_flavor = 'latex'
 let g:polyglot_disabled = ['latex']
 let g:vimtex_view_method = 'zathura'
 
+set spelllang=en,de
+autocmd BufRead,BufNewFile *.md,*.tex setlocal spell
+
 nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>j <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
