@@ -30,8 +30,9 @@ font pango:Hack 9
 floating_modifier $mod
 
 bindsym $mod+Return exec alacritty
-bindsym $mod+Shift+f exec firefox
-bindsym $mod+Shift+s exec teamspeak3
+bindsym $mod+Ctrl+f exec firefox
+bindsym $mod+Ctrl+s exec teamspeak3
+bindsym $mod+Ctrl+e exec nemo
 
 # take screenshot
 bindsym Print exec flameshot gui
