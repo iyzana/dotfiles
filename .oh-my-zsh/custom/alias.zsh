@@ -26,7 +26,6 @@ unalias ll
 
 # fs helpers
 
-alias md='mkdir -p'
 alias rd='rmdir'
 
 td() {
