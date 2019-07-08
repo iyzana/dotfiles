@@ -191,7 +191,8 @@ bar {
     }
 }
 
-new_window 1pixel
+default_border pixel 1
+
 for_window [class="albert" instance="albert"] floating enable
 
 # start programs
