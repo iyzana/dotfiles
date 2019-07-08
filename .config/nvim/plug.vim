@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
 " editing
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-commentary'
 Plug 'townk/vim-autoclose'
 Plug 'machakann/vim-swap'
 
