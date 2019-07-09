@@ -9,8 +9,12 @@ let NERDTreeShowHidden=1
 let g:NERDTreeWinSize=40
 let g:nerdtree_plugin_open_cmd = 'xdg-open'
 
-" disable statusline in fzf split
-autocmd! FileType fzf
-autocmd FileType fzf set laststatus=0 noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 ruler
+" disable statusline
+set laststatus=0
+set noruler
+
+" " disable statusline in fzf split
+" autocmd! FileType fzf
+" autocmd FileType fzf set laststatus=0 noruler
+"   \| autocmd BufLeave <buffer> set laststatus=2 ruler
 autocmd FileType fzf tnoremap <buffer> <Esc> <C-c>

@@ -51,8 +51,8 @@ command! -bang -nargs=* GLines
     \   1, <bang>0)
 
 " nerdtree
-map <leader>t :NERDTreeFind<CR>
-map <leader>o :NERDTreeToggle<CR>
+map <silent><leader>t :NERDTreeFind<CR>
+map <silent><leader>o :NERDTreeToggle<CR>
 
 " completion
 inoremap <silent><expr> <TAB>
