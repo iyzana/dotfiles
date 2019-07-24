@@ -200,4 +200,4 @@ exec albert
 exec redshift-gtk
 exec nm-applet
 exec keepassxc
-
+exec flameshot
