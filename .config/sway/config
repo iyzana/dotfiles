@@ -292,3 +292,4 @@ exec gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
 exec albert
 exec mako
 exec sh ~/.config/sway/battery-warn.sh
+exec libinput-gestures-setup start
