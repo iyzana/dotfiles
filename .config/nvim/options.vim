@@ -1,8 +1,5 @@
 set nocompatible
 
-set number
-set relativenumber
-
 " use 4 spaces for indent
 set tabstop=4
 set shiftwidth=4

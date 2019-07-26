@@ -9,6 +9,10 @@ let NERDTreeShowHidden=1
 let g:NERDTreeWinSize=40
 let g:nerdtree_plugin_open_cmd = 'xdg-open'
 
+" disable line numbers
+set nonumber
+set norelativenumber
+
 " disable statusline
 set laststatus=0
 set noruler
