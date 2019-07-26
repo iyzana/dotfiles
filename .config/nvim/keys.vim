@@ -25,7 +25,7 @@ autocmd BufEnter term://* startinsert
 " custom mappings
 let mapleader=" "
 nnoremap <silent> <leader>n :noh<CR>
-nnoremap <leader>c :80vs +terminal<CR>a
+nnoremap <silent> <leader>c :80vs +terminal<CR>a
 nmap <silent> <leader>f <Plug>(ale_fix)
 nnoremap <C-6> <C-^>
 vnoremap > >gv
