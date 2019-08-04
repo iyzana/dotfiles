@@ -37,6 +37,6 @@ Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
 Plug 'lervag/vimtex'
 
 " completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 call plug#end()
