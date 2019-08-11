@@ -155,7 +155,6 @@ font pango:Hack 9
 
 # set inner gaps for more than 1 window
 gaps inner 15
-smart_gaps on
 smart_borders on
 
 default_border pixel 2
