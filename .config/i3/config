@@ -9,7 +9,7 @@ floating_modifier $mod
 
 # ::: keybinds :::
 
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 bindsym $mod+Ctrl+f exec firefox
 bindsym $mod+Ctrl+s exec teamspeak3
 bindsym $mod+Ctrl+e exec nemo
