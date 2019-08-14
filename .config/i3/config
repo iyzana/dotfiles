@@ -198,3 +198,5 @@ exec redshift-gtk
 exec nm-applet
 exec keepassxc
 exec flameshot
+exec dunst
+exec "python ~/.config/dunst/track-notifications.py"
