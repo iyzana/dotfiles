@@ -28,7 +28,7 @@ set lazyredraw
 
 set inccommand=nosplit
 
-set mouse=ni
+set mouse=nv
 
 " autosave
 autocmd FocusLost * silent! wa
