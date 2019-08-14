@@ -74,3 +74,11 @@ open() {
 }
 
 alias irc='ssh -t ctdo tmux a'
+
+batch-rename() {
+    printf '%-60s\n' $(exa) > rename.sh
+    sed -ri -e 's/(.*)/mv \1 \1/' rename.sh
+    vim rename.sh
+    sh rename.sh
+    rm rename.sh
+}
