@@ -210,7 +210,7 @@ bar {
     }
 
     # when the status_command prints a new line to stdout, swaybar updates.
-    status_command while true; do echo "$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percent | awk '{ print $2 }') - $(date +'%Y-%m-%dT%H:%M:%S')"; sleep 1; done
+    status_command while true; do echo "$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percent | awk '{ print $2 }') - $(date +'%a, %Y-%m-%d %H:%M:%S')"; sleep 1; done
 }
 
 # layout
