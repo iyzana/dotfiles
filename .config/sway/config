@@ -169,7 +169,7 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume $(pacmd list-sinks |awk 
 bindsym XF86AudioMute exec pactl set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
-bindsym --release Print exec grim -g \"$(slurp)"
+bindsym --release Print exec grim -g \"$(slurp)" "screenshot-$(date --iso-8601=seconds).png"
 
 # resizing containers
 mode "resize" {
