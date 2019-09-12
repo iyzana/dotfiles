@@ -3,12 +3,3 @@ font=Hack 10
 [urgency=high]
 background-color=#770000
 border-color=#bb0000
-
-[urgency=high app-name=battery]
-background-color=#770000cc
-border-size=0
-width=1920
-height=1080
-margin=0
-padding=523,860
-
