@@ -20,4 +20,4 @@ xset s off
 
 # start i3
 echo "starting at $(date)" >> ~/.local/share/i3/logfile
-exec i3 -V -d all >> ~/.local/share/i3/logfile
+exec i3 -V -d all > ~/.local/share/i3/logfile
