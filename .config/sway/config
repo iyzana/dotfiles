@@ -13,7 +13,6 @@ set $right l
 set $term kitty
 set $browser firefox
 
-set $menu dmenu_path | dmenu | xargs swaymsg exec
 set $resize_step 25px
 
 # default config
