@@ -25,6 +25,7 @@ function! s:show_documentation()
 endfunction
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
 " refactoring
 nmap <leader>rn <Plug>(coc-rename)
