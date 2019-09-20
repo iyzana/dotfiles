@@ -33,7 +33,6 @@ Plug 'ayu-theme/ayu-vim'
 
 " languages
 Plug 'sheerun/vim-polyglot'
-Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
 Plug 'lervag/vimtex'
 
 " completion

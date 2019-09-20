@@ -8,32 +8,19 @@ set expandtab
 set smarttab
 set autoindent
 set smartindent
-
 set ignorecase
 set smartcase
-
 set scrolloff=3
-
-set splitright
-
 set hidden
-
 set undofile
-
-set noshowmode
-set shortmess+=c
-set signcolumn=yes
-
 set lazyredraw
-
 set inccommand=nosplit
-
 set mouse=nv
 
 " autosave
 autocmd FocusLost * silent! wa
-autocmd BufEnter term://* silent! wa
+autocmd TermEnter * silent! wa
 set autowriteall
 
-" reduce update time for gitgutter
+" reduce update time
 set updatetime=250
