@@ -11,7 +11,9 @@ floating_modifier $mod
 
 bindsym $mod+Return exec kitty
 bindsym $mod+Ctrl+f exec firefox
+bindsym $mod+Ctrl+g exec lutris
 bindsym $mod+Ctrl+s exec teamspeak3
+bindsym $mod+Ctrl+d exec discord
 bindsym $mod+Ctrl+e exec nemo
 
 # take screenshot
