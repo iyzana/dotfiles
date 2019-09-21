@@ -19,7 +19,7 @@ set mouse=nv
 
 " autosave
 autocmd FocusLost * silent! wa
-autocmd TermEnter * silent! wa
+autocmd BufEnter term://* silent! wa
 set autowriteall
 
 " reduce update time

@@ -20,7 +20,7 @@ tnoremap <C-j> <C-\><C-n><C-w><C-j>
 tnoremap <C-k> <C-\><C-n><C-w><C-k>
 tnoremap <C-l> <C-\><C-n><C-w><C-l>
 tnoremap <Esc> <C-\><C-n>
-autocmd TermEnter * startinsert
+autocmd BufEnter term://* startinsert
 
 " custom mappings
 let mapleader=" "
