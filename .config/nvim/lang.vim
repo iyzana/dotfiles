@@ -6,6 +6,15 @@ autocmd BufRead,BufNewFile *.md,*.tex setlocal spell
 let g:tex_flavor = 'latex'
 let g:polyglot_disabled = ['latex']
 let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_latexmk = {
+    \ 'options' : [
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \   '-shell-escape',
+    \ ],
+  \ }
 
 " linting / doc / navigation
 nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
