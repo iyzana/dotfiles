@@ -171,6 +171,7 @@ default_border pixel 2
 
 for_window [class="albert" instance="albert"] floating enable
 for_window [class="TeamSpeak 3"] resize shrink width 10 px or 20 ppt
+for_window [class="Zathura"] resize shrink width 10 px or 10 ppt
 
 # class                 border  backgr. text    indicator
 client.focused          #000000 #999999 #000000 #000000
