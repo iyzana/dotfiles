@@ -35,6 +35,7 @@ nnoremap Q @@
 nnoremap <C-p> :GFiles<CR>
 nnoremap <leader>p :Files<CR>
 nnoremap <C-f> :GLines<CR>
+autocmd FileType fzf tnoremap <buffer> <Esc> <C-c>
 
 command! -bang -nargs=* GLines
     \ call fzf#vim#grep(

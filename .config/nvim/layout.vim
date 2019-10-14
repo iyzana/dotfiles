@@ -19,8 +19,6 @@ set shortmess+=c
 set signcolumn=yes
 set splitright
 
-autocmd FileType fzf tnoremap <buffer> <Esc> <C-c>
-
 " fzf in centered floating window
 let $FZF_DEFAULT_OPTS='--layout=reverse'
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
