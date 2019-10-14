@@ -42,3 +42,6 @@ function! FloatingFZF()
   call nvim_open_win(buf, v:true, opts)
   call setbufvar(buf, '&signcolumn', 'yes')
 endfunction
+
+" terminal visual separator
+autocmd TermOpen * set foldcolumn=1
