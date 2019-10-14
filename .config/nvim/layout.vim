@@ -45,3 +45,6 @@ endfunction
 
 " terminal visual separator
 autocmd TermOpen * set foldcolumn=1
+
+" whitespace rendering when enabled
+set listchars=tab:⇥\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
