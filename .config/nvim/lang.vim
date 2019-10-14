@@ -20,7 +20,7 @@ function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
-    call CocAction('doHover')
+    call CocActionAsync('doHover')
   endif
 endfunction
 
@@ -31,6 +31,7 @@ autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>f <Plug>(coc-format)
 nmap <leader>qf <Plug>(coc-fix-current)
+nmap <leader>ca <Plug>(coc-codeaction)
 
 " completion
 inoremap <silent><expr> <c-space> coc#refresh()
