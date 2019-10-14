@@ -5,7 +5,7 @@ export LC_MESSAGES=C
 export LC_TIME=en_DK.UTF-8
 
 # load keymap
-setxkbmap -model pc104 -layout de -variant nodeadkeys
+setxkbmap -model pc104 -layout de -variant nodeadkeys -option compose:menu
 xmodmap ~/.Xmodmap
 
 # enable numlock
