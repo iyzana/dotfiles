@@ -20,12 +20,12 @@ set signcolumn=yes
 set splitright
 
 " fzf in centered floating window
+" from https://github.com/junegunn/fzf.vim/issues/664#issuecomment-476438294
 let $FZF_DEFAULT_OPTS='--layout=reverse'
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
 function! FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
-  call setbufvar(buf, '&signcolumn', 'no')
 
   let height = &lines - 3
   let width = float2nr(&columns - (&columns * 2 / 10))
@@ -40,4 +40,5 @@ function! FloatingFZF()
         \ }
 
   call nvim_open_win(buf, v:true, opts)
+  call setbufvar(buf, '&signcolumn', 'yes')
 endfunction
