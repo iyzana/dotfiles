@@ -14,57 +14,63 @@ skip() {
     echo -e "\e[33mskipping $1"
 }
 
-install_existing() {
-    if [[ -f "$HOME/$1" ]]; then
-        install "$1"
+exists() {
+    if command -V "$1" > /dev/null 2>&1; then
+        return 0
     else
         skip "$1"
+        return 1
+    fi
+}
+
+install_file() {
+    if exists "$1"; then
+        shift
+        for file in "$@"; do
+            install "$file"
+        done
     fi
 }
 
 install_dir() {
-    if [[ -d "$HOME/$1" ]]; then
-        rm -rf "$HOME/$1"
-        install "$1"
-    else
-        skip "$1"
+    if exists "$1"; then
+        rm -rf "$HOME/$2"
+        install "$2"
     fi
 }
 
 install_in_dir() {
-    if [[ -d "$HOME/$1" ]]; then
-        dir="$1"
+    if exists "$1"; then
+        dir="$2"
+        shift
         shift
         for file in "$@"; do
             install "$dir/$file"
         done
-    else
-        skip "$1"
     fi
 }
 
-install ".zshrc"
-install ".Xmodmap"
-install ".xinitrc"
-install ".tmux.conf"
-install ".gitconfig"
-install_existing ".gnome2/accels/nemo"
+install_file "zsh" ".zshrc"
+install_file "Xorg" ".Xmodmap"  ".xinitrc" ".fehbg"
+install_file "tmux" ".tmux.conf"
+install_file "git" ".gitconfig"
+install_file "nemo" ".gnome2/accels/nemo"
 
-install_dir ".config/termite"
-install_dir ".config/kitty"
-install_dir ".config/trizen"
-install_dir ".config/yay"
-install_dir ".config/nvim"
-install_dir ".config/dunst"
-install_dir ".config/mako"
-install_dir ".config/sway"
-install_dir ".config/swaylock"
-install_dir ".config/zathura"
-install_dir ".config/i3"
-install_dir ".config/i3status"
-install_dir ".config/alacritty"
+install_dir "termite" ".config/termite"
+install_dir "kitty" ".config/kitty"
+install_dir "trizen" ".config/trizen"
+install_dir "yay" ".config/yay"
+install_dir "nvim" ".config/nvim"
+install_dir "dunst" ".config/dunst"
+install_dir "mako" ".config/mako"
+install_dir "sway" ".config/sway"
+install_dir "swaylock" ".config/swaylock"
+install_dir "zathura" ".config/zathura"
+install_dir "i3" ".config/i3"
+install_dir "i3status" ".config/i3status"
+install_dir "alacritty" ".config/alacritty"
 
-install_in_dir ".config/oni" "config.js" "config.tsx"
-install_in_dir ".oh-my-zsh/custom" "alias.zsh" "startx.zsh" "start-wayland.zsh" "kitty.zsh" "themes/succcubbus.zsh-theme"
+install_in_dir "oni" ".config/oni" "config.js" "config.tsx"
+install_in_dir "zsh" ".oh-my-zsh/custom" "alias.zsh" "startx.zsh" "start-wayland.zsh" "kitty.zsh" "themes/succcubbus.zsh-theme"
 
 echo -e "\e[32mdone"
