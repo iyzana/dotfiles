@@ -11,7 +11,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
-Plug 'townk/vim-autoclose'
 Plug 'machakann/vim-swap'
 
 " format
