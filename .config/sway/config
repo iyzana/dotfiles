@@ -57,21 +57,21 @@ exec swayidle -w \
 # Read `man 5 sway-input` for more information about this section.
 
 input * {
+    # keyboard
     xkb_layout de
     xkb_variant nodeadkeys
-    xkb_options caps:escape
+    xkb_options caps:escape,compose:menu
     xkb_numlock enabled
+
+    # touchpad
+    middle_emulation disabled
+    dwt enabled
+    tap enabled
+    scroll_factor 1.33333
 }
 
 input "1102:4639:DELL0817:00_044E:121F_Touchpad" {
-    dwt enabled
-    tap enabled
     natural_scroll enabled
-    middle_emulation disabled
-}
-
-input "1102:4639:DELL0817:00_044E:121F_Mouse" {
-    middle_emulation disabled
 }
 
 # key bindings
