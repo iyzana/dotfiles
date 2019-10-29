@@ -10,6 +10,7 @@ while true; do
       PERCENT=$(echo "$STATUS" | grep 'percentage: '| grep -Eo '[0-9]+')
       if [[ "$PERCENT" -le 8 ]]; then
         REMAINING=$(echo "$STATUS" | grep 'time to empty' | awk '{ print $4,$5 }')
+        swaymsg fullscreen disable
         notify-send -a battery -u critical "battery low" "~$REMAINING remaining"
         ALERTED=true
       fi
