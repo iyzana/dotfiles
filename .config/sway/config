@@ -235,5 +235,6 @@ exec albert
 exec mako
 exec sh ~/.config/sway/battery-warn.sh
 exec libinput-gestures-setup start
+exec keepassxc
 
 include /etc/sway/config.d/*
