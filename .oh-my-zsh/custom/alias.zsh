@@ -42,6 +42,8 @@ alias -g S='| sed'
 alias -g X='| xargs'
 alias -g U='| sort | uniq'
 alias -g C='| cuts'
+alias -g H='| head'
+alias -g T='| tail'
 
 # no I did not mean .config
 
