@@ -198,11 +198,11 @@ bar {
 
 # ::: startup :::
 
-exec albert
-exec redshift-gtk
-exec nm-applet
-exec keepassxc
-exec flameshot
-exec dunst
+exec --no-startup-id albert
+exec --no-startup-id redshift-gtk
+exec --no-startup-id nm-applet
+exec keepassxc # at least one program handling startup id correctly
+exec --no-startup-id flameshot
+exec --no-startup-id dunst
 exec --no-startup-id python ~/.config/dunst/track-notifications.py
 exec --no-startup-id zsh -c "playerctl status --format '{{ playerName }}' --follow > /tmp/playerctl-last-player"
