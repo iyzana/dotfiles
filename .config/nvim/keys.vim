@@ -34,13 +34,17 @@ nnoremap Q @@
 " fzf
 nnoremap <C-p> :GFiles<CR>
 nnoremap <leader>p :Files<CR>
-nnoremap <C-f> :GLines<CR>
+nnoremap <C-f> :Rg<CR>
 autocmd FileType fzf tnoremap <buffer> <Esc> <C-c>
 
-command! -bang -nargs=* GLines
-    \ call fzf#vim#grep(
-    \   'rg --fixed-strings --smart-case --column --line-number --no-heading --color=always --hidden --glob "!.git/*" '.shellescape(<q-args>),
-    \   1, <bang>0)
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \           fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+command! -bang -nargs=? -complete=dir GFiles
+  \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview('right:50%:hidden', '?'), <bang>0)
 
 " nerdtree
 map <silent><leader>t :NERDTreeFind<CR>
