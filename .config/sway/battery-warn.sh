@@ -8,10 +8,13 @@ while true; do
   if [[ "$ALERTED" == false ]]; then
     if echo "$STATUS" | grep -q 'discharging'; then
       PERCENT=$(echo "$STATUS" | grep 'percentage: '| grep -Eo '[0-9]+')
-      if [[ "$PERCENT" -le 8 ]]; then
-        REMAINING=$(echo "$STATUS" | grep 'time to empty' | awk '{ print $4,$5 }')
+      REMAINING=$(echo "$STATUS" | grep 'time to empty' | awk '{ print $4,$5 }')
+      REMAINING_MIN=$(units -t -- "$REMAINING" "minutes")
+      ACTUAL_REMAINING=$(echo "scale=1; $REMAINING_MIN / $PERCENT * ($PERCENT - 5)" | bc)
+
+      if [[ "$ACTUAL_REMAINIG" -le 15 ]]; then
         swaymsg fullscreen disable
-        notify-send -a battery -u critical "battery low" "~$REMAINING remaining"
+        notify-send -a battery -u critical "battery low" "at $PERCENT%, ~$ACTUAL_REMAINING minutes remaining"
         ALERTED=true
       fi
     fi
