@@ -3,4 +3,6 @@ set recolor true
 set guioptions ""
 set window-width 2560
 set window-height 1440
-set recolor-darkcolor "#dddddd"
+set default-bg "#0f1419"
+set recolor-lightcolor "#0f1419"
+set recolor-darkcolor "#e6e1cf"
