@@ -41,6 +41,7 @@ nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>f <Plug>(coc-format)
 nmap <leader>qf <Plug>(coc-fix-current)
 nmap <leader>ca <Plug>(coc-codeaction)
+nmap <A-CR> <Plug>(coc-codeaction)
 
 " completion
 inoremap <silent><expr> <c-space> coc#refresh()
