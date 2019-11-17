@@ -4,5 +4,6 @@
   "rust-analyzer.enableCargoWatchOnStartup": "enabled",
   "rust-analyzer.cargo-watch.command": "clippy",
   "diagnostic.virtualText": true,
+  "diagnostic.virtualTextLines": 1,
   "signature.maxWindowHeight": 32
 }
