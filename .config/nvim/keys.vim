@@ -40,11 +40,11 @@ autocmd FileType fzf tnoremap <buffer> <Esc> <C-c>
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \           fzf#vim#with_preview('right:50%:hidden', '?'),
+  \           fzf#vim#with_preview('right:50%:hidden', '´'),
   \   <bang>0)
 
 command! -bang -nargs=? -complete=dir GFiles
-  \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview('right:50%:hidden', '?'), <bang>0)
+  \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview('right:50%:hidden', '´'), <bang>0)
 
 " nerdtree
 map <silent><leader>t :NERDTreeFind<CR>
