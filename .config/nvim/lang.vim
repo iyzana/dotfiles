@@ -40,8 +40,7 @@ autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>f <Plug>(coc-format)
 nmap <leader>qf <Plug>(coc-fix-current)
-nmap <leader>ca <Plug>(coc-codeaction)
-nmap <A-CR> <Plug>(coc-codeaction)
+nmap <A-CR> v<Plug>(coc-codeaction-selected)
 
 " completion
 inoremap <silent><expr> <c-space> coc#refresh()
