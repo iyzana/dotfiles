@@ -17,7 +17,7 @@ Plug 'machakann/vim-swap'
 Plug 'editorconfig/editorconfig-vim'
 
 " files
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.local/share/fzf', 'do': './install --all --xdg --no-bash --no-fish' }
 Plug 'junegunn/fzf.vim'
 
 " layout

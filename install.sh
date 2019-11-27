@@ -50,7 +50,11 @@ install_in_dir() {
     fi
 }
 
-install_file "zsh" ".zshrc"
+install_file "zsh" ".zshenv"
+install_in_dir "zsh" ".config/zsh" ".zshrc"
+install_in_dir "zsh" ".config/oh-my-zsh/custom" "alias.zsh" "startx.zsh" "start-wayland.zsh" "kitty.zsh"
+install_in_dir "zsh" ".config/oh-my-zsh/custom/themes" "succcubbus.zsh-theme"
+
 install_file "Xorg" ".Xmodmap"  ".xinitrc" ".fehbg"
 install_file "tmux" ".tmux.conf"
 install_file "git" ".gitconfig"
@@ -71,6 +75,5 @@ install_dir "i3status" ".config/i3status"
 install_dir "alacritty" ".config/alacritty"
 
 install_in_dir "oni" ".config/oni" "config.js" "config.tsx"
-install_in_dir "zsh" ".oh-my-zsh/custom" "alias.zsh" "startx.zsh" "start-wayland.zsh" "kitty.zsh" "themes/succcubbus.zsh-theme"
 
 echo -e "\e[32mdone"
