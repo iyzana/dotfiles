@@ -3,6 +3,5 @@ if [ "$DESKTOP_ENVIRONMENT" = "wayland" ] && [ -z "$DISPLAY" ] && [ -n "$XDG_VTN
   export KITTY_ENABLE_WAYLAND=1
   export GDK_BACKEND=wayland
   # export QT_QPA_PLATFORM=wayland-egl
-  export QT_QPA_PLATFORMTHEME='qt5ct'
   sway
 fi

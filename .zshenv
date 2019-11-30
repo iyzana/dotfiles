@@ -12,6 +12,7 @@ export FZF_CTRL_T_COMMAND='fd --type f'
 export FZF_ALT_C_COMMAND='fd --type d'
 
 export JAVA_HOME=/usr/lib/jvm/default
+export QT_QPA_PLATFORMTHEME='qt5ct'
 
 # don't spam my home folder pls
 export GRADLE_USER_HOME="$HOME/.local/share/gradle"
