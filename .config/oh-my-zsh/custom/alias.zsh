@@ -84,3 +84,9 @@ batch-rename() {
     sh rename.sh
     rm rename.sh
 }
+
+alias jc='journalctl'
+alias jce='journalctl -eu'
+alias jcf='journalctl -fu'
+alias jcue='journalctl --user -eu'
+alias jcuf='journalctl --user -fu'
