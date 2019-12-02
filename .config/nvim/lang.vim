@@ -1,6 +1,7 @@
 " prose
 set spelllang=en,de
 autocmd BufRead,BufNewFile *.md,*.tex setlocal spell
+autocmd BufRead,BufNewFile *.md,*.tex setlocal colorcolumn=100
 
 " tex
 let g:tex_flavor = 'latex'
