@@ -221,9 +221,9 @@ gaps inner 15
 smart_borders on
 
 # colors
-client.focused          #999999 #999999 #000000 #000000 #999999
-client.unfocused        #222222 #222222 #f8eafd #000000 #222222
-client.focused_inactive #222222 #222222 #f8eafd #000000 #222222
+client.focused          #999999 #999999 #000000 #999999 #999999
+client.unfocused        #222222 #222222 #f8eafd #222222 #222222
+client.focused_inactive #222222 #222222 #f8eafd #222222 #222222
 
 # allowed inactivity
 for_window [app_id="firefox"] inhibit_idle fullscreen
