@@ -7,9 +7,9 @@ export EDITOR=/usr/bin/nvim
 export LC_ALL=en_US.UTF-8
 export LC_TIME=en_DK.UTF-8
 
-export FZF_DEFAULT_COMMAND='fd --type f'
-export FZF_CTRL_T_COMMAND='fd --type f'
-export FZF_ALT_C_COMMAND='fd --type d'
+export FZF_DEFAULT_COMMAND='fd --type f --follow --exclude dosdevices'
+export FZF_CTRL_T_COMMAND='fd --type f --follow --exclude dosdevices'
+export FZF_ALT_C_COMMAND='fd --type d --follow --exclude dosdevices'
 
 export JAVA_HOME=/usr/lib/jvm/default
 export QT_QPA_PLATFORMTHEME='qt5ct'
