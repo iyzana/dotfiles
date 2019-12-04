@@ -51,7 +51,7 @@ install_in_dir() {
 }
 
 install_file "zsh" ".zshenv"
-install_in_dir "zsh" ".config/zsh" ".zshrc"
+install_in_dir "zsh" ".config/zsh" ".zshenv" ".zshrc"
 install_in_dir "zsh" ".config/oh-my-zsh/custom" "alias.zsh" "startx.zsh" "start-wayland.zsh" "kitty.zsh"
 install_in_dir "zsh" ".config/oh-my-zsh/custom/themes" "succcubbus.zsh-theme"
 
