@@ -18,6 +18,8 @@
     insteadOf = "gh:/"
 [url "git@bitbucket.org:"]
     insteadOf = "bb:"
+[url "git@bitbucket.org:succcubbus/"]
+    insteadOf = "bb:/"
 
 [include]
     path = .local/.gitconfig
