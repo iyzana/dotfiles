@@ -10,7 +10,7 @@ let ayucolor="dark"
 colorscheme ayu
 
 " coc overrides
-highlight CocHighlightText guibg=#253340 ctermbg=236
+highlight CocHighlightText guibg=#223922 ctermbg=2
 
 " translucent background
 " hi Normal guibg=NONE ctermbg=NONE
