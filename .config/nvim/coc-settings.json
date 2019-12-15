@@ -6,5 +6,6 @@
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextLines": 1,
   "signature.maxWindowHeight": 32,
-  "npm.binPath": "yarn"
+  "npm.binPath": "yarn",
+  "coc.preferences.formatOnSaveFiletypes": ["*"]
 }

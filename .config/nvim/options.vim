@@ -19,7 +19,9 @@ set mouse=nv
 
 " autosave
 autocmd FocusLost * silent! wa
+autocmd FocusLost * silent! call CocAction('format')
 autocmd BufEnter term://* silent! wa
+autocmd BufEnter term://* silent! call CocAction('format')
 set autowriteall
 
 " reduce update time
