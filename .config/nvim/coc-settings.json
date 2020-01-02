@@ -1,7 +1,6 @@
 {
   "suggest.noselect": false,
   "typescript.preferences.importModuleSpecifier": "relative",
-  "rust-analyzer.enableCargoWatchOnStartup": "enabled",
   "rust-analyzer.cargo-watch.command": "clippy",
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextLines": 1,
