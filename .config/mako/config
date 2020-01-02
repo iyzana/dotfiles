@@ -1,5 +1,7 @@
 font=Hack 10
+default-timeout=5000
 
 [urgency=high]
 background-color=#770000
 border-color=#bb0000
+default-timeout=0
