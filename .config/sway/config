@@ -249,5 +249,6 @@ exec mako
 exec sh ~/.config/sway/battery-warn.sh
 exec libinput-gestures-setup start
 exec keepassxc
+exec nm-applet --indicator
 
 include /etc/sway/config.d/*
