@@ -13,7 +13,6 @@ while true; do
       ACTUAL_REMAINING=$(echo "scale=1; $REMAINING_MIN / $PERCENT * ($PERCENT - 5)" | bc)
 
       if (( $(echo "$ACTUAL_REMAINING <= 15.0" | bc -l) )); then
-        swaymsg fullscreen disable
         notify-send -a battery -u critical "battery low" "at $PERCENT%, ~$ACTUAL_REMAINING minutes remaining"
         ALERTED=true
       fi
