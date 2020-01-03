@@ -1,5 +1,7 @@
 font=Hack 10
 default-timeout=5000
+layer=overlay
+margin=30
 
 [urgency=high]
 background-color=#770000
