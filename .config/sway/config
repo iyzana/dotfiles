@@ -19,7 +19,7 @@ set $resize_step 25px
 # default config
 # output HDMI-A-1 resolution 1920x1080 position 1920,0
 
-output * bg $HOME/visuals/bg/power-landscape.jpg fill
+output * bg $HOME/visuals/bg/fibers.jpg fill
 
 output eDP-1 position 0,0
 output DP-1 position 1920,0
@@ -211,11 +211,12 @@ bar {
     modifier $mod+Alt
     font "Hack" 10
     colors {
-        statusline #000000
-        background #f8eadf
-        focused_workspace #000000 #000000 #f8eadf
-        inactive_workspace #f8eadf #f8eadf #000000
+        statusline #eeeeee
+        background #01010100
+        focused_workspace #00000000 #00000000 #eeeeee
+        inactive_workspace #00000000 #00000000 #999999
     }
+    icon_theme 'Papirus-Dark'
 
     # when the status_command prints a new line to stdout, swaybar updates.
     status_command while true; do echo "$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percent | awk '{ print $2 }') - $(date +'%a, %Y-%m-%d %H:%M:%S')"; sleep 1; done
@@ -223,12 +224,13 @@ bar {
 
 # layout
 gaps inner 15
+gaps outer 10
 smart_borders on
 
 # colors
 client.focused          #999999 #999999 #000000 #999999 #999999
-client.unfocused        #222222 #222222 #f8eafd #222222 #222222
-client.focused_inactive #222222 #222222 #f8eafd #222222 #222222
+client.unfocused        #0f1419 #0f1419 #f8eafd #0f1419 #0f1419
+client.focused_inactive #0f1419 #0f1419 #f8eafd #0f1419 #0f1419
 
 # allowed inactivity
 for_window [app_id="firefox"] inhibit_idle fullscreen
