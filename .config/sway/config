@@ -12,6 +12,7 @@ set $right l
 
 set $term kitty
 set $browser firefox
+set $files kitty -e ranger
 
 set $resize_step 25px
 
@@ -82,17 +83,19 @@ seat * hide_cursor 2000
 
 # key bindings
 bindsym $mod+Return exec $term
-bindsym $mod+shift+f exec $browser
+bindsym $mod+Shift+f exec $browser
+bindsym $mod+Shift+e exec $files
+bindsym $mod+Shift+t exec $term
 bindsym Alt+space fullscreen disable; exec albert toggle
 bindsym Ctrl+Shift+l exec swaylock
-bindsym $mod+Shift+q kill
 bindsym $mod+d exec makoctl dismiss
 
 floating_modifier $mod normal
 # resize with right mouse button + $mod.
 
+bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
-bindsym $mod+Shift+e exec swaymsg exit
+bindsym $mod+Ctrl+e exit
 
 # moving around
 bindsym $mod+$left focus left
