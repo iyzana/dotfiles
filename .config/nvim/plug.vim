@@ -33,7 +33,7 @@ Plug 'ayu-theme/ayu-vim'
 " languages
 Plug 'sheerun/vim-polyglot'
 Plug 'lervag/vimtex'
-Plug 'dense-analysis/ale', { 'for': 'tex' }
+Plug 'dense-analysis/ale', { 'for': 'tex', 'on': 'ALEEnable' }
 
 " completion
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
