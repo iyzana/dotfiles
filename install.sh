@@ -1,12 +1,12 @@
 #!/bin/bash
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-install() {
+link() {
     if [[ -e "$DIR/$1" ]]; then
-        echo -e "\e[90minstalling $1"
+        echo -e "\e[90mlinking $1"
         ln -sf "$DIR/$1" "$HOME/$1"
     else
-        echo -e "\e[91mcould not install $1"
+        echo -e "\e[91mcould not link $1"
     fi
 }
 
@@ -23,57 +23,57 @@ exists() {
     fi
 }
 
-install_file() {
+link_file() {
     if exists "$1"; then
         shift
         for file in "$@"; do
-            install "$file"
+            link "$file"
         done
     fi
 }
 
-install_dir() {
+link_dir() {
     if exists "$1"; then
         rm -rf "$HOME/$2"
-        install "$2"
+        link "$2"
     fi
 }
 
-install_in_dir() {
+link_in_dir() {
     if exists "$1"; then
         dir="$2"
         shift
         shift
         for file in "$@"; do
-            install "$dir/$file"
+            link "$dir/$file"
         done
     fi
 }
 
-install_file "zsh" ".zshenv"
-install_in_dir "zsh" ".config/zsh" ".zshenv" ".zshrc"
-install_in_dir "zsh" ".config/oh-my-zsh/custom" "alias.zsh" "startx.zsh" "start-wayland.zsh" "kitty.zsh"
-install_in_dir "zsh" ".config/oh-my-zsh/custom/themes" "succcubbus.zsh-theme"
+link_file "zsh" ".zshenv"
+link_in_dir "zsh" ".config/zsh" ".zshenv" ".zshrc"
+link_in_dir "zsh" ".config/oh-my-zsh/custom" "alias.zsh" "startx.zsh" "start-wayland.zsh" "kitty.zsh"
+link_in_dir "zsh" ".config/oh-my-zsh/custom/themes" "succcubbus.zsh-theme"
 
-install_file "Xorg" ".Xmodmap"  ".xinitrc" ".fehbg"
-install_file "tmux" ".tmux.conf"
-install_file "git" ".gitconfig"
-install_file "nemo" ".gnome2/accels/nemo"
+link_file "Xorg" ".Xmodmap"  ".xinitrc" ".fehbg"
+link_file "tmux" ".tmux.conf"
+link_file "git" ".gitconfig"
+link_file "nemo" ".gnome2/accels/nemo"
 
-install_dir "termite" ".config/termite"
-install_dir "kitty" ".config/kitty"
-install_dir "trizen" ".config/trizen"
-install_dir "yay" ".config/yay"
-install_dir "nvim" ".config/nvim"
-install_dir "dunst" ".config/dunst"
-install_dir "mako" ".config/mako"
-install_dir "sway" ".config/sway"
-install_dir "swaylock" ".config/swaylock"
-install_dir "zathura" ".config/zathura"
-install_dir "i3" ".config/i3"
-install_dir "i3status" ".config/i3status"
-install_dir "alacritty" ".config/alacritty"
+link_dir "termite" ".config/termite"
+link_dir "kitty" ".config/kitty"
+link_dir "trizen" ".config/trizen"
+link_dir "yay" ".config/yay"
+link_dir "nvim" ".config/nvim"
+link_dir "dunst" ".config/dunst"
+link_dir "mako" ".config/mako"
+link_dir "sway" ".config/sway"
+link_dir "swaylock" ".config/swaylock"
+link_dir "zathura" ".config/zathura"
+link_dir "i3" ".config/i3"
+link_dir "i3status" ".config/i3status"
+link_dir "alacritty" ".config/alacritty"
 
-install_in_dir "oni" ".config/oni" "config.js" "config.tsx"
+link_in_dir "oni" ".config/oni" "config.js" "config.tsx"
 
 echo -e "\e[32mdone"
