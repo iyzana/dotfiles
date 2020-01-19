@@ -1,88 +1,11 @@
 # i3 config file (v4)
-#
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+# doc: https://i3wm.org/docs/userguide.html
 
-set $mod Mod4
-set $left h
-set $down j
-set $up k
-set $right l
+# ::: behaviour :::
 
-set $resize_step 25px
+floating_modifier $wm_mod
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
-# ::: keybinds :::
-
-bindsym $mod+Return exec kitty
-bindsym $mod+Ctrl+f exec firefox
-bindsym $mod+Ctrl+g exec lutris
-bindsym $mod+Ctrl+s exec teamspeak3
-bindsym $mod+Ctrl+d exec discord
-bindsym $mod+Ctrl+e exec nemo
-bindsym $mod+Ctrl+p exec pavucontrol
-bindsym $mod+Ctrl+Shift+p exec pulseaudio -k
-
-# take screenshot
-bindsym Print exec flameshot gui
-
-# audio control
-bindsym XF86AudioPrev exec --no-startup-id zsh -c "playerctl -p $(tail -1 /tmp/playerctl-last-player) previous"
-bindsym XF86AudioPlay exec --no-startup-id zsh -c "playerctl -p $(tail -1 /tmp/playerctl-last-player) play-pause"
-bindsym XF86AudioNext exec --no-startup-id zsh -c "playerctl -p $(tail -1 /tmp/playerctl-last-player) next"
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
-
-# kill focused window
-bindsym $mod+Shift+q kill
-
-# start dmenu (a program launcher)
-bindsym Mod1+space fullscreen disable; exec albert toggle
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
-# change focus
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
-
-# move focused window
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
-
-# split in horizontal orientation
-bindsym $mod+b split h
-
-# split in vertical orientation
-bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# scratchpad
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
+# ::: workspaces :::
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -97,44 +20,114 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+# ::: generic keys :::
+
+set $wm_mod Mod4
+set $wm_danger_mod Mod4+Ctrl
+set $app_mod Mod4+Shift
+
+set $left h
+set $down j
+set $up k
+set $right l
+
+bindsym $wm_mod+Return exec kitty
+bindsym $app_mod+f exec firefox
+bindsym $app_mod+g exec lutris
+bindsym $app_mod+s exec teamspeak3
+bindsym $app_mod+d exec discord
+bindsym $app_mod+e exec nemo
+bindsym $app_mod+p exec pavucontrol
+bindsym $app_mod+Ctrl+p exec pulseaudio -k
+
+# kill focused window
+bindsym $wm_mod+q kill
+
+# program launcher
+bindsym Mod1+space fullscreen disable; exec albert toggle
+
+# ::: media keys :::
+
+# take screenshot
+bindsym Print exec flameshot gui
+
+# audio control
+bindsym XF86AudioPrev exec --no-startup-id zsh -c "playerctl -p $(tail -1 /tmp/playerctl-last-player) previous"
+bindsym XF86AudioPlay exec --no-startup-id zsh -c "playerctl -p $(tail -1 /tmp/playerctl-last-player) play-pause"
+bindsym XF86AudioNext exec --no-startup-id zsh -c "playerctl -p $(tail -1 /tmp/playerctl-last-player) next"
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+
+# ::: wm keys :::
+
+# change focus
+bindsym $wm_mod+$left focus left
+bindsym $wm_mod+$down focus down
+bindsym $wm_mod+$up focus up
+bindsym $wm_mod+$right focus right
+bindsym $wm_mod+space focus mode_toggle
+bindsym $wm_mod+a focus parent
+bindsym $wm_mod+d focus child
+
+# move focused window
+bindsym $wm_mod+Shift+$left move left
+bindsym $wm_mod+Shift+$down move down
+bindsym $wm_mod+Shift+$up move up
+bindsym $wm_mod+Shift+$right move right
+
+# window layout configuration
+bindsym $wm_mod+b split h
+bindsym $wm_mod+v split v
+bindsym $wm_mod+s layout stacking
+bindsym $wm_mod+w layout tabbed
+bindsym $wm_mod+e layout toggle split
+bindsym $wm_mod+f fullscreen toggle
+bindsym $wm_mod+Shift+space floating toggle
+
+# scratchpad
+bindsym $wm_mod+Shift+minus move scratchpad
+bindsym $wm_mod+minus scratchpad show
+
 # switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+bindsym $wm_mod+1 workspace $ws1
+bindsym $wm_mod+2 workspace $ws2
+bindsym $wm_mod+3 workspace $ws3
+bindsym $wm_mod+4 workspace $ws4
+bindsym $wm_mod+5 workspace $ws5
+bindsym $wm_mod+6 workspace $ws6
+bindsym $wm_mod+7 workspace $ws7
+bindsym $wm_mod+8 workspace $ws8
+bindsym $wm_mod+9 workspace $ws9
+bindsym $wm_mod+0 workspace $ws10
 
 # move workspace to different output
-bindsym $mod+Ctrl+$left move workspace to output left
-bindsym $mod+Ctrl+$down move workspace to output up
-bindsym $mod+Ctrl+$up move workspace to output down
-bindsym $mod+Ctrl+$right move workspace to output right
+bindsym $wm_mod+Ctrl+$left move workspace to output left
+bindsym $wm_mod+Ctrl+$down move workspace to output up
+bindsym $wm_mod+Ctrl+$up move workspace to output down
+bindsym $wm_mod+Ctrl+$right move workspace to output right
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $wm_mod+Shift+1 move container to workspace $ws1
+bindsym $wm_mod+Shift+2 move container to workspace $ws2
+bindsym $wm_mod+Shift+3 move container to workspace $ws3
+bindsym $wm_mod+Shift+4 move container to workspace $ws4
+bindsym $wm_mod+Shift+5 move container to workspace $ws5
+bindsym $wm_mod+Shift+6 move container to workspace $ws6
+bindsym $wm_mod+Shift+7 move container to workspace $ws7
+bindsym $wm_mod+Shift+8 move container to workspace $ws8
+bindsym $wm_mod+Shift+9 move container to workspace $ws9
+bindsym $wm_mod+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $wm_danger_mod+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $wm_danger_mod+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exit
+bindsym $wm_danger_mod+e exit
 
 # resize window (you can also use the mouse for that)
+set $resize_step 25px
 mode "resize" {
     bindsym $left resize shrink width $resize_step
     bindsym $down resize grow height $resize_step
@@ -147,37 +140,15 @@ mode "resize" {
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
-    bindsym $mod+r mode "default"
+    bindsym $wm_mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $wm_mod+r mode "resize"
 
-# ::: UI :::
+# ::: ui bar :::
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font pango:Hack 9
-
-# set inner gaps for more than 1 window
-gaps inner 15
-# smart_borders on
-
-default_border pixel 2
-
-for_window [class="albert" instance="albert"] floating enable
-for_window [class="TeamSpeak 3"] resize shrink width 10 px or 20 ppt
-for_window [class="Zathura"] resize shrink width 10 px or 10 ppt
-
-# class                 border  backgr. text    indicator
-client.focused          #000000 #999999 #000000 #999999
-client.unfocused        #000000 #222222 #000000 #222222
-client.focused_inactive #000000 #222222 #000000 #222222
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
     position top
-
     status_command i3status
 
     colors {
@@ -189,6 +160,33 @@ bar {
     }
 }
 
+# ::: ui decorations :::
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:Hack 9
+default_border pixel 2
+
+set $border #000000
+set $focus #999999
+set $nofocus #222222
+set $text #000000
+
+# class                 border  backgr.  text  indicator
+client.focused          $border $focus   $text $focus
+client.unfocused        $border $nofocus $text $nofocus
+client.focused_inactive $border $nofocus $text $nofocus
+
+# ::: ui layout :::
+
+gaps inner 15
+
+for_window [class="albert" instance="albert"] floating enable
+for_window [class="TeamSpeak 3"] resize shrink width 10 px or 20 ppt
+for_window [class="Zathura"] resize shrink width 10 px or 10 ppt
+for_window [class="Nm-connection-editor"] floating enable
+for_window [class="Pavucontrol"] floating enable
+
 # ::: startup :::
 
 exec --no-startup-id albert
@@ -199,3 +197,4 @@ exec --no-startup-id flameshot
 exec --no-startup-id dunst
 exec --no-startup-id python ~/.config/dunst/track-notifications.py
 exec --no-startup-id zsh -c "playerctl status --format '{{ playerName }}' --follow > /tmp/playerctl-last-player"
+exec --no-startup-id jellyfin-mpv-shim
