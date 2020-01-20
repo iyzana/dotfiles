@@ -211,7 +211,7 @@ bar {
     font "Hack" 10
     colors {
         statusline #eeeeee
-        background #01010100
+        background #00000000
         focused_workspace #00000000 #00000000 #eeeeee
         inactive_workspace #00000000 #00000000 #999999
     }
@@ -238,8 +238,8 @@ for_window [class="jetbrains-idea" title="win0"] floating enable
 for_window [class="jetbrains-idea"] border pixel
 
 # theme
-exec gsettings set org.gnome.desktop.interface gtk-theme 'Adapta-Nokto'
-exec gsettings set org.gnome.desktop.wm.preferences theme 'Adapta-Nokto'
+exec gsettings set org.gnome.desktop.interface gtk-theme 'Aritim-Dark'
+exec gsettings set org.gnome.desktop.wm.preferences theme 'Aritim-Dark'
 exec gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 
 # autostart
