@@ -23,6 +23,7 @@ output * bg $HOME/visuals/bg/fibers.jpg fill
 
 output eDP-1 position 0,0
 output DP-1 position 1920,0
+output 'Sony SONY TV  *00 0x00000101' res 1920x1080
 
 default_border pixel
 
