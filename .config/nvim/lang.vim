@@ -1,5 +1,5 @@
 " prose
-set spelllang=en,de
+set spelllang=en,de,hun-de-DE-frami
 autocmd BufRead,BufNewFile *.md,*.tex setlocal spell
 autocmd BufRead,BufNewFile *.md,*.tex setlocal colorcolumn=100
 
