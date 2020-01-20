@@ -10,6 +10,7 @@ while true; do
       PERCENT=$(echo "$STATUS" | grep 'percentage: '| grep -Eo '[0-9]+')
       REMAINING=$(echo "$STATUS" | grep 'time to empty' | awk '{ print $4,$5 }')
       REMAINING_MIN=$(units -t -- "$REMAINING" "minutes")
+      # reduce time, because os shuts down at 5%
       ACTUAL_REMAINING=$(echo "scale=1; $REMAINING_MIN / $PERCENT * ($PERCENT - 5)" | bc)
 
       if (( $(echo "$ACTUAL_REMAINING <= 15.0" | bc -l) )); then
