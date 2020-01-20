@@ -43,8 +43,7 @@ exec swayidle -w \
       resume 'swaymsg "output * dpms on"' \
   timeout 120 'swaylock -f' \
   before-sleep 'swaylock -f' \
-  lock 'swaylock -f' \
-  idlehint 120
+  lock 'swaylock -f'
   # timeout 105 'notify-send -u critical -t 15000 swayidle "locking due to inactivity"' \
 
 # input configuration
