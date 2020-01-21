@@ -70,7 +70,7 @@ bindsym Ctrl+Shift+l exec $lock
 bindsym $wm_mod+d exec makoctl dismiss
 
 # kill focused window
-bindsym $app_mod+q kill
+bindsym $wm_mod+q kill
 
 # program launcher
 bindsym Alt+space fullscreen disable; exec albert toggle
