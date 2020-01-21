@@ -1,23 +1,27 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
+# sway config
 # Read `man 5 sway` for a complete reference.
 
-set $mod Mod4
-set $left h
-set $down j
-set $up k
-set $right l
+# ::: default apps :::
 
 set $term kitty
 set $browser firefox
 set $files kitty -e ranger
+set $lock swaylock -f
 
-set $resize_step 25px
+# ::: idle config :::
+# `man 1 swayidle`
 
-# default config
-# output HDMI-A-1 resolution 1920x1080 position 1920,0
+exec swayidle -w \
+  timeout 105 'brightnessctl --save; brightnessctl set 5%' \
+      resume 'brightnessctl --restore' \
+  timeout 120 'swaymsg "output * dpms off"' \
+      resume 'swaymsg "output * dpms on"' \
+  timeout 120 $lock \
+  before-sleep $lock \
+  lock $lock
+
+# ::: output config :::
+# `man 5 sway-output`
 
 output * bg $HOME/visuals/bg/fibers.jpg fill
 
@@ -25,41 +29,8 @@ output eDP-1 position 0,0
 output DP-1 position 1920,0
 output 'Sony SONY TV  *00 0x00000101' res 1920x1080
 
-default_border pixel
-
-# idle configuration
-#
-# example configuration
-#
-#exec swayidle \
-#    timeout 300 'swaylock -c 000000' \
-#    timeout 600 'swaymsg "output * dpms off"' \
-#       resume 'swaymsg "output * dpms on"' \
-#    before-sleep 'swaylock -c 000000'
-
-exec swayidle -w \
-  timeout 105 'brightnessctl --save; brightnessctl set 5%' \
-      resume 'brightnessctl --restore' \
-  timeout 120 'swaymsg "output * dpms off"' \
-      resume 'swaymsg "output * dpms on"' \
-  timeout 120 'swaylock -f' \
-  before-sleep 'swaylock -f' \
-  lock 'swaylock -f'
-  # timeout 105 'notify-send -u critical -t 15000 swayidle "locking due to inactivity"' \
-
-# input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
+# ::: input config :::
+# `man 5 sway-input`
 
 input * {
     # keyboard
@@ -75,103 +46,37 @@ input * {
     scroll_factor 1.33333
 }
 
+# touchpad
 input "1102:4639:DELL0817:00_044E:121F_Touchpad" {
     natural_scroll enabled
 }
 
-seat * hide_cursor 2000
+# ::: generic keys :::
 
-# key bindings
-bindsym $mod+Return exec $term
-bindsym $mod+Shift+f exec $browser
-bindsym $mod+Shift+e exec $files
-bindsym $mod+Shift+t exec $term
+set $wm_mod Mod4
+set $wm_danger_mod Mod4+Ctrl
+set $app_mod Mod4+Shift
+
+set $left h
+set $down j
+set $up k
+set $right l
+
+bindsym $wm_mod+Return exec $term
+bindsym $app_mod+f exec $browser
+bindsym $app_mod+e exec $files
+bindsym $app_mod+t exec $term
+bindsym Ctrl+Shift+l exec $lock
+bindsym $wm_mod+d exec makoctl dismiss
+
+# kill focused window
+bindsym $app_mod+q kill
+
+# program launcher
 bindsym Alt+space fullscreen disable; exec albert toggle
-bindsym Ctrl+Shift+l exec swaylock
-bindsym $mod+d exec makoctl dismiss
 
-floating_modifier $mod normal
-# resize with right mouse button + $mod.
+# ::: media keys :::
 
-bindsym $mod+Shift+q kill
-bindsym $mod+Shift+c reload
-bindsym $mod+Ctrl+e exit
-
-# moving around
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# move the focused window
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# workspaces
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
-
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
-
-# move workspace to different output
-bindsym $mod+Ctrl+h move workspace to output left
-bindsym $mod+Ctrl+j move workspace to output up
-bindsym $mod+Ctrl+k move workspace to output down
-bindsym $mod+Ctrl+l move workspace to output right
-
-# layout stuff
-# $mod+b or $mod+v, for horizontal and vertical splits
-bindsym $mod+b splith
-bindsym $mod+v splitv
-
-# switch the current container between different layout styles
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# make the current focus fullscreen
-bindsym $mod+f fullscreen
-# toggle the current focus between tiling and floating mode
-bindsym $mod+Shift+space floating toggle
-# swap focus between the tiling area and the floating area
-bindsym $mod+space focus mode_toggle
-# move focus to the parent container
-bindsym $mod+a focus parent
-
-# move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
-# show the next scratchpad window or hide the focused scratchpad window
-bindsym $mod+minus scratchpad show
-
-# media keys
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') -5%
 bindsym XF86AudioMute exec pactl set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle
@@ -179,7 +84,78 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 bindsym --release Print exec grim -g \"$(slurp)" "screenshot-$(date --iso-8601=seconds).png"
 
+# ::: wm keys :::
+
+# moving around
+bindsym $wm_mod+$left focus left
+bindsym $wm_mod+$down focus down
+bindsym $wm_mod+$up focus up
+bindsym $wm_mod+$right focus right
+bindsym $wm_mod+Left focus left
+bindsym $wm_mod+Down focus down
+bindsym $wm_mod+Up focus up
+bindsym $wm_mod+Right focus right
+bindsym $wm_mod+space focus mode_toggle
+bindsym $wm_mod+a focus parent
+
+# move the focused window
+bindsym $wm_mod+Shift+$left move left
+bindsym $wm_mod+Shift+$down move down
+bindsym $wm_mod+Shift+$up move up
+bindsym $wm_mod+Shift+$right move right
+bindsym $wm_mod+Shift+Left move left
+bindsym $wm_mod+Shift+Down move down
+bindsym $wm_mod+Shift+Up move up
+bindsym $wm_mod+Shift+Right move right
+
+# workspaces
+bindsym $wm_mod+1 workspace 1
+bindsym $wm_mod+2 workspace 2
+bindsym $wm_mod+3 workspace 3
+bindsym $wm_mod+4 workspace 4
+bindsym $wm_mod+5 workspace 5
+bindsym $wm_mod+6 workspace 6
+bindsym $wm_mod+7 workspace 7
+bindsym $wm_mod+8 workspace 8
+bindsym $wm_mod+9 workspace 9
+bindsym $wm_mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $wm_mod+Shift+1 move container to workspace 1
+bindsym $wm_mod+Shift+2 move container to workspace 2
+bindsym $wm_mod+Shift+3 move container to workspace 3
+bindsym $wm_mod+Shift+4 move container to workspace 4
+bindsym $wm_mod+Shift+5 move container to workspace 5
+bindsym $wm_mod+Shift+6 move container to workspace 6
+bindsym $wm_mod+Shift+7 move container to workspace 7
+bindsym $wm_mod+Shift+8 move container to workspace 8
+bindsym $wm_mod+Shift+9 move container to workspace 9
+bindsym $wm_mod+Shift+0 move container to workspace 10
+
+# move workspace to different output
+bindsym $wm_mod+Ctrl+h move workspace to output left
+bindsym $wm_mod+Ctrl+j move workspace to output up
+bindsym $wm_mod+Ctrl+k move workspace to output down
+bindsym $wm_mod+Ctrl+l move workspace to output right
+
+# window layout configuration
+bindsym $wm_mod+b splith
+bindsym $wm_mod+v splitv
+bindsym $wm_mod+s layout stacking
+bindsym $wm_mod+w layout tabbed
+bindsym $wm_mod+e layout toggle split
+bindsym $wm_mod+f fullscreen
+bindsym $wm_mod+Shift+space floating toggle
+
+# scratchpad
+bindsym $wm_mod+Shift+minus move scratchpad
+bindsym $wm_mod+minus scratchpad show
+
+bindsym $wm_danger_mod+c reload
+bindsym $wm_danger_mod+e exit
+
 # resizing containers
+set $resize_step 25px
 mode "resize" {
     bindsym $left resize shrink width $resize_step
     bindsym $down resize grow height $resize_step
@@ -197,18 +173,20 @@ mode "resize" {
     # return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
-    bindsym $mod+$left mode "default"; focus left
-    bindsym $mod+$down mode "default"; focus down
-    bindsym $mod+$up mode "default"; focus up
-    bindsym $mod+$right mode "default"; focus right
+    bindsym $wm_mod+$left mode "default"; focus left
+    bindsym $wm_mod+$down mode "default"; focus down
+    bindsym $wm_mod+$up mode "default"; focus up
+    bindsym $wm_mod+$right mode "default"; focus right
 }
-bindsym $mod+r mode "resize"
+bindsym $wm_mod+r mode "resize"
 
-# status bar `man 5 sway-bar`
+# ::: ui bar :::
+# `man 5 sway-bar`
+
 bar {
     position top
     mode hide
-    modifier $mod+Alt
+    modifier $wm_mod+Alt
     font "Hack" 10
     colors {
         statusline #eeeeee
@@ -222,36 +200,49 @@ bar {
     status_command while true; do echo "$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percent | awk '{ print $2 }') - $(date +'%a, %Y-%m-%d %H:%M:%S')"; sleep 1; done
 }
 
-# layout
-gaps inner 15
-gaps outer 10
-smart_borders on
+# ::: ui decorations :::
+
+default_border pixel
 
 # colors
 client.focused          #999999 #999999 #000000 #999999 #999999
 client.unfocused        #0f1419 #0f1419 #f8eafd #0f1419 #0f1419
 client.focused_inactive #0f1419 #0f1419 #f8eafd #0f1419 #0f1419
 
-# allowed inactivity
-for_window [app_id="firefox"] inhibit_idle fullscreen
-for_window [app_id="mpv"] inhibit_idle fullscreen
+# ::: ui layout :::
+
+gaps inner 15
+gaps outer 10
+smart_borders on
 
 # fix some windows
 for_window [class="jetbrains-idea" title="win0"] floating enable
 for_window [class="jetbrains-idea"] border pixel
 for_window [app_id="firefox" title="Picture-in-Picture"] border none, floating enable, move position 1230 670, sticky enable
 
-# theme
+# ::: ui theme :::
+
 exec gsettings set org.gnome.desktop.interface gtk-theme 'Aritim-Dark'
 exec gsettings set org.gnome.desktop.wm.preferences theme 'Aritim-Dark'
 exec gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 
+# ::: ui behaviour :::
+
+# allowed inactivity
+for_window [app_id="firefox"] inhibit_idle fullscreen
+for_window [app_id="mpv"] inhibit_idle fullscreen
+
+floating_modifier $wm_mod normal
+seat * hide_cursor 2000
+
+# ::: startup :::
+
 # autostart
-exec albert
+exec --no-startup-id XDG_SESSION_TYPE=x11 albert
 exec mako
-exec sh ~/.config/sway/battery-warn.sh
+exec --no-startup-id sh ~/.config/sway/battery-warn.sh
 exec libinput-gestures-setup start
 exec keepassxc
-exec nm-applet --indicator
+exec --no-startup-id nm-applet --indicator
 
 include /etc/sway/config.d/*
