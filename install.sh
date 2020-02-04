@@ -52,7 +52,7 @@ link_in_dir() {
 
 link_file "zsh" ".zshenv"
 link_in_dir "zsh" ".config/zsh" ".zshenv" ".zshrc"
-link_in_dir "zsh" ".config/oh-my-zsh/custom" "alias.zsh" "startx.zsh" "start-wayland.zsh" "kitty.zsh"
+link_in_dir "zsh" ".config/oh-my-zsh/custom" "alias.zsh" "kitty.zsh"
 link_in_dir "zsh" ".config/oh-my-zsh/custom/themes" "iyzana.zsh-theme"
 
 link_file "Xorg" ".Xmodmap"  ".xinitrc" ".fehbg"
