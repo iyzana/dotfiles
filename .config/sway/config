@@ -16,9 +16,9 @@ exec swayidle -w \
       resume 'brightnessctl --restore' \
   timeout 120 'swaymsg "output * dpms off"' \
       resume 'swaymsg "output * dpms on"' \
-  timeout 120 $lock \
-  before-sleep $lock \
-  lock $lock
+  timeout 120 '$lock' \
+  before-sleep '$lock' \
+  lock '$lock'
 
 # ::: output config :::
 # `man 5 sway-output`
