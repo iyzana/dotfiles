@@ -191,7 +191,8 @@ bar {
     colors {
         statusline #eeeeee
         background #00000000
-        focused_workspace #00000000 #00000000 #eeeeee
+        focused_workspace  #00000000 #00000000 #eeeeee
+        active_workspace   #00000000 #00000000 #999999
         inactive_workspace #00000000 #00000000 #999999
     }
     icon_theme 'Papirus-Dark'
@@ -204,10 +205,10 @@ bar {
 
 default_border pixel
 
-# colors
-client.focused          #999999 #999999 #000000 #999999 #999999
-client.unfocused        #0f1419 #0f1419 #f8eafd #0f1419 #0f1419
-client.focused_inactive #0f1419 #0f1419 #f8eafd #0f1419 #0f1419
+# colors                border  background  text    indicator  child-border
+client.focused          #999999 #999999     #000000 #999999    #999999
+client.unfocused        #0f1419 #0f1419     #f8eafd #0f1419    #0f1419
+client.focused_inactive #0f1419 #0f1419     #f8eafd #0f1419    #0f1419
 
 # ::: ui layout :::
 
