@@ -145,21 +145,6 @@ mode "resize" {
 
 bindsym $wm_mod+r mode "resize"
 
-# ::: ui bar :::
-
-bar {
-    position top
-    status_command i3status
-
-    colors {
-        statusline #000000
-        background #f8eadf
-        active_workspace #b2a8a0 #b2a8a0 #000000
-        focused_workspace #b2a8a0 #b2a8a0 #000000
-        inactive_workspace #f8eadf #f8eadf #000000
-    }
-}
-
 # ::: ui decorations :::
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -176,6 +161,21 @@ set $text #000000
 client.focused          $border $focus   $text $focus
 client.unfocused        $border $nofocus $text $nofocus
 client.focused_inactive $border $nofocus $text $nofocus
+
+# ::: ui bar :::
+
+bar {
+    position top
+    status_command i3status
+
+    colors {
+        statusline #000000
+        background #f8eadf
+        active_workspace #b2a8a0 #b2a8a0 #000000
+        focused_workspace #b2a8a0 #b2a8a0 #000000
+        inactive_workspace #f8eadf #f8eadf #000000
+    }
+}
 
 # ::: ui layout :::
 
