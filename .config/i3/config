@@ -197,4 +197,4 @@ exec --no-startup-id flameshot
 exec --no-startup-id dunst
 exec --no-startup-id python ~/.config/dunst/track-notifications.py
 exec --no-startup-id zsh -c "playerctl status --format '{{ playerName }}' --follow > /tmp/playerctl-last-player"
-exec --no-startup-id jellyfin-mpv-shim
+exec --no-startup-id zsh -c "sleep 30; jellyfin-mpv-shim"
