@@ -27,4 +27,4 @@ set autowriteall
 " reduce update time
 set updatetime=250
 
-let g:coc_extension_root=$HOME . '/.local/share/coc/extensions'
+let g:coc_data_home=$HOME . '/.local/share/coc'
