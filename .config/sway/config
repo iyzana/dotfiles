@@ -185,7 +185,7 @@ bindsym $wm_mod+r mode "resize"
 
 bar {
     position top
-    mode hide
+    mode dock
     modifier $wm_mod+Alt
     font "Hack" 10
     colors {
@@ -214,6 +214,7 @@ client.focused_inactive #0f1419 #0f1419     #f8eafd #0f1419    #0f1419
 
 gaps inner 15
 gaps outer 10
+gaps top -10
 smart_borders on
 
 # fix some windows
