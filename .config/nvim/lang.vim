@@ -18,6 +18,16 @@ let g:vimtex_compiler_latexmk = {
     \ ],
   \ }
 
+" nav
+let g:AlternatePath = []
+let g:AlternateExtensionMappings = [{
+  \ '.ts': '.html',
+  \ '.html': '.css',
+  \ '.css': '.scss',
+  \ '.scss': '.ts',
+\ }]
+nmap <silent> ga :Alternate<CR>
+
 " linting / doc / navigation
 nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>j <Plug>(coc-diagnostic-next)

@@ -20,6 +20,7 @@ Plug 'editorconfig/editorconfig-vim'
 " files
 Plug 'junegunn/fzf', { 'dir': '~/.local/share/fzf', 'do': './install --all --xdg --no-bash --no-fish' }
 Plug 'junegunn/fzf.vim'
+Plug 'ton/vim-alternate'
 
 " layout
 Plug 'scrooloose/nerdtree'
