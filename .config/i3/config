@@ -52,9 +52,9 @@ bindsym Mod1+space fullscreen disable; exec albert toggle
 bindsym Print exec flameshot gui
 
 # audio control
-bindsym XF86AudioPrev exec --no-startup-id zsh -c "playerctl -p $(tail -1 /tmp/playerctl-last-player) previous"
-bindsym XF86AudioPlay exec --no-startup-id zsh -c "playerctl -p $(tail -1 /tmp/playerctl-last-player) play-pause"
-bindsym XF86AudioNext exec --no-startup-id zsh -c "playerctl -p $(tail -1 /tmp/playerctl-last-player) next"
+bindsym XF86AudioPrev exec --no-startup-id zsh -c "playerctl -p playerctld previous"
+bindsym XF86AudioPlay exec --no-startup-id zsh -c "playerctl -p playerctld play-pause"
+bindsym XF86AudioNext exec --no-startup-id zsh -c "playerctl -p playerctld next"
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
@@ -196,5 +196,4 @@ exec keepassxc # at least one program handling startup id correctly
 exec --no-startup-id flameshot
 exec --no-startup-id dunst
 exec --no-startup-id python ~/.config/dunst/track-notifications.py
-exec --no-startup-id zsh -c "playerctl status --format '{{ playerName }}' --follow > /tmp/playerctl-last-player"
 exec --no-startup-id zsh -c "sleep 30; jellyfin-mpv-shim"
