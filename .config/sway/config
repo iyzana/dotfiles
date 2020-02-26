@@ -221,6 +221,7 @@ smart_borders on
 for_window [class="jetbrains-idea" title="win0"] floating enable
 for_window [class="jetbrains-idea"] border pixel
 for_window [app_id="firefox" title="Picture-in-Picture"] border none, floating enable, move position 1230 670, sticky enable
+for_window [app_id="org.pwmt.zathura"] resize shrink width 20 ppt
 
 # ::: ui theme :::
 
