@@ -1,3 +1,5 @@
+set -e
+
 while true; do
     battery=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0)
     battery_pct=$(echo "$battery" | grep percent | awk '{ print $2 }' | tr -d '%')
