@@ -23,7 +23,7 @@ exec swayidle -w \
 # ::: output config :::
 # `man 5 sway-output`
 
-output * bg $HOME/visuals/bg/fibers.jpg fill
+output * bg $HOME/visuals/bg/mountainrange-moon.jpg fill
 
 output eDP-1 position 0,0
 output DP-1 position 1920,0
