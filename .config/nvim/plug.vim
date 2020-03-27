@@ -34,6 +34,7 @@ Plug 'ayu-theme/ayu-vim'
 
 " languages
 Plug 'sheerun/vim-polyglot'
+Plug 'arzg/vim-rust-syntax-ext'
 Plug 'lervag/vimtex'
 Plug 'dense-analysis/ale', { 'for': 'tex', 'on': 'ALEEnable' }
 
