@@ -185,21 +185,7 @@ bindsym $wm_mod+r mode "resize"
 # `man 5 sway-bar`
 
 bar {
-    position top
-    mode dock
-    modifier $wm_mod+Alt
-    font "Hack" 10
-    colors {
-        statusline #eeeeee
-        background #00000000
-        focused_workspace  #00000000 #00000000 #eeeeee
-        active_workspace   #00000000 #00000000 #999999
-        inactive_workspace #00000000 #00000000 #999999
-    }
-    icon_theme 'Papirus-Dark'
-
-    # when the status_command prints a new line to stdout, swaybar updates.
-    status_command ~/.config/sway/status.sh
+    swaybar_command waybar
 }
 
 # ::: ui decorations :::
@@ -215,7 +201,7 @@ client.focused_inactive #0f1419 #0f1419     #f8eafd #0f1419    #0f1419
 
 gaps inner 15
 gaps outer 10
-gaps top -10
+gaps top 0
 smart_borders on
 
 # fix some windows
