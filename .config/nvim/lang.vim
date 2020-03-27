@@ -1,7 +1,7 @@
 " prose
-set spelllang=en,de,hun-de-DE-frami
-autocmd BufRead,BufNewFile *.md,*.tex setlocal spell
-autocmd BufRead,BufNewFile *.md,*.tex setlocal colorcolumn=100
+set spell
+set spelllang=en,de_20,hun-de-DE-frami
+autocmd Filetype markdown,tex setlocal colorcolumn=100
 
 " tex
 let g:tex_flavor = 'latex'
@@ -14,7 +14,6 @@ let g:vimtex_compiler_latexmk = {
     \   '-synctex=1',
     \   '-interaction=nonstopmode',
     \   '-shell-escape',
-    \   '-output-directory=build',
     \ ],
   \ }
 
