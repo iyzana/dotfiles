@@ -23,21 +23,13 @@ alias la='exa -la'
 unalias l
 unalias ll
 
-# fs helpers
-
-alias rd='rmdir'
-
-td() {
-	mkdir -p $1
-	cd $1
-}
-
 # shorter pipes
 
 alias -g G='| rg'
 alias -g W='| wc'
 alias -g L='| less'
-alias -g S='| sed'
+alias -g S='| sort'
+alias -g E='| sed'
 alias -g X='| xargs'
 alias -g U='| sort | uniq'
 alias -g C='| cuts'
@@ -46,9 +38,8 @@ alias -g T='| tail'
 
 # no I did not mean .config
 
-alias trizen='nocorrect trizen'
-alias yay='nocorrect yay'
 alias git='nocorrect git'
+alias yay='nocorrect yay'
 alias cargo='nocorrect cargo'
 alias cuts='nocorrect cuts'
 
@@ -62,7 +53,7 @@ alias glg="glog"
 alias youtube-audio='youtube-dl -x -f bestaudio/best --audio-quality 0 --default-search "ytsearch:" --add-metadata --metadata-from-title "(?P<artist>.+?) - (?P<title>.+?)( \(.*\).*)?$" -o "%(title)s.%(ext)s"'
 
 play() {
-    mpv --volume 70 --video no \
+    mpv --video no \
         --ytdl-format=bestaudio/best \
         --ytdl-raw-options=default-search=ytsearch \
         "ytdl://$*"
@@ -73,8 +64,6 @@ alias battery='upower -i $(upower -e | grep BAT) | grep percent | awk "{ print \
 open() {
     xdg-open $@ &
 }
-
-alias irc='ssh -t ctdo tmux a'
 
 batch-rename() {
     printf '%-60s\n' $(exa) > rename.sh
