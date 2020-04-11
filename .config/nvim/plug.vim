@@ -31,6 +31,8 @@ Plug 'airblade/vim-gitgutter'
 
 " theme
 Plug 'ayu-theme/ayu-vim'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'rakr/vim-one'
 
 " languages
 Plug 'sheerun/vim-polyglot'
