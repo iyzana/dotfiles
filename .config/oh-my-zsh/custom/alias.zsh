@@ -53,7 +53,7 @@ alias glg="glog"
 alias youtube-audio='youtube-dl -x -f bestaudio/best --audio-quality 0 --default-search "ytsearch:" --add-metadata --metadata-from-title "(?P<artist>.+?) - (?P<title>.+?)( \(.*\).*)?$" -o "%(title)s.%(ext)s"'
 
 play() {
-    mpv --video no \
+    mpv --video=no \
         --ytdl-format=bestaudio/best \
         --ytdl-raw-options=default-search=ytsearch \
         "ytdl://$*"
