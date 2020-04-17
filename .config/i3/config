@@ -198,5 +198,4 @@ exec --no-startup-id nm-applet
 exec keepassxc # at least one program handling startup id correctly
 exec --no-startup-id flameshot
 exec --no-startup-id dunst
-exec --no-startup-id python ~/.config/dunst/track-notifications.py
 exec --no-startup-id zsh -c "sleep 30; jellyfin-mpv-shim"
