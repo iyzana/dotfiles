@@ -36,7 +36,6 @@ Plug 'rakr/vim-one'
 
 " languages
 Plug 'sheerun/vim-polyglot'
-Plug 'arzg/vim-rust-syntax-ext'
 Plug 'lervag/vimtex'
 Plug 'dense-analysis/ale', { 'for': 'tex', 'on': 'ALEEnable' }
 

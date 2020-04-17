@@ -19,7 +19,7 @@ highlight CocHighlightText guibg=#223922 gui=underline ctermbg=2
 " use theme colors for fzf
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', '#3D424D'],
+  \ 'bg':      ['bg', '#1c1c1c'],
   \ 'hl':      ['fg', 'Comment'],
   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
