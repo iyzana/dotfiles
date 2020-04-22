@@ -1,7 +1,7 @@
 {
   "suggest.noselect": false,
   "typescript.preferences.importModuleSpecifier": "relative",
-  "rust-analyzer.cargo-watch.command": "clippy",
+  "rust-analyzer.checkOnSave.command": "clippy",
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextLines": 1,
   "signature.maxWindowHeight": 32,
