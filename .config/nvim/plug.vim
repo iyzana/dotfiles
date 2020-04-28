@@ -35,8 +35,8 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'rakr/vim-one'
 
 " languages
-Plug 'sheerun/vim-polyglot'
 Plug 'lervag/vimtex'
+Plug 'sheerun/vim-polyglot'
 Plug 'dense-analysis/ale', { 'for': 'tex', 'on': 'ALEEnable' }
 
 " completion
