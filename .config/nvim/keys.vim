@@ -32,8 +32,8 @@ vnoremap < <gv
 nnoremap Q @@
 
 " fzf
-nnoremap <C-p> :GFiles<CR>
-nnoremap <leader>p :Files<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <leader>p :AllFiles<CR>
 nnoremap <C-f> :Rg<CR>
 nnoremap <C-b> :Buffers<CR>
 autocmd FileType fzf tnoremap <buffer> <Esc> <C-c>
@@ -44,8 +44,19 @@ command! -bang -nargs=* Rg
   \           fzf#vim#with_preview('right:50%:hidden', '´'),
   \   <bang>0)
 
-command! -bang -nargs=? -complete=dir GFiles
-  \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview('right:50%:hidden', '´'), <bang>0)
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('right:50%:hidden', '´'), <bang>0)
+
+command! -bang -nargs=* AllFiles
+  \ call fzf#run(
+  \   fzf#wrap(
+  \     fzf#vim#with_preview(
+  \       {'source': 'fd --type f --no-ignore '.shellescape(<q-args>)},
+  \       'right:50%:hidden',
+  \       '´'
+  \     )
+  \   )
+  \ )
 
 " nerdtree
 map <silent><leader>t :NERDTreeFind<CR>
