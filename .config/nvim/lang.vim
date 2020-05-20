@@ -20,7 +20,8 @@ let g:vimtex_compiler_latexmk = {
 " nav
 let g:AlternatePath = []
 let g:AlternateExtensionMappings = [{
-  \ '.ts': '.html',
+  \ '.ts': '.tsx',
+  \ '.tsx': '.html',
   \ '.html': '.css',
   \ '.css': '.scss',
   \ '.scss': '.ts',
