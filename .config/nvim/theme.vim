@@ -12,6 +12,7 @@ colorscheme PaperColor
 
 " coc overrides
 highlight CocHighlightText guibg=#223922 gui=underline ctermbg=2
+highlight link CocHintSign Comment
 
 " translucent background
 " hi Normal guibg=NONE ctermbg=NONE
