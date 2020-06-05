@@ -33,6 +33,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ayu-theme/ayu-vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'rakr/vim-one'
+Plug 'doums/darcula'
 
 " languages
 Plug 'lervag/vimtex'

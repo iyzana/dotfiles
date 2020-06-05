@@ -8,7 +8,7 @@ set background=dark
 set t_Co=256
 
 let ayucolor="dark"
-colorscheme PaperColor
+colorscheme darcula
 
 " coc overrides
 highlight CocHighlightText guibg=#223922 gui=underline ctermbg=2
