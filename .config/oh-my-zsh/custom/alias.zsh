@@ -16,7 +16,11 @@ alias du='du -h'
 alias df='df -h'
 alias rm='rm -I'
 
-alias vim='nvim'
+vim() {
+    kitty @ set-spacing padding=0
+    nvim $*
+    kitty @ set-spacing padding=default
+}
 
 alias ls='exa -l'
 alias la='exa -la'
