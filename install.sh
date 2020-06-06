@@ -75,6 +75,4 @@ link_dir "i3" ".config/i3"
 link_dir "i3status" ".config/i3status"
 link_dir "alacritty" ".config/alacritty"
 
-link_in_dir "oni" ".config/oni" "config.js" "config.tsx"
-
 echo -e "\e[32mdone"
