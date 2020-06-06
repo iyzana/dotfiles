@@ -1,18 +1,18 @@
-let g:gitgutter_sign_added = '•'
-let g:gitgutter_sign_modified = '•'
-let g:gitgutter_sign_modified_removed = '•'
+" let g:gitgutter_sign_added = '•'
+" let g:gitgutter_sign_modified = '•'
+" let g:gitgutter_sign_modified_removed = '•'
 
 " colorscheme
 set termguicolors
 set background=dark
 set t_Co=256
 
-let ayucolor="dark"
+" let ayucolor="dark"
 colorscheme darcula
 
 " coc overrides
-highlight CocHighlightText guibg=#223922 gui=underline ctermbg=2
-highlight link CocHintSign Comment
+" highlight CocHighlightText guibg=#223922 gui=underline ctermbg=2
+" highlight link CocHintSign Comment
 
 " translucent background
 " hi Normal guibg=NONE ctermbg=NONE
@@ -20,7 +20,7 @@ highlight link CocHintSign Comment
 " use theme colors for fzf
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', '#1c1c1c'],
+  \ 'bg':      ['bg', 'Normal'],
   \ 'hl':      ['fg', 'Comment'],
   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
@@ -32,3 +32,26 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+" darcula + gitgutter
+hi! link GitGutterAdd GitAddStripe
+hi! link GitGutterChange GitChangeStripe
+hi! link GitGutterDelete GitDeleteStripe
+let g:gitgutter_sign_removed = '▶'
+
+" darcula + coc
+hi! link CocErrorSign ErrorSign
+hi! link CocWarningSign WarningSign
+hi! link CocInfoSign InfoSign
+hi! link CocHintSign InfoSign
+hi! link CocErrorFloat Pmenu
+hi! link CocWarningFloat Pmenu
+hi! link CocInfoFloat Pmenu
+hi! link CocHintFloat Pmenu
+hi! link CocHighlightText IdentifierUnderCaret
+hi! link CocHighlightRead IdentifierUnderCaret
+hi! link CocHighlightWrite IdentifierUnderCaretWrite
+hi! link CocErrorHighlight CodeError
+hi! link CocWarningHighlight CodeWarning
+hi! link CocInfoHighlight CodeInfo
+hi! link CocHintHighlight CodeHint
