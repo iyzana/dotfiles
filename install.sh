@@ -62,7 +62,6 @@ link_file "nemo" ".gnome2/accels/nemo"
 
 link_dir "termite" ".config/termite"
 link_dir "kitty" ".config/kitty"
-link_dir "trizen" ".config/trizen"
 link_dir "yay" ".config/yay"
 link_dir "nvim" ".config/nvim"
 link_dir "dunst" ".config/dunst"
