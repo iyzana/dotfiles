@@ -38,7 +38,7 @@ alias -g S='| sort'
 alias -g E='| sed'
 alias -g X='| xargs'
 alias -g U='| sort | uniq'
-alias -g C='| cuts'
+alias -g C='| choose'
 alias -g H='| head'
 alias -g T='| tail'
 
