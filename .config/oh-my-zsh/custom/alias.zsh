@@ -17,9 +17,11 @@ alias df='df -h'
 alias rm='rm -I'
 
 vim() {
+    kitty @ set-colors "$HOME/.config/oh-my-zsh/custom/kitty-bg.conf"
     kitty @ set-spacing padding=0
     nvim $*
     kitty @ set-spacing padding=default
+    kitty @ set-colors --reset
 }
 
 alias ls='exa -l'
