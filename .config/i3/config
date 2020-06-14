@@ -169,13 +169,15 @@ client.focused_inactive $border $nofocus $text $nofocus
 bar {
     position top
     status_command i3status
+    height 32
+    tray_output none
 
     colors {
-        statusline #000000
-        background #f8eadf
-        active_workspace #b2a8a0 #b2a8a0 #000000
-        focused_workspace #b2a8a0 #b2a8a0 #000000
-        inactive_workspace #f8eadf #f8eadf #000000
+        statusline #d0d0d0
+        background #1c1c1c
+        active_workspace #1c1c1c #1c1c1c #5c5cd6
+        focused_workspace #1c1c1c #1c1c1c #5c5cd6
+        inactive_workspace #1c1c1c #1c1c1c #d0d0d0
     }
 }
 
@@ -201,4 +203,4 @@ exec --no-startup-id dunst
 exec --no-startup-id zsh -c "sleep 30; jellyfin-mpv-shim"
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id autotiling
-exec --no-startup-id picom -o 0 -I 1 -O 1 -C
+exec --no-startup-id picom -I 1 -O 1

@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-center "$HOME/bg/powerline-mountains-simplistic-left.jpg" "$HOME/bg/powerline-mountains-simplistic-right.jpg" 
+feh --no-fehbg --bg-fill "$HOME/bg/ubuntu.jpg" 
