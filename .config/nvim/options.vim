@@ -6,15 +6,21 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set smarttab
+
 set autoindent
 set smartindent
+
 set ignorecase
 set smartcase
+
 set scrolloff=3
+
 set hidden
 set undofile
+
 set lazyredraw
 set inccommand=nosplit
+
 set mouse=nv
 
 " autosave

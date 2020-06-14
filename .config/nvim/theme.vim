@@ -5,7 +5,6 @@
 " colorscheme
 set termguicolors
 set background=dark
-set t_Co=256
 
 " let ayucolor="dark"
 colorscheme darcula

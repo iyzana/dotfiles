@@ -9,13 +9,27 @@ let g:nerdtree_plugin_open_cmd = 'xdg-open'
 set number
 
 " disable statusline
-set laststatus=0
+set laststatus=2
 set noruler
 set noshowmode
 
 set shortmess+=c
 set signcolumn=yes
 set splitright
+
+let g:lightline = {
+\ 'colorscheme': 'darculaOriginal',
+\ 'active': {
+\   'left': [ [ 'mode', 'paste' ],
+\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+\ },
+\ 'component_function': {
+\   'cocstatus': 'coc#status'
+\ },
+\ }
+
+  " Use auocmd to force lightline update.
+  autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 let g:fzf_layout = { 'window': {'width': 0.7, 'height': 0.6 } }
 let $FZF_DEFAULT_OPTS='--layout=reverse'

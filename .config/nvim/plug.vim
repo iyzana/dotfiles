@@ -26,7 +26,7 @@ Plug 'ton/vim-alternate'
 Plug 'scrooloose/nerdtree'
 Plug 'woelke/vim-nerdtree_plugin_open'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
 
 " theme
