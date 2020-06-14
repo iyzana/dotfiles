@@ -31,13 +31,13 @@ set $down j
 set $up k
 set $right l
 
-bindsym $wm_mod+Return exec kitty
+bindsym $wm_mod+Return fullscreen disable; exec kitty
 bindsym $app_mod+f exec firefox
 bindsym $app_mod+g exec lutris
 bindsym $app_mod+s exec teamspeak3
 bindsym $app_mod+d exec discord
 bindsym $app_mod+e exec nemo
-bindsym $app_mod+p exec pavucontrol
+bindsym $app_mod+p fullscreen disable; exec pavucontrol
 bindsym $app_mod+Ctrl+p exec pulseaudio -k
 
 # kill focused window
