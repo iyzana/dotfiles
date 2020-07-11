@@ -2,13 +2,13 @@
   border: none;
   border-radius: 0;
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-family: SF Pro Display, Roboto, Helvetica, Arial, sans-serif;
   font-size: 13px;
   min-height: 0;
 }
 
 window#waybar {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.2);
   color: #ffffff;
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -40,19 +40,19 @@ window#waybar.chromium {
   padding: 0 5px;
   background-color: transparent;
   color: #ffffff;
-  border-bottom: 3px solid transparent;
+  /* border-bottom: 3px solid transparent; */
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
   background: rgba(0, 0, 0, 0.2);
   box-shadow: inherit;
-  border-bottom: 3px solid #ffffff;
+  /* border-bottom: 3px solid #ffffff; */
 }
 
 #workspaces button.focused {
   background-color: #64727d;
-  border-bottom: 3px solid #ffffff;
+  /* border-bottom: 3px solid #ffffff; */
 }
 
 #workspaces button.urgent {
@@ -82,30 +82,31 @@ window#waybar.chromium {
   color: #ffffff;
 }
 
-/* #clock { */
-/*   background-color: #64727d; */
-/* } */
+#clock {
+  /* background-color: #64727d; */
+}
 
 #battery {
-  background-color: #ffffff;
-  color: #000000;
+  /* background-color: #ffffff; */
+  /* color: #000000; */
 }
 
 #battery.charging {
-  color: #ffffff;
-  background-color: #26a65b;
+  color: #26a65b;
+  /* color: #ffffff; */
+  /* background-color: #26a65b; */
 }
 
 @keyframes blink {
   to {
-    background-color: #ffffff;
-    color: #000000;
+    color: #ffffff;
   }
 }
 
 #battery.critical:not(.charging) {
-  background-color: #f53c3c;
-  color: #ffffff;
+  color: #f53c3c;
+  /* background-color: #f53c3c; */
+  /* color: #ffffff; */
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -139,13 +140,13 @@ label:focus {
 }
 
 #pulseaudio {
-  background-color: #f1c40f;
-  color: #000000;
+  /* background-color: #f1c40f; */
+  /* color: #000000; */
 }
 
 #pulseaudio.muted {
-  background-color: #90b1b1;
-  color: #2a5c45;
+  /* background-color: #90b1b1; */
+  /* color: #2a5c45; */
 }
 
 #custom-media {
@@ -171,7 +172,7 @@ label:focus {
 }
 
 #tray {
-  background-color: #2980b9;
+  /* background-color: #2980b9; */
 }
 
 #idle_inhibitor {

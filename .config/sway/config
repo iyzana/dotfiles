@@ -25,8 +25,8 @@ exec swayidle -w \
 
 output * bg $HOME/visuals/bg/mountainrange-moon.jpg fill
 
-output eDP-1 position 0,0
-output DP-1 position 1920,0
+output eDP-1 position 1920,0
+output DP-1 position 0,0
 output 'Sony SONY TV  *00 0x00000101' res 1920x1080
 
 # ::: input config :::
@@ -49,6 +49,14 @@ input * {
 # touchpad
 input "1102:4639:DELL0817:00_044E:121F_Touchpad" {
     natural_scroll enabled
+}
+
+# tablet
+input "1386:886:Wacom_Intuos_BT_S_Pen" {
+    map_to_output DP-1
+}
+input "1386:887:Wacom_Intuos_BT_S_Pen" {
+    map_to_output DP-1
 }
 
 # ::: generic keys :::
@@ -98,6 +106,7 @@ bindsym $wm_mod+Up focus up
 bindsym $wm_mod+Right focus right
 bindsym $wm_mod+space focus mode_toggle
 bindsym $wm_mod+a focus parent
+bindsym $wm_mod+Shift+a focus child
 
 # move the focused window
 bindsym $wm_mod+Shift+$left move left
@@ -191,6 +200,7 @@ bar {
 # ::: ui decorations :::
 
 default_border pixel
+font 'SF Pro Display' 11
 
 # colors                border  background  text    indicator  child-border
 client.focused          #999999 #999999     #000000 #999999    #999999
@@ -223,7 +233,7 @@ for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [app_id="mpv"] inhibit_idle fullscreen
 
 floating_modifier $wm_mod normal
-seat * hide_cursor 2000
+seat seat0 hide_cursor 2000
 
 # ::: startup :::
 
@@ -234,5 +244,6 @@ exec --no-startup-id sh ~/.config/sway/battery-warn.sh
 exec libinput-gestures-setup start
 exec keepassxc
 exec --no-startup-id nm-applet --indicator
+exec --no-startup-id blueman-applet
 
 include /etc/sway/config.d/*

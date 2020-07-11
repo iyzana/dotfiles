@@ -5,12 +5,12 @@
   // "width": 1280, // Waybar width
   "modules-left": ["sway/workspaces", "sway/mode"],
   "modules-center": ["clock"],
+  // "network",
+  // "cpu",
+  // "memory",
+  // "temperature",
   "modules-right": [
     "pulseaudio",
-    "network",
-    "cpu",
-    "memory",
-    "temperature",
     "battery",
     "battery#bat2",
     "tray"
