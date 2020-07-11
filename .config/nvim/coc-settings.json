@@ -2,6 +2,7 @@
   "suggest.noselect": false,
   "typescript.preferences.importModuleSpecifier": "relative",
   "rust-analyzer.checkOnSave.command": "clippy",
+  "rust-analyzer.inlayHints.chainingHints": false,
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextLines": 1,
   "signature.maxWindowHeight": 32,
