@@ -21,6 +21,8 @@ let g:vimtex_compiler_latexmk = {
     \ ],
   \ }
 
+" \   '-output-directory=build',
+
 " nav
 let g:AlternatePath = []
 let g:AlternateExtensionMappings = [{
