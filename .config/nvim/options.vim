@@ -3,7 +3,7 @@ set nocompatible
 " use 4 spaces for indent
 set tabstop=4
 set shiftwidth=4
-set softtabstop=4
+set softtabstop=0
 set expandtab
 set smarttab
 
