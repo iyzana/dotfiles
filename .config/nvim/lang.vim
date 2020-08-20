@@ -2,6 +2,9 @@
 set spelllang=en,de_20,hun-de-DE-frami
 autocmd Filetype markdown,tex setlocal spell
 autocmd Filetype markdown,tex setlocal colorcolumn=100
+autocmd Filetype markdown,tex setlocal textwidth=100
+autocmd Filetype markdown,yaml,javascript,typescript setlocal tabstop=2
+autocmd Filetype markdown,yaml,javascript,typescript setlocal shiftwidth=2
 
 " tex
 let g:tex_flavor = 'latex'
