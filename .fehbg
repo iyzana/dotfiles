@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill "$HOME/bg/ubuntu.jpg" 
+feh --no-fehbg --bg-fill "$HOME/visuals/bg/arch.png"
