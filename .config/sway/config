@@ -212,6 +212,7 @@ client.focused_inactive #0f1419 #0f1419     #f8eafd #0f1419    #0f1419
 gaps inner 15
 gaps outer 10
 gaps top 0
+smart_gaps on
 smart_borders on
 
 # fix some windows
