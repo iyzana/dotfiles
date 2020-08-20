@@ -18,7 +18,6 @@ set signcolumn=yes
 set splitright
 
 let g:lightline = {
-\ 'colorscheme': 'darculaOriginal',
 \ 'active': {
 \   'left': [ [ 'mode', 'paste' ],
 \             [ 'readonly', 'filename', 'modified' ] ],
@@ -30,6 +29,8 @@ let g:lightline = {
 \   'cocstatus': 'coc#status'
 \ },
 \ }
+
+" \ 'colorscheme': 'darculaOriginal',
 
   " Use auocmd to force lightline update.
   autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
