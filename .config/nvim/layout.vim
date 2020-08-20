@@ -21,7 +21,10 @@ let g:lightline = {
 \ 'colorscheme': 'darculaOriginal',
 \ 'active': {
 \   'left': [ [ 'mode', 'paste' ],
-\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+\             [ 'readonly', 'filename', 'modified' ] ],
+\   'right': [ [ 'lineinfo' ],
+\              [ 'percent' ],
+\              [ 'fileformat', 'fileencoding', 'filetype', 'cocstatus' ] ]
 \ },
 \ 'component_function': {
 \   'cocstatus': 'coc#status'
