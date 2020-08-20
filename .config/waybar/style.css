@@ -14,26 +14,27 @@ window#waybar {
   transition-duration: 0.5s;
 }
 
-window#waybar.hidden {
-  opacity: 0.2;
-}
-
 /*
 window#waybar.empty {
     background-color: transparent;
 }
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
 */
 
-window#waybar.termite {
-  background-color: #3f3f3f;
+window#waybar.solo {
+  background-color: #1c1c1c;
 }
 
-window#waybar.chromium {
-  background-color: #000000;
-  border: none;
+/* window#waybar.termite { */
+/*   background-color: #3f3f3f; */
+/* } */
+
+/* window#waybar.chromium { */
+/*   background-color: #000000; */
+/*   border: none; */
+/* } */
+
+#window {
+  opacity: 0;
 }
 
 #workspaces button {
