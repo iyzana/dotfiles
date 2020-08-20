@@ -246,5 +246,6 @@ exec libinput-gestures-setup start
 exec keepassxc
 exec --no-startup-id nm-applet --indicator
 exec --no-startup-id blueman-applet
+exec --no-startup-id autotiling
 
 include /etc/sway/config.d/*
