@@ -36,3 +36,5 @@
     trustExitCode = true
 [difftool "kitty"]
     cmd = kitty +kitten diff $LOCAL $REMOTE
+[init]
+	defaultBranch = main
