@@ -32,6 +32,10 @@ let g:AlternateExtensionMappings = [{
   \ '.html': '.css',
   \ '.css': '.scss',
   \ '.scss': '.js',
+\ }, {
+  \ '.component.ts': '.component.html',
+  \ '.component.html': '.component.scss',
+  \ '.component.scss': '.component.ts',
 \ }]
 nmap <silent> ga :Alternate<CR>
 
