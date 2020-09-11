@@ -32,3 +32,4 @@ set autowriteall
 set updatetime=250
 
 let g:coc_data_home=$HOME . '/.local/share/coc'
+let g:polyglot_disabled = ['latex']
