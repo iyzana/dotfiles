@@ -155,9 +155,9 @@ default_border pixel 2
 smart_borders on
 
 set $border #000000
-set $focus #999999
+set $focus #5c5cd6
 set $nofocus #222222
-set $text #000000
+set $text #d0d0d0
 
 # class                 border  backgr.  text  indicator
 client.focused          $border $focus   $text $focus
@@ -170,20 +170,21 @@ bar {
     position top
     status_command i3status
     height 32
-    tray_output none
+    i3bar_command i3bar --transparency
 
     colors {
         statusline #d0d0d0
-        background #1c1c1c
-        active_workspace #1c1c1c #1c1c1c #5c5cd6
-        focused_workspace #1c1c1c #1c1c1c #5c5cd6
-        inactive_workspace #1c1c1c #1c1c1c #d0d0d0
+        background #1c1c1c66
+        active_workspace #1c1c1c66 #1c1c1c66 #5c5cd6
+        focused_workspace #1c1c1c66 #1c1c1c66 #5c5cd6
+        inactive_workspace #1c1c1c66 #1c1c1c66 #d0d0d0
     }
 }
 
 # ::: ui layout :::
 
 gaps inner 15
+smart_gaps on
 
 for_window [class="albert" instance="albert"] floating enable
 for_window [class="TeamSpeak 3"] resize shrink width 10 px or 20 ppt
@@ -195,7 +196,7 @@ for_window [title="Microsoft Teams Notification"] floating enable
 # ::: startup :::
 
 exec --no-startup-id albert
-exec --no-startup-id redshift-gtk
+exec --no-startup-id redshift
 exec --no-startup-id nm-applet
 exec keepassxc # at least one program handling startup id correctly
 exec --no-startup-id flameshot
