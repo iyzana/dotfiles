@@ -28,9 +28,8 @@ let g:lightline = {
 \ 'component_function': {
 \   'cocstatus': 'coc#status'
 \ },
+\ 'colorscheme': 'PaperColor',
 \ }
-
-" \ 'colorscheme': 'darculaOriginal',
 
   " Use auocmd to force lightline update.
   autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
