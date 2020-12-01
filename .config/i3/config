@@ -156,7 +156,7 @@ smart_borders on
 
 set $border #000000
 set $focus #5c5cd6
-set $nofocus #222222
+set $nofocus #444444
 set $text #d0d0d0
 
 # class                 border  backgr.  text  indicator
@@ -170,14 +170,14 @@ bar {
     position top
     status_command i3status
     height 32
-    i3bar_command i3bar --transparency
+    i3bar_command i3bar
 
     colors {
         statusline #d0d0d0
-        background #1c1c1c66
-        active_workspace #1c1c1c66 #1c1c1c66 #5c5cd6
-        focused_workspace #1c1c1c66 #1c1c1c66 #5c5cd6
-        inactive_workspace #1c1c1c66 #1c1c1c66 #d0d0d0
+        background #1c1c1c
+        active_workspace #1c1c1c #1c1c1c #5c5cd6
+        focused_workspace #1c1c1c #1c1c1c #5c5cd6
+        inactive_workspace #1c1c1c #1c1c1c #d0d0d0
     }
 }
 
@@ -187,8 +187,8 @@ gaps inner 15
 smart_gaps on
 
 for_window [class="albert" instance="albert"] floating enable
-for_window [class="TeamSpeak 3"] resize shrink width 512 px or 20 ppt
-for_window [class="Zathura"] resize shrink width 10 px or 10 ppt
+for_window [class="TeamSpeak 3"] resize set width 33ppt
+for_window [class="Zathura"] resize set width 33ppt
 for_window [class="Nm-connection-editor"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [title="Microsoft Teams Notification"] floating enable
@@ -202,9 +202,10 @@ exec --no-startup-id nm-applet
 exec keepassxc # at least one program handling startup id correctly
 exec --no-startup-id flameshot
 exec --no-startup-id dunst
-exec --no-startup-id zsh -c "sleep 30; jellyfin-mpv-shim"
+exec --no-startup-id zsh -c "sleep 15; jellyfin-mpv-shim"
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id autotiling
 exec --no-startup-id picom -o 0 -I 1 -O 1 -C -i 1 -e 1 -m 1
 exec --no-startup-id xss-lock -- physlock -sm
 exec --no-startup-id opensnitch-ui
+exec --no-startup-id /usr/lib/kdeconnectd
