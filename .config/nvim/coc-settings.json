@@ -2,12 +2,10 @@
   "suggest.noselect": false,
   "typescript.preferences.importModuleSpecifier": "relative",
   "rust-analyzer.checkOnSave.command": "clippy",
-  "rust-analyzer.inlayHints.chainingHints": false,
-  "diagnostic.virtualText": true,
+  "diagnostic.virtualText": false,
   "diagnostic.virtualTextCurrentLineOnly": false,
   "diagnostic.virtualTextLines": 1,
   "signature.maxWindowHeight": 32,
   "npm.binPath": "yarn",
-  "coc.preferences.formatOnSaveFiletypes": ["*"],
-  "coc.source.bibtex.enable": false
+  "coc.preferences.formatOnSaveFiletypes": ["*"]
 }
