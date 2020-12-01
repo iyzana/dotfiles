@@ -23,7 +23,7 @@ let g:lightline = {
 \             [ 'readonly', 'filename', 'modified' ] ],
 \   'right': [ [ 'lineinfo' ],
 \              [ 'percent' ],
-\              [ 'fileformat', 'fileencoding', 'filetype', 'cocstatus' ] ]
+\              [ 'cocstatus', 'filetype', 'fileformat', 'fileencoding' ] ]
 \ },
 \ 'component_function': {
 \   'cocstatus': 'coc#status'
