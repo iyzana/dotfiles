@@ -62,3 +62,40 @@ command! -bang -nargs=* AllFiles
 map <silent><leader>t :NERDTreeFind<CR>
 map <silent><leader>o :NERDTreeToggle<CR>
 
+nmap <silent> go :Alternate<CR>
+
+nmap <silent> go :Alternate<CR>
+
+" linting / doc / navigation
+nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>j <Plug>(coc-diagnostic-next)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> K :call <SID>show_documentation()<CR>
+imap <silent> <C-P> <C-O>:call CocActionAsync('showSignatureHelp')<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocActionAsync('doHover')
+  endif
+endfunction
+
+" refactoring
+nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>f <Plug>(coc-format)
+nmap <leader>qf <Plug>(coc-fix-current)
+nmap <leader>a v<Plug>(coc-codeaction-selected)
+nmap ga v<Plug>(coc-codeaction-selected)
+nmap <A-CR> v<Plug>(coc-codeaction-selected)
+
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+nmap <silent> <S-TAB> <Plug>(coc-range-select)
+xmap <silent> <S-TAB> <Plug>(coc-range-select)
