@@ -14,6 +14,7 @@ set ignorecase
 set smartcase
 
 set scrolloff=3
+autocmd TermOpen term://* set scrolloff=0
 
 set hidden
 set undofile
