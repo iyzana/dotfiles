@@ -1,13 +1,3 @@
-" disable arrow keys
-noremap <left> <nop>
-inoremap <left> <nop>
-noremap <right> <nop>
-inoremap <right> <nop>
-noremap <up> <nop>
-inoremap <up> <nop>
-noremap <down> <nop>
-inoremap <down> <nop>
-
 " split navigation
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
