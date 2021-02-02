@@ -11,7 +11,7 @@ let g:tex_flavor = 'latex'
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_latexmk = {
     \ 'build_dir': 'build',
-    \ 'continuous': 0,
+    \ 'continuous': 1,
     \ 'options' : [
     \   '-verbose',
     \   '-file-line-error',
