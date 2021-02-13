@@ -8,6 +8,7 @@ export NODE_PATH=$NODE_PATH:~/.local/share/yarn/global/node_modules
 
 export EDITOR=/usr/bin/nvim
 
+export FZF_DEFAULT_OPTS="--history=$HOME/.local/share/fzf-history/history"
 export FZF_DEFAULT_COMMAND='fd --type f --follow --exclude dosdevices'
 export FZF_CTRL_T_COMMAND='fd --type f --follow --exclude dosdevices'
 export FZF_ALT_C_COMMAND='fd --type d --follow --exclude dosdevices'
