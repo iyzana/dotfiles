@@ -1,5 +1,7 @@
 export ZDOTDIR="$HOME/.config/zsh"
 export HISTFILE="$HOME/.config/zsh/.zsh_history"
+export HISTSIZE=1000000
+export SAVEHIST=1000000
 
 export PATH=$PATH:/usr/share/bin:$HOME/.yarn/bin:$HOME/.local/bin:$HOME/.local/share/cargo/bin:$HOME/.cache/go
 
