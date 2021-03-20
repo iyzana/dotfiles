@@ -38,7 +38,7 @@ Plug 'doums/darcula'
 " languages
 Plug 'lervag/vimtex'
 Plug 'sheerun/vim-polyglot'
-Plug 'dense-analysis/ale', { 'for': 'tex', 'on': 'ALEEnable' }
+Plug 'dense-analysis/ale', { 'for': ['tex', 'sh', 'zsh'], 'on': 'ALEEnable' }
 
 " completion
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
