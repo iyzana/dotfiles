@@ -1,5 +1,5 @@
 # load keymap
-setxkbmap -model pc104 -layout de -variant nodeadkeys -option compose:menu
+setxkbmap -model pc104 -layout de -variant nodeadkeys -option compose:lctrl-altgr
 xmodmap ~/.Xmodmap
 
 # enable numlock
