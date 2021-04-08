@@ -210,6 +210,8 @@
     # layout changes.
     force_xinerama = false
 
+    mouse_middle_click = do_action
+
 # Experimental features that may or may not work correctly. Do not expect them
 # to have a consistent behaviour across releases.
 [experimental]
