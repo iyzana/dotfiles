@@ -17,7 +17,7 @@ alias df='df -h'
 alias rm='rm -I'
 
 vim() {
-    if [ "$TERM" = "xterm-kitty" ]; then
+    if [[ "$TERM" = "xterm-kitty" ]] && command -v kitty > /dev/null; then
         # kitty @ set-colors "$HOME/.config/oh-my-zsh/custom/kitty-bg.conf"
         kitty @ set-spacing padding=0
         nvim $*
