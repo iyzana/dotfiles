@@ -11,7 +11,7 @@ export EDITOR=/usr/bin/nvim
 export FZF_DEFAULT_OPTS="--history=$HOME/.local/share/fzf-history/history"
 export FZF_DEFAULT_COMMAND='fd --type f --follow --exclude dosdevices'
 export FZF_CTRL_T_COMMAND='fd --type f --follow --exclude dosdevices'
-export FZF_ALT_C_COMMAND='fd --type d --follow --exclude dosdevices'
+export FZF_ALT_C_COMMAND='fd --type d --max-depth 5 --follow --exclude dosdevices'
 
 export JAVA_HOME=/usr/lib/jvm/default
 export QT_QPA_PLATFORMTHEME='qt5ct'
