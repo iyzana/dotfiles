@@ -1,0 +1,49 @@
+configuration {
+    modi: "drun,calc,window";
+    font: "hack 16";
+    show-icons: true;
+    icon-theme: "Papirus";
+    width: 22;
+    lines: 5;
+    kb-cancel: "Escape,Control+g,Control+bracketleft,Alt+space";
+}
+
+* {
+    text-color: #d0d0d0;
+    background-color: #1c1c1c;
+}
+
+window {
+    anchor: south;
+    padding: 16px;
+    border: 2px;
+    border-color: #5c5cd6;
+    border-radius: 10px;
+}
+
+prompt {
+    margin: 0 0.5em 0 0;
+}
+
+inputbar {
+    margin: 0 0 0.5em 0;
+}
+
+entry {
+    vertical-align: 1;
+}
+
+element {
+    text-color: #888a85;
+    padding: 0.1em 0 0.2em 0;
+}
+
+element.selected {
+    text-color: #d0d0d0;
+    padding: 0.1em 0 0.2em 0;
+}
+
+element-icon {
+    margin: 0 0.2em 0 0;
+    size: 1.4em;
+}

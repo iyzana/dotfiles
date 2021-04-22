@@ -73,5 +73,6 @@ link_dir "zathura" ".config/zathura"
 link_dir "i3" ".config/i3"
 link_dir "i3status" ".config/i3status"
 link_dir "alacritty" ".config/alacritty"
+link_dir "rofi" ".config/rofi"
 
 echo -e "\e[32mdone"
