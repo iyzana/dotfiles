@@ -28,7 +28,13 @@ local PROMPT_COLOR="%(?.%{$fg[default]%}.%{$fg[red]%})"
 PROMPT_PATH_COLOR=$fg[green]
 GIT_PROMPT_INFO=$fg[default]
 
-PROMPT='%{$PROMPT_PATH_COLOR%}%m:%2~ %{$PROMPT_COLOR%}>%{$reset_color%} '
+prompt_context() {
+  if [[ -n "$SSH_CLIENT" ]]; then
+    echo "$USER@%m:"
+  fi
+}
+
+PROMPT='%{$PROMPT_PATH_COLOR%}$(prompt_context)%2~ %{$PROMPT_COLOR%}>%{$reset_color%} '
 RPROMPT='${elapsed} %{$GIT_PROMPT_INFO%}$(git_prompt_info)%{$GIT_DIRTY_COLOR%}$(git_prompt_status)%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX=""
