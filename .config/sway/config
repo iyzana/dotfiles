@@ -7,6 +7,7 @@ set $term kitty
 set $browser firefox
 set $files kitty -e ranger
 set $lock swaylock -f
+set $audio pavucontrol
 
 # ::: idle config :::
 # `man 1 swayidle`
@@ -18,12 +19,13 @@ exec swayidle -w \
       resume 'swaymsg "output * dpms on"' \
   timeout 120 '$lock' \
   before-sleep '$lock' \
-  lock '$lock'
+  lock '$lock' \
+  idlehint 120
 
 # ::: output config :::
 # `man 5 sway-output`
 
-output * bg $HOME/visuals/bg/arch.png fill
+output * bg $HOME/visuals/bg/colorful-life-balcony.jpg fill
 
 output eDP-1 position 1920,0
 output DP-1 position 0,0
@@ -32,31 +34,23 @@ output 'Sony SONY TV  *00 0x00000101' res 1920x1080
 # ::: input config :::
 # `man 5 sway-input`
 
-input * {
-    # keyboard
+input type:keyboard {
     xkb_layout de
     xkb_variant nodeadkeys
     xkb_options caps:escape,compose:menu
     xkb_numlock enabled
+}
 
-    # touchpad
+input type:touchpad {
     middle_emulation disabled
     dwt enabled
     tap enabled
     scroll_factor 1.33333
-}
-
-# touchpad
-input "1102:4639:DELL0817:00_044E:121F_Touchpad" {
     natural_scroll enabled
 }
 
-# tablet
-input "1386:886:Wacom_Intuos_BT_S_Pen" {
-    map_to_output DP-1
-}
-input "1386:887:Wacom_Intuos_BT_S_Pen" {
-    map_to_output DP-1
+input type:tablet_tool {
+    map_to_output eDP-1
 }
 
 # ::: generic keys :::
@@ -74,6 +68,7 @@ bindsym $wm_mod+Return exec $term
 bindsym $app_mod+f exec $browser
 bindsym $app_mod+e exec $files
 bindsym $app_mod+t exec $term
+bindsym $app_mod+p exec $audio
 bindsym Ctrl+Shift+l exec $lock
 bindsym $wm_mod+d exec makoctl dismiss
 
@@ -81,17 +76,21 @@ bindsym $wm_mod+d exec makoctl dismiss
 bindsym $wm_mod+q kill
 
 # program launcher
-bindsym Alt+space fullscreen disable; exec albert toggle
+bindsym Alt+space fullscreen disable; exec pkill rofi || rofi -modi drun\\,calc -show drun
+bindsym $wm_mod+c exec dmenu_path | bemenu | xargs swaymsg exec --
 
 # ::: media keys :::
 
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') -5%
-bindsym XF86AudioMute exec pactl set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pamixer --get-volume > $SWAYSOCK.wob
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pamixer --get-volume > $SWAYSOCK.wob
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && ( pamixer --get-mute && echo 0 > $SWAYSOCK.wob ) || pamixer --get-volume > $SWAYSOCK.wob
 bindsym XF86AudioMicMute exec pactl set-source-mute $(pacmd list-sources |awk '/* index:/{print $3}') toggle
-bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
-bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%- && brightnessctl info -m | cut -f 4 -d',' | tr -d % > $SWAYSOCK.wob
+bindsym XF86MonBrightnessUp exec brightnessctl set +10% && brightnessctl info -m | cut -f 4 -d',' | tr -d % > $SWAYSOCK.wob
 bindsym --release Print exec grim -g \"$(slurp)" "screenshot-$(date --iso-8601=seconds).png"
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioPrev exec playerctl previous
+bindsym --locked XF86AudioPlay exec playerctl play-pause
 
 # ::: wm keys :::
 
@@ -161,6 +160,8 @@ bindsym $wm_mod+Shift+space floating toggle
 bindsym $wm_mod+Shift+minus move scratchpad
 bindsym $wm_mod+minus scratchpad show
 
+bindsym $wm_mod+g sticky toggle
+
 bindsym $wm_danger_mod+c reload
 bindsym $wm_danger_mod+e exit
 
@@ -201,17 +202,17 @@ bar {
 
 default_border pixel
 font 'SF Pro Display' 11
+title_align center
 
 # colors                border  background  text    indicator  child-border
-client.focused          #999999 #999999     #000000 #999999    #999999
-client.unfocused        #0f1419 #0f1419     #f8eafd #0f1419    #0f1419
-client.focused_inactive #0f1419 #0f1419     #f8eafd #0f1419    #0f1419
+client.focused          #1c1c1c #1c1c1c     #dddddd #999999    #999999
+client.unfocused        #1c1c1c #1c1c1c     #999999 #1c1c1c    #1c1c1c
+client.focused_inactive #1c1c1c #1c1c1c     #dddddd #1c1c1c    #1c1c1c
 
 # ::: ui layout :::
 
 gaps inner 15
 gaps outer 10
-gaps top 0
 smart_gaps on
 smart_borders on
 
@@ -232,6 +233,7 @@ exec gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 # allowed inactivity
 for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [app_id="mpv"] inhibit_idle fullscreen
+for_window [class="microsoft teams - preview" title="Meeting | Microsoft Teams"] inhibit_idle open
 
 floating_modifier $wm_mod normal
 seat seat0 hide_cursor 2000
@@ -239,13 +241,14 @@ seat seat0 hide_cursor 2000
 # ::: startup :::
 
 # autostart
-exec --no-startup-id XDG_SESSION_TYPE=x11 albert
 exec mako
-exec --no-startup-id sh ~/.config/sway/battery-warn.sh
+exec sh ~/.config/sway/battery-warn.sh
 exec libinput-gestures-setup start
-exec keepassxc
-exec --no-startup-id nm-applet --indicator
-exec --no-startup-id blueman-applet
-exec --no-startup-id autotiling
+exec 'sleep 1; keepassxc'
+exec nm-applet --indicator
+exec blueman-applet
+exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob --height 40 --background-color \#0f1419ff --border-color \#999999ff --bar-color \#bbbbbbff --offset 0 --padding 4 --border 2
+exec safeeyes
+exec wlsunset -l 51 -L 7
 
 include /etc/sway/config.d/*
