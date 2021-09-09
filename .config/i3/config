@@ -45,7 +45,7 @@ bindsym Ctrl+Shift+L exec physlock -sm
 bindsym $wm_mod+q kill
 
 # program launcher
-bindsym Mod1+space fullscreen disable; exec albert toggle
+bindsym Mod1+space fullscreen disable; exec "pkill rofi || rofi -modi drun,calc -show drun"
 
 # ::: media keys :::
 
