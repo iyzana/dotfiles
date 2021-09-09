@@ -35,7 +35,8 @@ let g:AlternateExtensionMappings = [{
 \ }, {
   \ '.component.ts': '.component.html',
   \ '.component.html': '.component.scss',
-  \ '.component.scss': '.component.ts',
+  \ '.component.scss': '.component.css',
+  \ '.component.css': '.component.ts',
 \ }]
 
 autocmd CursorHold * silent call CocActionAsync('highlight')

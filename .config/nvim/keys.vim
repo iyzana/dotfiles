@@ -52,8 +52,6 @@ map <silent><leader>o :NERDTreeToggle<CR>
 
 nmap <silent> go :Alternate<CR>
 
-nmap <silent> go :Alternate<CR>
-
 " linting / doc / navigation
 nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>j <Plug>(coc-diagnostic-next)

@@ -7,5 +7,6 @@
   "diagnostic.virtualTextLines": 1,
   "signature.maxWindowHeight": 32,
   "npm.binPath": "yarn",
-  "coc.preferences.formatOnSaveFiletypes": ["*"]
+  "coc.preferences.formatOnSaveFiletypes": ["*"],
+  "angular.experimental-ivy": true
 }
