@@ -24,6 +24,13 @@ set inccommand=nosplit
 
 set mouse=nv
 
+function! ProjectPath()
+     return fnamemodify(getcwd(), ":~")
+endfunction
+
+set title
+set titlestring=nvim\ %{ProjectPath()}\ -\ %t
+
 " autosave
 autocmd FocusLost * silent! wa
 autocmd BufEnter term://* silent! wa
