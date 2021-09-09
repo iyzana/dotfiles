@@ -27,9 +27,8 @@ exec swayidle -w \
 
 output * bg $HOME/visuals/bg/colorful-life-balcony.jpg fill
 
-output eDP-1 position 1920,0
-output DP-1 position 0,0
-output 'Sony SONY TV  *00 0x00000101' res 1920x1080
+output eDP-1 position 0,0
+include ./outputs
 
 # ::: input config :::
 # `man 5 sway-input`
