@@ -28,8 +28,8 @@ vim() {
     fi
 }
 
-alias ls='exa -l'
-alias la='exa -la'
+alias ls='exa --long --group-directories-first'
+alias la='exa --long --all --group-directories-first'
 unalias l
 unalias ll
 
@@ -49,18 +49,25 @@ alias -g T='| tail'
 # no I did not mean .config
 
 alias git='nocorrect git'
-alias yay='nocorrect yay'
 alias cargo='nocorrect cargo'
 alias cuts='nocorrect cuts'
+
+# lazy loading
+
+nvm() {
+  source ~/.nvm/nvm.sh # redefines nvm
+  nvm "$@"
+}
 
 # otherwise too long
 
 markdown() { consolemd $* | less }
 
-alias glog="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
-alias glg="glog"
+alias lg='lazygit'
+alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+
 gswf() {
-  git switch $(git branch -r | grep "$1" | sed "s#  origin/##" | grep -v HEAD | fzf)
+  git switch $(git branch -a | sed "s#\(\*\| \) \(remotes/origin/\)\?##" | grep -v HEAD | grep "$1" | sort | uniq | fzf)
 }
 
 alias youtube-audio='youtube-dl -x -f bestaudio/best --audio-quality 0 --default-search "ytsearch:" --add-metadata --metadata-from-title "(?P<artist>.+?) - (?P<title>.+?)( \(.*\).*)?$" -o "%(title)s.%(ext)s"'
@@ -91,3 +98,14 @@ alias jce='journalctl -eu'
 alias jcf='journalctl -fu'
 alias jcue='journalctl --user -eu'
 alias jcuf='journalctl --user -fu'
+
+# bad netizen
+function ping() {
+    if [[ $@ == "netflix.com" || $@ == "duckduckgo.com" ]]; then
+      echo "$@ is a bad netizen";
+      (exit 2);
+    else
+      command ping "$@";
+    fi
+}
+
