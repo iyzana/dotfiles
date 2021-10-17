@@ -35,6 +35,10 @@ command! -bang -nargs=* Rg
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('right:50%:hidden', '´'), <bang>0)
 
+autocmd User targets#mappings#user call targets#mappings#extend({
+  \   'b': {'pair': [{'o': '(', 'c': ')'}]},
+  \ })
+
 command! -bang -nargs=* AllFiles
   \ call fzf#run(
   \   fzf#wrap(

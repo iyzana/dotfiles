@@ -9,7 +9,11 @@ let g:nerdtree_plugin_open_cmd = 'xdg-open'
 set number
 
 " disable statusline
-set laststatus=2
+if exists('g:started_by_firenvim')
+  set laststatus=0
+else
+  set laststatus=2
+endif
 set noruler
 set noshowmode
 

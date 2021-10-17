@@ -43,4 +43,7 @@ Plug 'dense-analysis/ale', { 'for': ['tex', 'sh', 'zsh'], 'on': 'ALEEnable' }
 " completion
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
+" integrations
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
 call plug#end()
