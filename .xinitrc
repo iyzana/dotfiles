@@ -13,11 +13,11 @@ xset s off
 xrandr --dpi 120
 
 # set background
-# ~/.fehbg &
-hsetroot -solid "#1c1c1c"
+~/.fehbg &
+# hsetroot -solid "#1c1c1c"
 
 # configure graphic tablet
-xsetwacom set "Wacom Intuos BT S Pen stylus" MapToOutput "HEAD-0"
+xsetwacom --set "Wacom Intuos BT S Pen stylus" MapToOutput "HEAD-0"
 
 # update env
 systemctl --user import-environment DISPLAY XAUTHORITY
