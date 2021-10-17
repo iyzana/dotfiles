@@ -53,9 +53,9 @@ bindsym Mod1+space fullscreen disable; exec "pkill rofi || rofi -modi drun,calc 
 bindsym Print exec flameshot gui
 
 # audio control
-bindsym XF86AudioPrev exec --no-startup-id zsh -c "playerctl -p playerctld previous"
-bindsym XF86AudioPlay exec --no-startup-id zsh -c "playerctl -p playerctld play-pause"
-bindsym XF86AudioNext exec --no-startup-id zsh -c "playerctl -p playerctld next"
+bindsym XF86AudioPrev exec --no-startup-id zsh -c "playerctl previous"
+bindsym XF86AudioPlay exec --no-startup-id zsh -c "playerctl play-pause"
+bindsym XF86AudioNext exec --no-startup-id zsh -c "playerctl next"
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
@@ -156,7 +156,7 @@ default_border pixel 2
 smart_borders on
 
 set $border #000000
-set $focus #5c5cd6
+set $focus #2a7a81
 set $nofocus #444444
 set $text #d0d0d0
 
@@ -170,14 +170,15 @@ client.focused_inactive $border $nofocus $text $nofocus
 bar {
     position top
     status_command i3status
-    height 32
+    height 40
     i3bar_command i3bar
+    tray_padding 6
 
     colors {
         statusline #d0d0d0
         background #1c1c1c
-        active_workspace #1c1c1c #1c1c1c #5c5cd6
-        focused_workspace #1c1c1c #1c1c1c #5c5cd6
+        active_workspace #1c1c1c #1c1c1c $focus
+        focused_workspace #1c1c1c #1c1c1c $focus
         inactive_workspace #1c1c1c #1c1c1c #d0d0d0
     }
 }
@@ -185,7 +186,7 @@ bar {
 # ::: ui layout :::
 
 gaps inner 15
-smart_gaps on
+# smart_gaps on
 
 for_window [class="albert" instance="albert"] floating enable
 for_window [class="TeamSpeak 3"] resize set width 33ppt
@@ -194,6 +195,7 @@ for_window [class="Nm-connection-editor"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [title="Microsoft Teams Notification"] floating enable
 for_window [class="KeePassXC" title="Unlock Database .*"] floating enable
+for_window [class="jetbrains-.*" title="win0"] floating enable
 
 # ::: startup :::
 
@@ -203,10 +205,12 @@ exec --no-startup-id nm-applet
 exec keepassxc # at least one program handling startup id correctly
 exec --no-startup-id flameshot
 exec --no-startup-id dunst
-exec --no-startup-id zsh -c "sleep 15; jellyfin-mpv-shim"
+
+# for nvidia-container runtime for jellyfin
+exec --no-startup-id zsh -c 'nvidia-modprobe -u -c=0; sudo systemctl start docker; sleep 10; jellyfin-mpv-shim'
+
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id autotiling
-exec --no-startup-id picom -o 0 -I 1 -O 1 -C -i 1 -e 1 -m 1
+exec --no-startup-id picom -o 0.75 -I 1 -O 1 -C -i 1 -e 1 -m 1 -G
 exec --no-startup-id xss-lock -- physlock -sm
 exec --no-startup-id opensnitch-ui
 exec --no-startup-id /usr/lib/kdeconnectd
