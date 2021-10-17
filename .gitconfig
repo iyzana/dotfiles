@@ -1,16 +1,15 @@
 [alias]
-    co = checkout
-    s = status
-    l = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-
+	month = !bash ~/.local/git-month.sh
 [pull]
     rebase = true
-
 [rebase]
     autosquash = true
-
 [credential]
     helper = cache
+[include]
+    path = .local/.gitconfig
+[init]
+	defaultBranch = main
 
 [url "git@github.com:"]
     insteadOf = "gh:"
@@ -21,10 +20,6 @@
 [url "git@bitbucket.org:succcubbus/"]
     insteadOf = "bb:/"
 
-[include]
-    path = .local/.gitconfig
-[core]
-    excludesfile = ~/.gitignore
 [merge]
     tool = vscode
 [mergetool "vscode"]
@@ -36,5 +31,3 @@
     trustExitCode = true
 [difftool "kitty"]
     cmd = kitty +kitten diff $LOCAL $REMOTE
-[init]
-	defaultBranch = main
