@@ -38,7 +38,7 @@ let g:lightline = {
   " Use auocmd to force lightline update.
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
-let g:fzf_layout = { 'window': {'width': 0.7, 'height': 0.6 } }
+let g:fzf_layout = { 'window': {'width': 0.8, 'height': 0.6 } }
 let $FZF_DEFAULT_OPTS='--layout=reverse --history=' . $HOME . '/.local/share/fzf-history/vim-history'
 
 " terminal visual separator
