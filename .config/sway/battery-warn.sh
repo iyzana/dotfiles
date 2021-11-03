@@ -13,7 +13,7 @@ while true; do
       # reduce time, because os shuts down at 5%
       ACTUAL_REMAINING=$(echo "scale=1; $REMAINING_MIN / $PERCENT * ($PERCENT - 5)" | bc)
 
-      if (( $(echo "$ACTUAL_REMAINING <= 15.0" | bc -l) )); then
+      if (( $(echo "$ACTUAL_REMAINING <= 10.0" | bc -l) )); then
         notify-send -a battery -u critical "battery low" "at $PERCENT%, ~$ACTUAL_REMAINING minutes remaining"
         ALERTED=true
       fi
