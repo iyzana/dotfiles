@@ -223,8 +223,8 @@ for_window [app_id="org.pwmt.zathura"] resize shrink width 20 ppt
 
 # ::: ui theme :::
 
-exec gsettings set org.gnome.desktop.interface gtk-theme 'Aritim-Dark'
-exec gsettings set org.gnome.desktop.wm.preferences theme 'Aritim-Dark'
+exec gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+exec gsettings set org.gnome.desktop.wm.preferences theme 'Adwaita-dark'
 exec gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 
 # ::: ui behaviour :::
@@ -236,6 +236,7 @@ for_window [class="microsoft teams - preview" title="Meeting | Microsoft Teams"]
 
 floating_modifier $wm_mod normal
 seat seat0 hide_cursor 2000
+workspace_auto_back_and_forth yes
 
 # ::: startup :::
 
@@ -247,7 +248,6 @@ exec 'sleep 1; keepassxc'
 exec nm-applet --indicator
 exec blueman-applet
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob --height 40 --background-color \#0f1419ff --border-color \#999999ff --bar-color \#bbbbbbff --offset 0 --padding 4 --border 2
-exec safeeyes
 exec wlsunset -l 51 -L 7
 
 include /etc/sway/config.d/*
