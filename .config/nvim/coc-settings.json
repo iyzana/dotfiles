@@ -3,8 +3,6 @@
   "typescript.preferences.importModuleSpecifier": "relative",
   "rust-analyzer.checkOnSave.command": "clippy",
   "diagnostic.virtualText": false,
-  "diagnostic.virtualTextCurrentLineOnly": false,
-  "diagnostic.virtualTextLines": 1,
   "npm.binPath": "yarn",
   "coc.preferences.formatOnSaveFiletypes": ["*"],
   "angular.experimental-ivy": true

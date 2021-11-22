@@ -13,6 +13,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-swap'
 Plug 'wellle/targets.vim'
+Plug 'jiangmiao/auto-pairs'
 
 " format
 Plug 'editorconfig/editorconfig-vim'
