@@ -108,7 +108,7 @@
       "top": 100,
       "full": 99,
       "good": 90,
-      "warning": 30,
+      "warning": 25,
       "critical": 10
     },
     "format": "{capacity}% {icon}",
@@ -136,7 +136,7 @@
     "format-bluetooth": "{volume}% {icon} {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
     "format-muted": " {format_source}",
-    "format-source": "{volume}% ",
+    "format-source": "",
     "format-source-muted": "",
     "format-icons": {
       "headphone": "",

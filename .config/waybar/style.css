@@ -10,7 +10,7 @@ window#waybar {
   background-color: #1c1c1c;
   color: #ffffff;
 
-  font-family: SF Pro Display, Roboto, Helvetica, Arial, sans-serif;
+  font-family: SF Pro Display, Roboto, Helvetica, sans-serif;
   font-size: 13px;
 }
 
@@ -103,6 +103,10 @@ window#waybar.solo {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+}
+
+#battery.warning:not(.charging) {
+  color: #fccc2d;
 }
 
 #battery.critical:not(.charging) {
