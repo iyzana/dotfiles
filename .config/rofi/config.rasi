@@ -1,10 +1,9 @@
 configuration {
     modi: "drun,calc,window";
-    font: "hack 16";
+    font: "hack 14";
     show-icons: true;
     icon-theme: "Papirus";
     width: 22;
-    lines: 5;
     kb-cancel: "Escape,Control+g,Control+bracketleft,Alt+space";
     kb-accept-entry: "Control+m,Return,KP_Enter";
     kb-row-up: "Up,Control+p,Control+k,ISO_Left_Tab";
@@ -12,42 +11,4 @@ configuration {
     kb-remove-to-eol: "";
 }
 
-window {
-    padding: 16px;
-    border: 2px;
-    width: 600px;
-    border-color: #5c5cd6;
-    border-radius: 10px;
-}
-
-window, message, textbox, mainbox, prompt, inputbar, entry, listview, scrollbar, element, element normal normal, element alternate normal, element selected normal, element-text selected, element-icon {
-    text-color: #d0d0d0;
-    background-color: #1c1c1c;
-}
-
-inputbar {
-    margin: 0 0 0.5em 0;
-}
-
-listview {
-    lines: 5;
-}
-
-element, element normal normal, element alternate normal, element selected normal {
-    text-color: #888a85;
-    padding: 0;
-    padding: 0.1em 0 0.2em 0;
-}
-
-element-text {
-    text-color: #888a85;
-}
-
-element-text, element-text selected {
-    padding: 0.2em 0 0 0;
-}
-
-element-icon {
-    margin: 0 0.2em 0 0;
-    size: 1.4em;
-}
+@theme "iyzana"
