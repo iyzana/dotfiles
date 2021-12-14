@@ -66,10 +66,6 @@ markdown() { consolemd $* | less }
 alias lg='lazygit'
 alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 
-gswf() {
-  git switch $(git branch -a | sed "s#\(\*\| \) \(remotes/origin/\)\?##" | grep -v HEAD | grep "$1" | sort | uniq | fzf)
-}
-
 alias youtube-audio='youtube-dl -x -f bestaudio/best --audio-quality 0 --default-search "ytsearch:" --add-metadata --metadata-from-title "(?P<artist>.+?) - (?P<title>.+?)( \(.*\).*)?$" -o "%(title)s.%(ext)s"'
 
 play() {
