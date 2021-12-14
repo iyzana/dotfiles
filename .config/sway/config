@@ -25,7 +25,7 @@ exec swayidle -w \
 # ::: output config :::
 # `man 5 sway-output`
 
-output * bg $HOME/visuals/bg/colorful-life-balcony.jpg fill
+output * bg $HOME/images/background/colorful-life-balcony.jpg fill
 
 output eDP-1 position 0,0
 include ./outputs
@@ -204,7 +204,7 @@ font 'SF Pro Display' 11
 title_align center
 
 # colors                border  background  text    indicator  child-border
-client.focused          #1c1c1c #1c1c1c     #dddddd #999999    #999999
+client.focused          #999999 #1c1c1c     #dddddd #999999    #999999
 client.unfocused        #1c1c1c #1c1c1c     #999999 #1c1c1c    #1c1c1c
 client.focused_inactive #1c1c1c #1c1c1c     #dddddd #1c1c1c    #1c1c1c
 
