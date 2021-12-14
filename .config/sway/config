@@ -5,7 +5,7 @@
 
 set $term kitty
 set $browser firefox
-set $files kitty -e ranger
+set $files nemo
 set $lock swaylock -f
 set $audio pavucontrol
 
