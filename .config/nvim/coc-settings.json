@@ -1,9 +1,8 @@
 {
   "suggest.noselect": false,
-  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.importModuleSpecifier": "project-relative",
   "rust-analyzer.checkOnSave.command": "clippy",
   "diagnostic.virtualText": false,
   "npm.binPath": "yarn",
-  "coc.preferences.formatOnSaveFiletypes": ["*"],
-  "angular.experimental-ivy": true
+  "coc.preferences.formatOnSaveFiletypes": ["*"]
 }
