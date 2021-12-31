@@ -53,6 +53,9 @@ bindsym Ctrl+Space exec dunstctl close
 # calculator
 bindsym $app_mod+u fullscreen disable; exec pkill rofi || rofi -modi calc -show calc -no-show-match -no-sort -no-history -no-unicode -hint-welcome "" -calc-command "echo -n '{result}' | xclip -sel clip"
 
+bindsym $app_mod+q exec ~/.config/i3/qr.sh
+bindsym $app_mod+w exec ~/.config/i3/trash.sh
+
 # ::: media keys :::
 
 # take screenshot
@@ -203,6 +206,7 @@ for_window [class="Pavucontrol"] floating enable
 for_window [title="Microsoft Teams Notification"] floating enable
 for_window [class="KeePassXC" title="Unlock Database .*"] floating enable
 for_window [class="jetbrains-.*" title="win0"] floating enable
+for_window [class="Eog" title="qr-.*"] floating enable
 
 # ::: startup :::
 
