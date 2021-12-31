@@ -213,8 +213,7 @@ exec keepassxc # at least one program handling startup id correctly
 exec --no-startup-id flameshot
 exec --no-startup-id dunst
 
-# for nvidia-container runtime for jellyfin
-exec --no-startup-id zsh -c 'nvidia-modprobe -u -c=0; sudo systemctl start docker; sleep 10; jellyfin-mpv-shim'
+exec --no-startup-id zsh -c 'sleep 15; jellyfin-mpv-shim'
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id picom
