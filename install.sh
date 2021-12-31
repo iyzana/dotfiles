@@ -59,6 +59,7 @@ link_file "Xorg" ".Xmodmap"  ".xinitrc" ".fehbg"
 link_file "tmux" ".tmux.conf"
 link_file "git" ".gitconfig"
 link_file "nemo" ".gnome2/accels/nemo"
+link_dir "picom" ".config/picom.conf"
 
 link_dir "termite" ".config/termite"
 link_dir "kitty" ".config/kitty"
