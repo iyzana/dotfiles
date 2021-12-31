@@ -37,7 +37,7 @@ battery all {
 tztime local {
         align = 'center'
         min_width = '2560'
-        format = "%Y-%m-%d %a %H:%M:%S"
+        format = "%a %Y-%m-%d %H:%M:%S"
 }
 
 load {
