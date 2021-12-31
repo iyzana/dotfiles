@@ -207,7 +207,7 @@ for_window [class="jetbrains-.*" title="win0"] floating enable
 # ::: startup :::
 
 exec --no-startup-id albert
-exec --no-startup-id redshift
+exec --no-startup-id redshift -l 51:7
 exec --no-startup-id nm-applet
 exec keepassxc # at least one program handling startup id correctly
 exec --no-startup-id flameshot
