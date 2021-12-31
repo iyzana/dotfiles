@@ -45,7 +45,13 @@ bindsym Ctrl+Shift+L exec physlock -sm
 bindsym $wm_mod+q kill
 
 # program launcher
-bindsym Mod1+space fullscreen disable; exec "pkill rofi || rofi -modi drun,calc -show drun"
+bindsym Mod1+space fullscreen disable; exec pkill rofi || rofi -modi drun -show drun
+
+# notifications
+bindsym Ctrl+Space exec dunstctl close
+
+# calculator
+bindsym $app_mod+u fullscreen disable; exec pkill rofi || rofi -modi calc -show calc -no-show-match -no-sort -no-history -no-unicode -hint-welcome "" -calc-command "echo -n '{result}' | xclip -sel clip"
 
 # ::: media keys :::
 
