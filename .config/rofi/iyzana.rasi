@@ -2,7 +2,7 @@ window {
     padding: 16px;
     border: 2px;
     width: 600px;
-    border-color: #999999;
+    border-color: #5b8ebb;
     border-radius: 10px;
     background-color: #1c1c1c;
 }
