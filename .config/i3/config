@@ -93,6 +93,7 @@ bindsym $wm_mod+s layout stacking
 bindsym $wm_mod+w layout tabbed
 bindsym $wm_mod+e layout toggle split
 bindsym $wm_mod+f fullscreen toggle
+bindsym $wm_mod+g sticky toggle
 bindsym $wm_mod+Shift+space floating toggle
 
 # scratchpad
