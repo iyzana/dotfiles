@@ -3,42 +3,32 @@ if ! grep 'DISTRIB_ID=Arch' /etc/lsb-release > /dev/null; then
     exit
 fi
 
-echo "updating package database"
-sudo pacman -Sy
+echo "installing basic packages"
+sudo pacman -Syu --needed base-devel git curl
 
 is_installed() {
     command -v "$1" > /dev/null
 }
 
-install_pacman() {
-    if ! is_installed "$1"; then
-        echo "installing $1"
-        sudo pacman -S "$1" --noconfirm
-    fi
-}
-
-install_pacman "git"
-install_pacman "curl"
-
-if ! is_installed "yay"; then
-    echo "installing yay"
-    cd /tmp
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
+if ! is_installed "paru"; then
+    echo "installing paru"
+    cd /tmp || exit
+    git clone https://aur.archlinux.org/paru.git
+    cd paru || exit
     makepkg --syncdeps --install --noconfirm
 fi
 
 install_command() {
     if ! is_installed "$1"; then
         echo "installing $2"
-        yay -S "$2" --noconfirm
+        paru -S "$2" --noconfirm
     fi
 }
 
 install_file() {
     if [ ! -e "$1" ]; then
         echo "installing $2"
-        yay -S "$2" --noconfirm
+        paru -S "$2" --noconfirm
     fi
 }
 
@@ -54,10 +44,10 @@ fi
 install_command "nvim" "neovim"
 
 install_command "kitty" "kitty"
-install_file "/usr/share/fonts/OTF/FiraCode-Regular.otf" "otf-fira-code" # font in terminal
+install_file "/usr/share/fonts/TTF/FiraCode-Regular.ttf" "ttf-fira-code" # font in terminal
 install_file "/usr/share/fonts/TTF/Roboto-Regular.ttf" "ttf-roboto" # font in Albert
 install_file "/usr/share/fonts/noto/NotoSans-Regular.ttf" "noto-fonts" # fallback font
 install_file "/usr/share/fonts/noto-cjk/NotoSansCJK-Regular.ttc" "noto-fonts-cjk" # asian scripts font
-install_file "/usr/share/fonts/noto/NotoColorEmoji.ttf" "noto-font-emoji" # emoji font
+install_file "/usr/share/fonts/noto/NotoColorEmoji.ttf" "noto-fonts-emoji" # emoji font
 
 sh "$HOME/.dotfiles/install.sh"
