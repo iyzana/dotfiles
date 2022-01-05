@@ -1,0 +1,57 @@
+@-moz-document domain(qntm.org) {
+  .page__wrapper {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@-moz-document url-prefix(about:reader) {
+  body.serif {
+    font-family: Merriweather !important;
+    font-weight: lighter;
+  }
+  body.sans-serif {
+    font-family: MerriweatherSans !important;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: MerriweatherSans !important;
+    font-weight: bold !important;
+  }
+  .header > h1 {
+    font-size: 2.5em !important;
+    line-height: 1.1em !important;
+  }
+  body.dark {
+    color: #d7d2cb !important;
+    background-color: #1f2223 !important;
+  }
+  body.dark .reader-credits,
+  body.dark .meta-data {
+    color: #a89f91 !important;
+  }
+  .header > .domain {
+    display: none !important;
+    /* border: none !important; */
+  }
+  body.dark .domain {
+    color: #a89f91 !important;
+  }
+  .header > .domain-border {
+    display: none !important;
+    /* padding-bottom: 100px !important; */
+  }
+  .container > hr {
+    display: none !important;
+  }
+  .toolbar {
+    border: none !important;
+    box-shadow: none !important;
+  }
+  img,
+  figure {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}

@@ -76,4 +76,15 @@ link_dir "i3status" ".config/i3status"
 link_dir "alacritty" ".config/alacritty"
 link_dir "rofi" ".config/rofi"
 
+shopt -s failglob
+
+if exists 'firefox'; then
+    FROM='.mozilla/firefox/chrome'
+    TO_GLOB=("$HOME"/.mozilla/firefox/*.default/chrome)
+    TO="${TO_GLOB[0]}"
+    rm -rf "$TO"
+    echo -e "\e[90mlinking $FROM"
+    ln -sf "$DIR/$FROM" "$TO"
+fi
+
 echo -e "\e[32mdone"
