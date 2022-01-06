@@ -54,4 +54,11 @@
     margin-left: auto !important;
     margin-right: auto !important;
   }
+  a:link {
+    text-decoration: none !important;
+    font-weight: inherit !important;
+  }
+  body.dark a:link {
+    color: #a0b9e6 !important;
+  }
 }
