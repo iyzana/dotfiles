@@ -203,6 +203,7 @@ bar {
 # ::: ui decorations :::
 
 default_border pixel
+titlebar_border_thickness 2
 font 'SF Pro Display' 11
 title_align center
 
