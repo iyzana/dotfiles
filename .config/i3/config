@@ -51,10 +51,10 @@ bindsym Mod1+space fullscreen disable; exec pkill rofi || rofi -modi drun -show 
 bindsym Ctrl+Space exec dunstctl close
 
 # calculator
-bindsym $app_mod+u fullscreen disable; exec pkill rofi || rofi -modi calc -show calc -no-show-match -no-sort -no-history -no-unicode -hint-welcome "" -calc-command "echo -n '{result}' | xclip -sel clip"
+bindsym $app_mod+c fullscreen disable; exec pkill rofi || rofi -modi calc -show calc -no-show-match -no-sort -no-history -no-unicode -hint-welcome "" -calc-command "echo -n '{result}' | xclip -sel clip"
 
 bindsym $app_mod+q exec ~/.config/i3/qr.sh
-bindsym $app_mod+w exec ~/.config/i3/trash.sh
+bindsym $app_mod+u exec ~/.config/i3/trash.sh
 
 # ::: media keys :::
 
@@ -218,7 +218,7 @@ exec keepassxc # at least one program handling startup id correctly
 exec --no-startup-id flameshot
 exec --no-startup-id dunst
 
-exec --no-startup-id zsh -c 'sleep 15; jellyfin-mpv-shim'
+exec --no-startup-id zsh -c 'sleep 20; jellyfin-mpv-shim'
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id picom
