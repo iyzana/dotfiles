@@ -88,5 +88,5 @@ xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
-nmap <silent> <S-TAB> <Plug>(coc-range-select)
-xmap <silent> <S-TAB> <Plug>(coc-range-select)
+nmap <silent> <C-S> <Plug>(coc-range-select)
+xmap <silent> <C-S> <Plug>(coc-range-select)
