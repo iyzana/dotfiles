@@ -21,6 +21,7 @@ elif echo "$targets" | grep 'UTF8_STRING'; then
             --form 'keep_for=86400' \
             --form "password=$DATATRASH_PASSWORD" \
             https://trash.randomerror.de/upload \
+        | cut -f1-4 -d/ \
         | tr --delete '\n' \
         | xclip -selection clipboard
     notify-send 'datatrash' 'upload complete'
