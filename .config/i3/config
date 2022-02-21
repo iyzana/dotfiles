@@ -199,6 +199,7 @@ bar {
 gaps inner 15
 # smart_gaps on
 
+for_window [class=.*] border pixel 2 # disallow client-side decorations
 for_window [class="albert" instance="albert"] floating enable
 for_window [class="TeamSpeak 3"] resize set width 33ppt
 for_window [class="Zathura"] resize set width 33ppt
