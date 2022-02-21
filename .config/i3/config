@@ -55,6 +55,7 @@ bindsym $app_mod+c fullscreen disable; exec pkill rofi || rofi -modi calc -show 
 
 bindsym $app_mod+q exec ~/.config/i3/qr.sh
 bindsym $app_mod+u exec ~/.config/i3/trash.sh
+bindsym $app_mod+o exec ~/.config/i3/ocr.sh
 
 # ::: media keys :::
 
