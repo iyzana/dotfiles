@@ -56,7 +56,11 @@ alias cuts='nocorrect cuts'
 
 nvm() {
   source ~/.nvm/nvm.sh # redefines nvm
-  nvm "$@"
+  if [[ $# != 0 ]]; then
+    nvm "$@"
+  else
+    echo "nvm initialized"
+  fi
 }
 
 # otherwise too long
