@@ -24,6 +24,8 @@ set inccommand=nosplit
 
 set mouse=nv
 
+set relativenumber
+
 function! ProjectPath()
      return fnamemodify(getcwd(), ":~")
 endfunction
