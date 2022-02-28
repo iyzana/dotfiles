@@ -46,7 +46,6 @@ input type:touchpad {
     middle_emulation disabled
     dwt enabled
     tap enabled
-    scroll_factor 1.33333
     natural_scroll enabled
 }
 
