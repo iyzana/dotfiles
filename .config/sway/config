@@ -74,6 +74,7 @@ bindsym $wm_mod+d exec makoctl dismiss
 
 # calculator
 bindsym $app_mod+c fullscreen disable; exec pkill rofi || rofi -modi calc -show calc -no-show-match -no-sort -no-history -no-unicode -hint-welcome "" -calc-command "echo -n '{result}' | wl-copy"
+bindsym $app_mod+o exec bash ~/.config/sway/ocr.sh
 
 # kill focused window
 bindsym $wm_mod+q kill
