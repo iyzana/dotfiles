@@ -90,7 +90,8 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && ( pamixe
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set --exponent=4 --min-value=10 10%- && brightnessctl info -m --exponent=4 --min-value=10 | cut -f 4 -d',' | tr -d % > $SWAYSOCK.wob
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set --exponent=4 --min-value=10 +10% && brightnessctl info -m --exponent=4 --min-value=10 | cut -f 4 -d',' | tr -d % > $SWAYSOCK.wob
-bindsym --release Print exec grim -g \"$(slurp)" "images/screenshot/screenshot-$(date +%Y-%m-%dT%H%M%S%z).png"
+bindsym --release Print exec grim -g \"$(slurp)" - | wl-copy
+bindsym --release Shift+Print exec grim -g \"$(slurp)" "images/screenshot/screenshot-$(date +%Y-%m-%dT%H%M%S%z).png"
 bindsym --locked XF86AudioNext exec playerctl -p playerctld next
 bindsym --locked XF86AudioPrev exec playerctl -p playerctld previous
 bindsym --locked XF86AudioPlay exec playerctl -p playerctld play-pause
