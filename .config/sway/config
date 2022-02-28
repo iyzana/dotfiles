@@ -9,6 +9,8 @@ set $files nemo
 set $lock swaylock -f
 set $audio pavucontrol
 
+xwayland force
+
 # ::: idle config :::
 # `man 1 swayidle`
 
