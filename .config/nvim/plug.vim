@@ -48,3 +48,23 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 call plug#end()
+
+let g:coc_global_extensions = [
+      \   'coc-angular',
+      \   'coc-css',
+      \   'coc-docker',
+      \   'coc-emmet',
+      \   'coc-eslint',
+      \   'coc-html',
+      \   'coc-json',
+      \   'coc-markdownlint',
+      \   'coc-prettier',
+      \   'coc-python',
+      \   'coc-rust-analyzer',
+      \   'coc-sh',
+      \   'coc-svg',
+      \   'coc-toml',
+      \   'coc-tslint-plugin',
+      \   'coc-tsserver',
+      \   'coc-vimtex',
+      \ ]
