@@ -1,6 +1,5 @@
 # sane defaults
 alias more='less'
-export LESS='-RmgiQ'
 
 alias shred='shred -f -n3 -z -u'
 

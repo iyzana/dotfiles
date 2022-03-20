@@ -9,6 +9,9 @@ export IPFS_PATH=$HOME/data/ipfs
 
 export EDITOR=/usr/bin/nvim
 
+export LESS='-RmgiQ'
+export MANPAGER="less -R --use-color -Dd+b -Du+C"
+
 export FZF_DEFAULT_OPTS="--history=$HOME/.local/share/fzf-history/history"
 export FZF_DEFAULT_COMMAND='fd --type f --follow --exclude dosdevices'
 export FZF_CTRL_T_COMMAND='fd --type f --follow --exclude dosdevices'
