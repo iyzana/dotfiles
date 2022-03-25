@@ -18,6 +18,47 @@ window#waybar.solo {
   background-color: #1c1c1c;
 }
 
+window#waybar.jetbrains-idea {
+  background-color: #3c3f41;
+}
+
+window#waybar.firefox,
+window#waybar.firefoxdeveloperedition {
+  background-color: #1c1b22;
+}
+
+window#waybar.microsoft\ teams\ \-\ preview {
+  background-color: #0a0a0a;
+}
+
+window#waybar.spotify {
+  background-color: #1d2021;
+}
+
+window#waybar.signal {
+  background: linear-gradient(
+    90deg,
+    #2e2e2e 0%,
+    #2e2e2e 319px,
+    #6a6a6a 320px,
+    #121212 320px,
+    #121212 100%
+  );
+}
+
+window#waybar.nemo {
+  background-color: #353535;
+}
+
+window#waybar.libreoffice-startcenter {
+  background-color: #353535;
+}
+
+window#waybar.libreoffice-calc,
+window#waybar.libreoffice-writer {
+  background-color: #1b1b1b;
+}
+
 #window {
   opacity: 0;
 }
@@ -69,7 +110,6 @@ window#waybar.solo {
 #mpd {
   padding: 0 10px;
   margin: 0 4px;
-  background-color: #1c1c1c;
   color: #ffffff;
 }
 
