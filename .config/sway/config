@@ -80,7 +80,7 @@ bindsym $app_mod+o exec bash ~/.config/sway/ocr.sh
 bindsym $wm_mod+q kill
 
 # program launcher
-bindsym Alt+space fullscreen disable; exec pkill rofi || rofi -modi drun -show drun
+bindsym Alt+space fullscreen disable; exec pkill rofi || rofi -modi drun -show drun -run-command 'swaymsg exec -- {cmd}'
 bindsym $wm_mod+c exec dmenu_path | bemenu | xargs swaymsg exec --
 
 # ::: media keys :::
