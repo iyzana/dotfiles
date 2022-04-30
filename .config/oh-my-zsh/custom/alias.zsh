@@ -27,8 +27,8 @@ vim() {
     fi
 }
 
-alias ls='exa --long --group-directories-first'
-alias la='exa --long --all --group-directories-first'
+alias ls='exa --long --group-directories-first --binary'
+alias la='exa --long --all --group-directories-first --binary'
 unalias l
 unalias ll
 
