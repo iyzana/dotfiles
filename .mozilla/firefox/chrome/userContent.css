@@ -28,13 +28,13 @@
   }
 
   body.dark {
-    color: #d7d2cb !important;
-    background-color: #1f2223 !important;
+    color: #e2ded9 !important;
+    background-color: #131515 !important;
   }
 
   body.dark .reader-credits,
   body.dark .meta-data {
-    color: #a89f91 !important;
+    color: #b3ab9f !important;
   }
 
   .header > .domain {
@@ -43,7 +43,7 @@
   }
 
   body.dark .domain {
-    color: #a89f91 !important;
+    color: #b3ab9f !important;
   }
 
   .header > .domain-border {
@@ -73,7 +73,7 @@
   }
 
   body.dark a:link {
-    color: #a0b9e6 !important;
+    color: #b4c8eb !important;
   }
 
   body.dark a:visited {
@@ -97,7 +97,7 @@
   }
 
   body.dark table tbody tr:nth-of-type(even) {
-    background-color: #25292a !important;
+    background-color: #191c1c !important;
   }
 
   body.dark table tbody tr:first-of-type {
