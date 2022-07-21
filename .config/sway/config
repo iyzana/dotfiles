@@ -4,7 +4,7 @@
 # ::: default apps :::
 
 set $term kitty
-set $browser firefox
+set $internet firefox
 set $files nemo
 set $lock swaylock -f
 set $audio pavucontrol
@@ -29,7 +29,8 @@ exec swayidle -w \
 
 output * bg $HOME/images/background/colorful-life-balcony.jpg fill
 
-output eDP-1 position 0,0
+# 960,1080
+output eDP-1 position 960 1080 
 include ./outputs
 
 # ::: input config :::
@@ -65,11 +66,10 @@ set $up k
 set $right l
 
 bindsym $wm_mod+Return exec $term
-bindsym $app_mod+f exec $browser
-bindsym $app_mod+e exec $files
-bindsym $app_mod+t exec $term
-bindsym $app_mod+p exec $audio
-bindsym Ctrl+Shift+l exec $lock
+bindsym $app_mod+i exec $internet
+bindsym $app_mod+f exec $files
+bindsym $app_mod+a exec $audio
+bindsym $wm_danger_mod+l exec $lock
 bindsym $wm_mod+d exec makoctl dismiss
 
 # calculator
@@ -79,16 +79,23 @@ bindsym $app_mod+o exec bash ~/.config/sway/ocr.sh
 # kill focused window
 bindsym $wm_mod+q kill
 
-# program launcher
-bindsym Alt+space fullscreen disable; exec pkill rofi || rofi -modi drun -show drun -run-command 'swaymsg exec -- {cmd}'
-bindsym $wm_mod+c exec dmenu_path | bemenu | xargs swaymsg exec --
+# program launchers
+bindsym $wm_mod+space fullscreen disable; exec pkill rofi || rofi -modi drun -show drun -run-command 'swaymsg exec -- {cmd}'
+bindsym $app_mod+p exec pkill rofi || ~/.config/sway/rofi-jetbrains.sh
+
+# data pickers
+bindsym $wm_mod+c exec pkill waybar && dmenu_path | bemenu | xargs swaymsg exec --
+bindsym $app_mod+m exec pkill rofi || rofimoji --skin-tone neutral --files emojis
+bindsym $app_mod+s exec pkill rofi || rofimoji --skin-tone neutral --files arrows basic_latin block_elements box_drawing braille_patterns control_pictures dingbats domino_tiles enclosed_alphanumeric_supplement enclosed_alphanumerics general_punctuation geometric_shapes geometric_shapes_extended ideographic_description_characters latin-1_supplement latin_extended-a latin_extended-b latin_extended-c latin_extended-d latin_extended-e latin_extended-f latin_extended-g latin_extended_additional letterlike_symbols mathematical_operators miscellaneous_mathematical_symbols-a miscellaneous_mathematical_symbols-b miscellaneous_symbols miscellaneous_symbols_and_arrows miscellaneous_technical musical_symbols phonetic_extensions phonetic_extensions_supplement playing_cards specials superscripts_and_subscripts supplemental_arrows-a supplemental_arrows-b supplemental_arrows-c supplemental_mathematical_operators supplemental_punctuation
 
 # ::: media keys :::
 
-bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pamixer --get-volume > $SWAYSOCK.wob
-bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pamixer --get-volume > $SWAYSOCK.wob
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && ( pamixer --get-mute && echo 0 > $SWAYSOCK.wob ) || pamixer --get-volume > $SWAYSOCK.wob
-bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym --locked XF86AudioRaiseVolume exec ~/.config/sway/audio.sh volume raise
+bindsym --locked XF86AudioLowerVolume exec ~/.config/sway/audio.sh volume lower
+bindsym --locked Shift+XF86AudioRaiseVolume exec ~/.config/sway/audio.sh system-volume raise
+bindsym --locked Shift+XF86AudioLowerVolume exec ~/.config/sway/audio.sh system-volume lower
+bindsym XF86AudioMute exec ~/.config/sway/audio.sh toggle-output-mute
+bindsym XF86AudioMicMute exec ~/.config/sway/audio.sh toggle-mic-mute
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set --exponent=4 --min-value=10 10%- && brightnessctl info -m --exponent=4 --min-value=10 | cut -f 4 -d',' | tr -d % > $SWAYSOCK.wob
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set --exponent=4 --min-value=10 +10% && brightnessctl info -m --exponent=4 --min-value=10 | cut -f 4 -d',' | tr -d % > $SWAYSOCK.wob
 bindsym --release Print exec grim -g \"$(slurp)" - | wl-copy
@@ -108,9 +115,9 @@ bindsym $wm_mod+Left focus left
 bindsym $wm_mod+Down focus down
 bindsym $wm_mod+Up focus up
 bindsym $wm_mod+Right focus right
-bindsym $wm_mod+space focus mode_toggle
+bindsym $wm_mod+comma focus mode_toggle
 bindsym $wm_mod+a focus parent
-bindsym $wm_mod+Shift+a focus child
+bindsym $wm_mod+y focus child
 
 # move the focused window
 bindsym $wm_mod+Shift+$left move left
@@ -147,10 +154,10 @@ bindsym $wm_mod+Shift+9 move container to workspace 9
 bindsym $wm_mod+Shift+0 move container to workspace 10
 
 # move workspace to different output
-bindsym $wm_mod+Ctrl+h move workspace to output left
-bindsym $wm_mod+Ctrl+j move workspace to output up
-bindsym $wm_mod+Ctrl+k move workspace to output down
-bindsym $wm_mod+Ctrl+l move workspace to output right
+bindsym $wm_mod+Ctrl+Shift+h move workspace to output left
+bindsym $wm_mod+Ctrl+Shift+j move workspace to output up
+bindsym $wm_mod+Ctrl+Shift+k move workspace to output down
+bindsym $wm_mod+Ctrl+Shift+l move workspace to output right
 
 # window layout configuration
 bindsym $wm_mod+b splith
@@ -159,7 +166,7 @@ bindsym $wm_mod+s layout stacking
 bindsym $wm_mod+w layout tabbed
 bindsym $wm_mod+e layout toggle split
 bindsym $wm_mod+f fullscreen
-bindsym $wm_mod+Shift+space floating toggle
+bindsym $wm_mod+Shift+comma floating toggle
 
 # scratchpad
 bindsym $wm_mod+Shift+minus move scratchpad
@@ -256,7 +263,7 @@ exec libinput-gestures-setup start
 exec 'sleep 1; keepassxc'
 exec nm-applet --indicator
 exec blueman-applet
-exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob --height 40 --background-color \#0f1419ff --border-color \#999999ff --bar-color \#bbbbbbff --offset 0 --padding 4 --border 2
+exec ~/.config/sway/audio.sh setup-ui
 exec wlsunset -l 51 -L 7
 
 include /etc/sway/config.d/*
