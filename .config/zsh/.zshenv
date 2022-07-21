@@ -5,7 +5,7 @@ export SAVEHIST=1000000
 
 export PATH=$PATH:/usr/share/bin:$HOME/.yarn/bin:$HOME/.local/bin:$HOME/.local/share/cargo/bin:$HOME/.cache/go
 export NODE_PATH=$NODE_PATH:~/.local/share/yarn/global/node_modules
-export IPFS_PATH=$HOME/data/ipfs
+export IPFS_PATH=$HOME/.local/share/ipfs
 
 export EDITOR=/usr/bin/nvim
 
