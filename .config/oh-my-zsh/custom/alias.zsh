@@ -98,6 +98,30 @@ alias jcf='journalctl -fu'
 alias jcue='journalctl --user -eu'
 alias jcuf='journalctl --user -fu'
 
+jwtdecode() {
+  jwt="$1"
+  if [ -z "$jwt" ]; then
+    read jwt
+  fi
+
+  # https://unix.stackexchange.com/a/29748
+  jwtparts=("${(@f)$(echo "$jwt" | tr '.' '\n')}")
+
+  if [ ${#jwtparts[@]} != 3 ]; then
+    echo "not a jwt"
+    return 1
+  fi
+
+  echo "HEADER"
+  (echo "${jwtparts[1]}" | base64 -id | jq) 2> /dev/null || echo "${jwtparts[1]}" | fold -w 80
+  echo
+  echo "PAYLOAD"
+  (echo "${jwtparts[2]}" | base64 -id | jq) 2> /dev/null || echo "${jwtparts[2]}" | fold -w 80
+  echo
+  echo "SIGNATURE «unverified»"
+  echo "${jwtparts[3]}" | fold -w 80
+}
+
 # bad netizen
 function ping() {
     if [[ $@ == "netflix.com" || $@ == "duckduckgo.com" ]]; then
