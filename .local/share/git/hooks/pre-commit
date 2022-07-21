@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+git diff --cached --name-only | \
+ xargs grep --color --with-filename --line-number --ignore-case 'nocheckin' >&2 \
+ && exit 1
+
+exit 0
+
