@@ -4,5 +4,8 @@
   "rust-analyzer.checkOnSave.command": "clippy",
   "diagnostic.virtualText": false,
   "npm.binPath": "yarn",
-  "coc.preferences.formatOnSaveFiletypes": ["*"]
+  "coc.preferences.formatOnSaveFiletypes": ["*"],
+  "markdownlint.config": {
+    "line_length": false
+  }
 }
