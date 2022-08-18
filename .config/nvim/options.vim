@@ -6,7 +6,6 @@ set shiftwidth=4
 set softtabstop=0
 set expandtab
 set smarttab
-
 set autoindent
 set smartindent
 
@@ -22,9 +21,7 @@ set undofile
 set lazyredraw
 set inccommand=nosplit
 
-set mouse=nv
-
-set relativenumber
+set mouse=nvi
 
 function! ProjectPath()
      return fnamemodify(getcwd(), ":~")
