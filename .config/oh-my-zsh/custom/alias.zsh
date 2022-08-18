@@ -107,7 +107,7 @@ jwtdecode() {
   # https://unix.stackexchange.com/a/29748
   jwtparts=("${(@f)$(echo "$jwt" | tr '.' '\n')}")
 
-  if [ ${#jwtparts[@]} != 3 ]; then
+  if [ ${#jwtparts[@]} != 2 ] && [ ${#jwtparts[@]} != 3 ]; then
     echo "not a jwt"
     return 1
   fi
