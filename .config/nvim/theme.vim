@@ -6,19 +6,28 @@ let g:gitgutter_sign_modified_removed = '•'
 set termguicolors
 set background=dark
 
-" let ayucolor="dark"
-colorscheme PaperColor
-
 " coc overrides
-highlight CocHighlightText guibg=#223922 gui=underline ctermbg=2
-highlight link CocHintSign Comment
-highlight link CocRustTypeHint Comment
-highlight link CocRustChainingHint Comment
-highlight Error guifg=fg
-highlight CocErrorSign guifg=fg
+autocmd ColorScheme * highlight CocHighlightText guibg=#223922 gui=underline ctermbg=2
+autocmd ColorScheme * highlight link CocInlayHint Comment
+autocmd ColorScheme * highlight CocErrorSign guifg=fg
+autocmd ColorScheme * highlight Error guifg=fg
+
+colorscheme PaperColor
 
 " translucent background
 " hi Normal guibg=NONE ctermbg=NONE
+
+" show highlight group under cursor
+" nmap <leader>sp :call <SID>SynStack()<CR>
+" function! <SID>SynStack()
+"   if !exists("*synstack")
+"     return
+"   endif
+"   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+" endfunc
+
+" show all highlight groups
+" :so $VIMRUNTIME/syntax/hitest.vim
 
 " use theme colors for fzf
 let g:fzf_colors =
