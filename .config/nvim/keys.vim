@@ -43,7 +43,7 @@ command! -bang -nargs=* AllFiles
   \ call fzf#run(
   \   fzf#wrap(
   \     fzf#vim#with_preview(
-  \       {'source': 'fd --type f --no-ignore '.shellescape(<q-args>)},
+  \       {'source': 'fd --type f --no-ignore --hidden '.shellescape(<q-args>)},
   \       'right:50%:hidden',
   \       '´'
   \     )
