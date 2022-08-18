@@ -5,6 +5,7 @@
   "diagnostic.virtualText": false,
   "npm.binPath": "yarn",
   "coc.preferences.formatOnSaveFiletypes": ["*"],
+  "notification.disabledProgressSources": ["*"],
   "markdownlint.config": {
     "line_length": false
   }
