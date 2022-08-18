@@ -29,8 +29,8 @@ exec swayidle -w \
 
 output * bg $HOME/images/background/colorful-life-balcony.jpg fill
 
-# 960,1080
-output eDP-1 position 960 1080 
+# 960 1080
+output eDP-1 position 0 0
 include ./outputs
 
 # ::: input config :::
@@ -115,6 +115,8 @@ bindsym $wm_mod+Left focus left
 bindsym $wm_mod+Down focus down
 bindsym $wm_mod+Up focus up
 bindsym $wm_mod+Right focus right
+bindsym $wm_mod+Tab focus right
+bindsym $wm_mod+Shift+Tab focus left
 bindsym $wm_mod+comma focus mode_toggle
 bindsym $wm_mod+a focus parent
 bindsym $wm_mod+y focus child
@@ -213,7 +215,7 @@ bar {
 # ::: ui decorations :::
 
 default_border pixel
-titlebar_border_thickness 2
+titlebar_border_thickness 0
 font 'SF Pro Display' 11
 title_align center
 
