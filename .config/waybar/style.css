@@ -59,6 +59,22 @@ window#waybar.libreoffice-writer {
   background-color: #1b1b1b;
 }
 
+window#waybar.slack {
+  background-color: #121016;
+}
+
+window#waybar.element {
+  background: linear-gradient(
+    90deg,
+    #232528 0%,
+    #232528 68px,
+    #21262c 68px,
+    #21262c 321px,
+    #15191e 321px,
+    #15191e 100%
+  );
+}
+
 #window {
   opacity: 0;
 }
