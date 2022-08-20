@@ -4,4 +4,4 @@ set window-width 2560
 set window-height 1440
 set default-bg "#0f1419"
 set recolor-lightcolor "#0f1419"
-set recolor-darkcolor "#e6e1cf"
+set recolor-darkcolor "#f7f6f1"
