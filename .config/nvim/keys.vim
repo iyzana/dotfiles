@@ -64,7 +64,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> K :call <SID>show_documentation()<CR>
-imap <silent> <C-P> <C-O>:call CocActionAsync('showSignatureHelp')<CR>
+imap <silent> <C-k> <C-O>:call CocActionAsync('showSignatureHelp')<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
