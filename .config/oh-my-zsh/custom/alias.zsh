@@ -86,7 +86,8 @@ open() {
 
 batch-rename() {
     printf '%-60s\n' $(exa) > rename.sh
-    sed -ri -e 's/(.*)/mv \1 \1/' rename.sh
+    sed -ri -e 's/(.*)/mv "\1" "\1"/' rename.sh
+    sed -ri -e 's/(\s{2,})"/"\1/g' rename.sh
     vim rename.sh
     sh rename.sh
     rm rename.sh
