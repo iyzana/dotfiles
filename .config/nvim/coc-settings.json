@@ -1,5 +1,4 @@
 {
-  "suggest.noselect": false,
   "typescript.preferences.importModuleSpecifier": "project-relative",
   "rust-analyzer.checkOnSave.command": "clippy",
   "diagnostic.virtualText": false,
@@ -7,6 +6,6 @@
   "coc.preferences.formatOnSaveFiletypes": ["*"],
   "notification.disabledProgressSources": ["*"],
   "markdownlint.config": {
-    "line_length": false
+    "line-length": false
   }
 }
