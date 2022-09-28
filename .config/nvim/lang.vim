@@ -23,6 +23,9 @@ let g:vimtex_compiler_latexmk = {
 
 " \   '-output-directory=build',
 
+" csv
+let g:csv_no_conceal = 1
+
 " nav
 let g:AlternatePath = []
 let g:AlternateExtensionMappings = [{
