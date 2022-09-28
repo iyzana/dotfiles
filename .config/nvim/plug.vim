@@ -67,5 +67,4 @@ let g:coc_global_extensions = [
       \   'coc-tslint-plugin',
       \   'coc-tsserver',
       \   'coc-vimtex',
-      \   'coc-ltex',
       \ ]
