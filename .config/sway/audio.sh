@@ -26,6 +26,8 @@ fi
 setupUi() {
     if [ ! -e "$ui_pipe" ]; then
       mkfifo "$ui_pipe"
+    fi
+    if ! pgrep wob; then
       tail -f "$ui_pipe" | wob --height 40 --background-color \#0f1419ff --border-color \#999999ff --bar-color \#bbbbbbff --offset 0 --padding 4 --border 2
     fi
 }
@@ -51,7 +53,11 @@ changeVolumePulseaudio() {
 changeVolumePlayerctl() {
   playerctl volume "$playerctl_step$plusminus"
   if [ -e "$ui_pipe" ]; then
-    echo "scale=0; ($(playerctl volume) * 100)/1" | bc > "$ui_pipe"
+    if [ "$1" = "0" ] && [ "$plusminus" = "-" ]; then
+      echo "scale=0; 0" | bc > "$ui_pipe"
+    else
+      echo "scale=0; $1 + ((0$plusminus$playerctl_step) * 100)/1" | bc > "$ui_pipe"
+    fi
   fi
 }
 
@@ -73,10 +79,12 @@ changeVolume() {
   music_status=$(playerctl status || true)
 
   if [ "$music_status" = "Playing" ]; then
-    if playerctl volume; then
-      music_volume=$(echo "scale=0; ($(playerctl volume) * 100)/1" | bc)
+    raw_volume=$(playerctl volume)
+    # shellcheck disable=SC2181 # only run playerctl volume once
+    if [ "$?" = "0" ]; then
+      music_volume=$(echo "scale=0; ($raw_volume * 100)/1" | bc)
       if [ "$2" = "lower" ] || [ "$music_volume" != "100" ]; then
-        if changeVolumePlayerctl; then
+        if changeVolumePlayerctl "$music_volume"; then
           return
         fi
       fi
