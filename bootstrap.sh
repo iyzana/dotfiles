@@ -1,3 +1,5 @@
+#!/bin/env sh
+
 if ! grep 'DISTRIB_ID=Arch' /etc/lsb-release > /dev/null; then
     echo "can only bootstrap arch linux"
     exit
@@ -44,8 +46,10 @@ fi
 install_command "nvim" "neovim"
 
 install_command "kitty" "kitty"
-install_file "/usr/share/fonts/TTF/FiraCode-Regular.ttf" "ttf-fira-code" # font in terminal
-install_file "/usr/share/fonts/TTF/Roboto-Regular.ttf" "ttf-roboto" # font in Albert
+install_file "/usr/share/fonts/TTF/iosevka-regular.ttc" "ttc-iosevka"
+install_file "/usr/share/fonts/TTF/FiraCode-Regular.ttf" "ttf-fira-code"
+install_file "/usr/share/fonts/TTF/Roboto-Regular.ttf" "ttf-roboto"
+install_file "/usr/share/fonts/OTF/SF-Pro-Display-Regular.otf" "apple-fonts"
 install_file "/usr/share/fonts/noto/NotoSans-Regular.ttf" "noto-fonts" # fallback font
 install_file "/usr/share/fonts/noto-cjk/NotoSansCJK-Regular.ttc" "noto-fonts-cjk" # asian scripts font
 install_file "/usr/share/fonts/noto/NotoColorEmoji.ttf" "noto-fonts-emoji" # emoji font
