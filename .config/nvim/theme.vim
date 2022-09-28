@@ -10,7 +10,7 @@ set background=dark
 autocmd ColorScheme * highlight CocHighlightText guibg=#223922 gui=underline ctermbg=2
 autocmd ColorScheme * highlight link CocInlayHint Comment
 autocmd ColorScheme * highlight CocErrorSign guifg=fg
-autocmd ColorScheme * highlight Error guifg=fg
+autocmd ColorScheme * highlight link CocFloatDividingLine CocFloating
 
 colorscheme PaperColor
 
