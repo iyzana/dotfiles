@@ -62,6 +62,7 @@ let g:coc_global_extensions = [
       \   'coc-python',
       \   'coc-rust-analyzer',
       \   'coc-sh',
+      \   'coc-snippets',
       \   'coc-svg',
       \   'coc-toml',
       \   'coc-tslint-plugin',

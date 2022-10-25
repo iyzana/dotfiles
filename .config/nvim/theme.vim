@@ -1,22 +1,3 @@
-let g:gitgutter_sign_added = '•'
-let g:gitgutter_sign_modified = '•'
-let g:gitgutter_sign_modified_removed = '•'
-
-" colorscheme
-set termguicolors
-set background=dark
-
-" coc overrides
-autocmd ColorScheme * highlight CocHighlightText guibg=#223922 gui=underline ctermbg=2
-autocmd ColorScheme * highlight link CocInlayHint Comment
-autocmd ColorScheme * highlight CocErrorSign guifg=fg
-autocmd ColorScheme * highlight link CocFloatDividingLine CocFloating
-
-colorscheme PaperColor
-
-" translucent background
-" hi Normal guibg=NONE ctermbg=NONE
-
 " show highlight group under cursor
 " nmap <leader>sp :call <SID>SynStack()<CR>
 " function! <SID>SynStack()
@@ -28,22 +9,6 @@ colorscheme PaperColor
 
 " show all highlight groups
 " :so $VIMRUNTIME/syntax/hitest.vim
-
-" use theme colors for fzf
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'Normal'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Comment'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
 
 " darcula + gitgutter
 " hi! link GitGutterAdd GitAddStripe
