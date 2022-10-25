@@ -1,6 +1,7 @@
 #!/bin/env sh
 
-config_path="$HOME/.config/JetBrains/IntelliJIdea2022.1"
+config_dir=$(ls -v "$HOME/.config/JetBrains" | grep "IntelliJIdea" | tail -n 1)
+config_path="$HOME/.config/JetBrains/$config_dir"
 recents_path="$config_path/options/recentProjects.xml"
 
 projects=$(xq '.application.component.option | .[] | select(.["@name"] == "additionalInfo").map.entry | .[] | { project: .["@key"], lastOpenend: .value.RecentProjectMetaInfo.option | .[] | select(.["@name"] == "projectOpenTimestamp") | .["@value"] }' "$recents_path")

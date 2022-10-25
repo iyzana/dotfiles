@@ -6,7 +6,7 @@
 set $term kitty
 set $internet firefox
 set $files nemo
-set $lock swaylock -f
+set $lock $HOME/.config/sway/lock
 set $audio pavucontrol
 
 xwayland force
@@ -17,8 +17,6 @@ xwayland force
 exec swayidle -w \
   timeout 105 'brightnessctl --save; brightnessctl set 5%' \
       resume 'brightnessctl --restore' \
-  timeout 120 'swaymsg "output * dpms off"' \
-      resume 'swaymsg "output * dpms on"' \
   timeout 120 '$lock' \
   before-sleep '$lock' \
   lock '$lock' \
@@ -84,7 +82,7 @@ bindsym $wm_mod+space fullscreen disable; exec pkill rofi || rofi -modi drun -sh
 bindsym $app_mod+p exec pkill rofi || ~/.config/sway/rofi-jetbrains.sh
 
 # data pickers
-bindsym $wm_mod+c exec pkill waybar && dmenu_path | bemenu | xargs swaymsg exec --
+bindsym $wm_mod+c exec dmenu_path | bemenu | xargs swaymsg exec --
 bindsym $app_mod+m exec pkill rofi || rofimoji --skin-tone neutral --files emojis
 bindsym $app_mod+s exec pkill rofi || rofimoji --skin-tone neutral --files arrows basic_latin block_elements box_drawing braille_patterns control_pictures dingbats domino_tiles enclosed_alphanumeric_supplement enclosed_alphanumerics general_punctuation geometric_shapes geometric_shapes_extended ideographic_description_characters latin-1_supplement latin_extended-a latin_extended-b latin_extended-c latin_extended-d latin_extended-e latin_extended-f latin_extended-g latin_extended_additional letterlike_symbols mathematical_operators miscellaneous_mathematical_symbols-a miscellaneous_mathematical_symbols-b miscellaneous_symbols miscellaneous_symbols_and_arrows miscellaneous_technical musical_symbols phonetic_extensions phonetic_extensions_supplement playing_cards specials superscripts_and_subscripts supplemental_arrows-a supplemental_arrows-b supplemental_arrows-c supplemental_mathematical_operators supplemental_punctuation
 

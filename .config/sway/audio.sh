@@ -76,12 +76,11 @@ changeSystemVolume() {
 
 changeVolume() {
   setPlusMinus "$@"
-  music_status=$(playerctl status || true)
 
+  music_status=$(playerctl status || true)
   if [ "$music_status" = "Playing" ]; then
-    raw_volume=$(playerctl volume)
-    # shellcheck disable=SC2181 # only run playerctl volume once
-    if [ "$?" = "0" ]; then
+    raw_volume=$(playerctl volume 2> /dev/null || true)
+    if [ -n "$raw_volume" ]; then
       music_volume=$(echo "scale=0; ($raw_volume * 100)/1" | bc)
       if [ "$2" = "lower" ] || [ "$music_volume" != "100" ]; then
         if changeVolumePlayerctl "$music_volume"; then
