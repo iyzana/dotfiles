@@ -134,16 +134,16 @@ window#waybar.element {
   /* font-variant-numeric: tabular-nums; */
 }
 
-#battery {
-  /* background-color: #ffffff; */
-  /* color: #000000; */
-}
+/* #battery { */
+/* background-color: #ffffff; */
+/* color: #000000; */
+/* } */
 
-#battery.charging {
-  color: #26a65b;
-  /* color: #ffffff; */
-  /* background-color: #26a65b; */
-}
+/* #battery.charging { */
+/* color: #26a65b; */
+/* color: #ffffff; */
+/* background-color: #26a65b; */
+/* } */
 
 @keyframes blink {
   to {
@@ -155,11 +155,6 @@ window#waybar.element {
 #battery.full.charging,
 #battery.full.plugged {
   color: #26a65b;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
 }
 
 #battery.warning:not(.charging) {
