@@ -26,3 +26,5 @@ export CARGO_HOME="$HOME/.local/share/cargo"
 export RUSTUP_HOME="$HOME/.local/share/rustup"
 export LESSHISTFILE="$HOME/.cache/less/history"
 export GOPATH="$HOME/.cache/go"
+
+[ -e "$HOME/.config/zsh/secrets.zsh" ] && source "$HOME/.config/zsh/secrets.zsh"
