@@ -1,0 +1,44 @@
+! https://ruhrnachrichten.de
+ruhrnachrichten.de##article.article-premium .StoryShowBody .StoryShowBaseTextBox .PianoContent, article.article-standard .StoryShowBody .StoryShowBaseTextBox .PianoContent:style(filter: unset !important; user-select: unset !important;)
+
+! https://www.golem.de
+www.golem.de##.formatted > .supplementary
+
+! https://www.vb-ws.de
+www.vb-ws.de##.open.darken-layer
+www.vb-ws.de##.lightbox--cookie-consent
+www.vb-ws.de##body:style(position: unset !important; )
+
+! https://arstechnica.com
+arstechnica.com##.article-content > .instream-wrap
+arstechnica.com##.superscroll-ad
+
+! https://www.zeit.de
+www.zeit.de##.newsletter-signup
+
+! https://www.bloomberg.com
+www.bloomberg.com##.paywall.outstream-ad--mobile.outstream-ad
+www.bloomberg.com##.paywall.postr-recirc--citylab.postr-recirc
+www.bloomberg.com##.paywall.page-ad.mobile-box
+
+! https://netzpolitik.org
+netzpolitik.org##.stoerer--article
+netzpolitik.org##.np-interstitial-light
+
+! https://www.spiegel.de
+www.spiegel.de##.sm\:min-h-600.sm\:mb-24
+www.spiegel.de##.sm\:min-h-400.sm\:mb-24
+
+! https://www.zeit.de
+www.zeit.de##.no-print
+
+! https://www.chefkoch.de
+www.chefkoch.de##guj-ad-outstream
+www.chefkoch.de##.ad--top.ad
+www.chefkoch.de##.ad
+www.chefkoch.de##.pi-cont
+www.chefkoch.de##guj-ad
+
+! https://www.youtube.com
+! www.youtube.com##.opened
+! www.youtube.com###lightbox > .ytd-consent-bump-v2-lightbox.style-scope
