@@ -35,7 +35,7 @@ link_file() {
 
 link_dir() {
     if exists "$1"; then
-        rm -rf "$HOME/$2"
+        rm -rf "${HOME:?}/$2"
         link "$2"
     fi
 }
@@ -48,6 +48,13 @@ link_in_dir() {
         for file in "$@"; do
             link "$dir/$file"
         done
+    fi
+}
+
+link_local_file() {
+    if exists "$1"; then
+        shift
+        ln -s "$2" "$1/$3" 
     fi
 }
 
@@ -70,6 +77,7 @@ link_dir "nvim" ".config/nvim"
 link_dir "dunst" ".config/dunst"
 link_dir "mako" ".config/mako"
 link_dir "sway" ".config/sway"
+link_local_file "sway" ".config/sway" "$HOST.conf" "local.conf" 
 link_dir "swaylock" ".config/swaylock"
 link_dir "waybar" ".config/waybar"
 link_dir "zathura" ".config/zathura"

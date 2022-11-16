@@ -6,7 +6,7 @@
 set $term kitty
 set $internet firefox
 set $files nemo
-set $lock "$HOME/.config/sway/lock &"
+set $lock "$HOME/.config/sway/scripts/lock.sh"
 set $audio pavucontrol
 
 xwayland force
@@ -17,20 +17,16 @@ xwayland force
 exec swayidle -w \
   timeout 105 'brightnessctl --save; brightnessctl set 5%' \
       resume 'brightnessctl --restore' \
-  timeout 120 '$lock' \
-  before-sleep '$lock' \
-  lock '$lock' \
-  unlock 'pkill swaylock' \
+  timeout 120 '$lock &' \
+  before-sleep '$lock &' \
+  lock '$lock &' \
   idlehint 120
 
 # ::: output config :::
 # `man 5 sway-output`
 
 output * bg $HOME/images/background/colorful-life-balcony.jpg fill
-
-# 960 1080
-output eDP-1 position 0 0
-include ./outputs
+# display arrangement is in local configs
 
 # ::: input config :::
 # `man 5 sway-input`
@@ -73,14 +69,14 @@ bindsym $wm_mod+d exec makoctl dismiss
 
 # calculator
 bindsym $app_mod+c fullscreen disable; exec pkill rofi || rofi -modi calc -show calc -no-show-match -no-sort -no-history -no-unicode -hint-welcome "" -calc-command "echo -n '{result}' | wl-copy"
-bindsym $app_mod+o exec bash ~/.config/sway/ocr.sh
+bindsym $app_mod+o exec bash ~/.config/sway/scripts/ocr.sh
 
 # kill focused window
 bindsym $wm_mod+q kill
 
 # program launchers
 bindsym $wm_mod+space fullscreen disable; exec pkill rofi || rofi -modi drun -show drun -run-command 'swaymsg exec -- {cmd}'
-bindsym $app_mod+p exec pkill rofi || ~/.config/sway/rofi-jetbrains.sh
+bindsym $app_mod+p exec pkill rofi || ~/.config/sway/scripts/rofi-jetbrains.sh
 
 # data pickers
 bindsym $wm_mod+c exec dmenu_path | bemenu | xargs swaymsg exec --
@@ -89,12 +85,12 @@ bindsym $app_mod+s exec pkill rofi || rofimoji --skin-tone neutral --files arrow
 
 # ::: media keys :::
 
-bindsym --locked XF86AudioRaiseVolume exec ~/.config/sway/audio.sh volume raise
-bindsym --locked XF86AudioLowerVolume exec ~/.config/sway/audio.sh volume lower
-bindsym --locked Shift+XF86AudioRaiseVolume exec ~/.config/sway/audio.sh system-volume raise
-bindsym --locked Shift+XF86AudioLowerVolume exec ~/.config/sway/audio.sh system-volume lower
-bindsym XF86AudioMute exec ~/.config/sway/audio.sh toggle-output-mute
-bindsym XF86AudioMicMute exec ~/.config/sway/audio.sh toggle-mic-mute
+bindsym --locked XF86AudioRaiseVolume exec ~/.config/sway/scripts/audio.sh volume raise
+bindsym --locked XF86AudioLowerVolume exec ~/.config/sway/scripts/audio.sh volume lower
+bindsym --locked Shift+XF86AudioRaiseVolume exec ~/.config/sway/scripts/audio.sh system-volume raise
+bindsym --locked Shift+XF86AudioLowerVolume exec ~/.config/sway/scripts/audio.sh system-volume lower
+bindsym XF86AudioMute exec ~/.config/sway/scripts/audio.sh toggle-output-mute
+bindsym XF86AudioMicMute exec ~/.config/sway/scripts/audio.sh toggle-mic-mute
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set --exponent=4 --min-value=10 10%- && brightnessctl info -m --exponent=4 --min-value=10 | cut -f 4 -d',' | tr -d % > $SWAYSOCK.wob
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set --exponent=4 --min-value=10 +10% && brightnessctl info -m --exponent=4 --min-value=10 | cut -f 4 -d',' | tr -d % > $SWAYSOCK.wob
 bindsym --release Print exec grim -g \"$(slurp)" - | wl-copy
@@ -181,15 +177,6 @@ bindsym $wm_danger_mod+e exit
 # resizing containers
 set $resize_step 25px
 mode "resize" {
-    bindsym $left resize shrink width $resize_step
-    bindsym $down resize grow height $resize_step
-    bindsym $up resize shrink height $resize_step
-    bindsym $right resize grow width $resize_step
-    bindsym Left resize shrink width $resize_step
-    bindsym Down resize grow height $resize_step
-    bindsym Up resize shrink height $resize_step
-    bindsym Right resize grow width $resize_step
-
     bindsym 5 resize set 50 ppt 0
     bindsym 3 resize set 33 ppt 0
     bindsym 6 resize set 66 ppt 0
@@ -259,12 +246,14 @@ workspace_auto_back_and_forth yes
 
 # autostart
 exec mako
-exec sh ~/.config/sway/battery-warn.sh
+exec sh ~/.config/sway/scripts/battery-warn.sh
 exec libinput-gestures-setup start
 exec 'sleep 1; keepassxc'
 exec nm-applet --indicator
 exec blueman-applet
-exec ~/.config/sway/audio.sh setup-ui
+exec ~/.config/sway/scripts/audio.sh setup-ui
 exec wlsunset -l 51 -L 7
+
+include $HOME/.config/sway/local.conf
 
 include /etc/sway/config.d/*
