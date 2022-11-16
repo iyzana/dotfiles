@@ -41,11 +41,11 @@ vim.opt.updatetime = 250
 -- autosave
 vim.api.nvim_create_autocmd(
   { "FocusLost" },
-  { pattern = { "*" }, command = "wa" }
+  { pattern = { "*" }, command = "silent! wa" }
 )
 vim.api.nvim_create_autocmd(
   { "BufEnter" },
-  { pattern = { "term://*" }, command = "wa" }
+  { pattern = { "term://*" }, command = "silent! wa" }
 )
 
 vim.g.coc_data_home = vim.env.HOME .. "/.local/share/coc"
