@@ -32,6 +32,8 @@ alias la='exa --long --all --group-directories-first --binary'
 unalias l
 unalias ll
 
+alias ip='ip --color'
+
 # shorter pipes
 
 alias -g G='| rg'
