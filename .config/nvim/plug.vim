@@ -49,6 +49,12 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 call plug#end()
 
+" sync plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
+" sync coc extensions
 let g:coc_global_extensions = [
       \   'coc-angular',
       \   'coc-css',
