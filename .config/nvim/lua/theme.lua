@@ -8,10 +8,14 @@ local setCocColors = function()
   vim.api.nvim_set_hl(0, "CocInlayHint", { link = "Comment" })
   vim.api.nvim_set_hl(0, "CocErrorSign", { fg = "fg" })
   vim.api.nvim_set_hl(0, "CocFloatDividingLine", { link = "CocFloating" })
+
+  for _, hl in ipairs({"SignColumn", "GitGutterAdd", "GitGutterChange", "GitGutterDelete", "CocErrorSign", "CocWarningSign", "CocInfoSign", "CocHintSign"}) do
+    vim.cmd('highlight ' .. hl .. ' guibg=none')
+  end
 end
 vim.api.nvim_create_autocmd({ "ColorScheme" }, { callback = setCocColors })
 
-vim.api.nvim_command("colorscheme PaperColor")
+vim.api.nvim_command("colorscheme gruvbox8_hard")
 
 vim.g.gitgutter_sign_added = "•"
 vim.g.gitgutter_sign_modified = "•"

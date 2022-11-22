@@ -35,6 +35,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'rakr/vim-one'
 Plug 'doums/darcula'
+Plug 'lifepillar/vim-gruvbox8'
 
 " languages
 Plug 'lervag/vimtex'
