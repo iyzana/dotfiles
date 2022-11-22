@@ -2,6 +2,7 @@
   "typescript.preferences.importModuleSpecifier": "project-relative",
   "rust-analyzer.checkOnSave.command": "clippy",
   "rust-analyzer.inlayHints.parameterHints.enable": false,
+  "rust-analyzer.server.path": "/usr/bin/rust-analyzer",
   "diagnostic.virtualText": false,
   "npm.binPath": "yarn",
   "coc.preferences.formatOnSaveFiletypes": ["*"],
