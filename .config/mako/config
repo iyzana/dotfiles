@@ -8,3 +8,6 @@ border-color=#e6b450
 background-color=#770000
 border-color=#bb0000
 default-timeout=0
+
+[mode=do-not-disturb]
+invisible=1
