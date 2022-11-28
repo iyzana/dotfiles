@@ -39,16 +39,16 @@ bindsym $app_mod+d exec discord
 bindsym $app_mod+e exec nemo
 bindsym $app_mod+p fullscreen disable; exec pavucontrol
 bindsym $app_mod+Ctrl+p exec pulseaudio -k
-bindsym Ctrl+Shift+L exec physlock -sm
+bindsym $wm_danger_mod+Shift+L exec physlock -sm
 
 # kill focused window
 bindsym $wm_mod+q kill
 
 # program launcher
-bindsym Mod1+space fullscreen disable; exec pkill rofi || rofi -modi drun -show drun
+bindsym $wm_mod+space fullscreen disable; exec pkill rofi || rofi -modi drun -show drun
 
 # notifications
-bindsym Ctrl+Space exec dunstctl close
+bindsym $wm_mod+d exec dunstctl close
 
 # calculator
 bindsym $app_mod+c fullscreen disable; exec pkill rofi || rofi -modi calc -show calc -no-show-match -no-sort -no-history -no-unicode -hint-welcome "" -calc-command "echo -n '{expression} = {result}' | xclip -sel clip"
@@ -56,6 +56,7 @@ bindsym $app_mod+c fullscreen disable; exec pkill rofi || rofi -modi calc -show 
 bindsym $app_mod+q exec ~/.config/i3/qr.sh
 bindsym $app_mod+u exec ~/.config/i3/trash.sh
 bindsym $app_mod+o exec ~/.config/i3/ocr.sh
+bindsym $app_mod+m exec ~/projects/morph/morph.sh
 
 # ::: media keys :::
 
@@ -77,9 +78,9 @@ bindsym $wm_mod+$left focus left
 bindsym $wm_mod+$down focus down
 bindsym $wm_mod+$up focus up
 bindsym $wm_mod+$right focus right
-bindsym $wm_mod+space focus mode_toggle
+bindsym $wm_mod+comma focus mode_toggle
 bindsym $wm_mod+a focus parent
-bindsym $wm_mod+d focus child
+bindsym $wm_mod+shift+a focus child
 
 # move focused window
 bindsym $wm_mod+Shift+$left move left
@@ -95,7 +96,7 @@ bindsym $wm_mod+w layout tabbed
 bindsym $wm_mod+e layout toggle split
 bindsym $wm_mod+f fullscreen toggle
 bindsym $wm_mod+g sticky toggle
-bindsym $wm_mod+Shift+space floating toggle
+bindsym $wm_mod+Shift+comma floating toggle
 
 # scratchpad
 bindsym $wm_mod+Shift+minus move scratchpad
@@ -164,7 +165,7 @@ bindsym $wm_mod+r mode "resize"
 font pango:Hack 10
 default_border pixel 2
 
-# smart_borders on
+smart_borders on
 
 set $border #000000
 set $focus #5b8ebb
@@ -198,9 +199,10 @@ bar {
 # ::: ui layout :::
 
 gaps inner 15
-# smart_gaps on
+smart_gaps on
 
-for_window [class=.*] border pixel 2 # disallow client-side decorations
+# disallow client-side decorations
+for_window [class=.*] border pixel 2
 for_window [class="albert" instance="albert"] floating enable
 for_window [class="TeamSpeak 3"] resize set width 33ppt
 for_window [class="Zathura"] resize set width 33ppt
@@ -220,10 +222,11 @@ exec keepassxc # at least one program handling startup id correctly
 exec --no-startup-id flameshot
 exec --no-startup-id dunst
 
-exec --no-startup-id zsh -c 'sleep 20; jellyfin-mpv-shim'
+exec --no-startup-id zsh -c 'docker ps' # start docker off systemd critical path
+# exec --no-startup-id zsh -c 'sleep 60; jellyfin-mpv-shim'
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id picom
+# exec --no-startup-id picom
 exec --no-startup-id xss-lock -- physlock -sm
 exec --no-startup-id opensnitch-ui
 exec --no-startup-id /usr/lib/kdeconnectd
