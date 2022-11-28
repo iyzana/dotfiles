@@ -21,16 +21,14 @@ export JAVA_HOME=/usr/lib/jvm/default
 export QT_QPA_PLATFORMTHEME='qt5ct'
 
 # don't spam my home folder pls
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CACHE_HOME="$HOME/.cache"
-
-export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
-export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
-export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
-export GOPATH="$XDG_CACHE_HOME/go"
-export NVM_DIR="$XDG_DATA_HOME/nvm"
-export GNUPGHOME="$XDG_DATA_HOME/gpg"
-export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
+export GRADLE_USER_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/gradle"
+export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
+export RUSTUP_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/rustup"
+export LESSHISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/less/history"
+export GOPATH="${XDG_CACHE_HOME:-$HOME/.cache}/go"
+export NVM_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/nvm"
+export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gpg"
+export NODE_REPL_HISTORY="${XDG_DATA_HOME:-$HOME/.local/share}/node_repl_history"
+export MOZBUILD_STATE_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/mozbuild"
 
 [ -e "$ZDOTDIR/secrets.zsh" ] && source "$ZDOTDIR/secrets.zsh"
