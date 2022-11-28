@@ -258,6 +258,7 @@ exec nm-applet --indicator
 exec blueman-applet
 exec ~/.config/sway/scripts/audio.sh setup-ui
 exec wlsunset -l 51 -L 7
+exec /usr/lib/kdeconnectd
 
 include $HOME/.config/sway/local.conf
 
