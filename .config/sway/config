@@ -68,7 +68,7 @@ set $right l
 bindsym $wm_mod+Return exec $term
 bindsym $app_mod+i exec $internet
 bindsym $app_mod+f exec $files
-bindsym $app_mod+a exec $audio
+bindsym $app_mod+a fullscreen disable; exec $audio
 bindsym $wm_danger_mod+l exec $lock
 bindsym $wm_mod+d exec makoctl dismiss
 
