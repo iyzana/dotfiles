@@ -50,6 +50,10 @@ input type:tablet_tool {
     map_to_output eDP-1
 }
 
+input type:pointer {
+  pointer_accel 1
+}
+
 # ::: generic keys :::
 
 set $wm_mod Mod4
