@@ -28,7 +28,7 @@ setupUi() {
       mkfifo "$ui_pipe"
     fi
     if ! pgrep wob; then
-      tail -f "$ui_pipe" | wob --height 40 --background-color \#0f1419ff --border-color \#999999ff --bar-color \#bbbbbbff --offset 0 --padding 4 --border 2
+      tail -f "$ui_pipe" | wob
     fi
 }
 
@@ -51,7 +51,10 @@ changeVolumePulseaudio() {
 }
 
 changeVolumePlayerctl() {
-  playerctl volume "$playerctl_step$plusminus"
+  if ! playerctl volume "$playerctl_step$plusminus"; then
+    changeVolumePulseaudio
+    return
+  fi
   if [ -e "$ui_pipe" ]; then
     if [ "$1" = "0" ] && [ "$plusminus" = "-" ]; then
       echo "scale=0; 0" | bc > "$ui_pipe"
