@@ -27,6 +27,9 @@ netzpolitik.org##.np-interstitial-light
 netzpolitik.org##.stoerer--k2022>h3:style(animation: unset !important;)
 netzpolitik.org##.stoerer--k2022>h3::before:style(display: none;)
 netzpolitik.org##.stoerer--k2022>h3::after:style(display: none;)
+netzpolitik.org##.stoerer--k2022>h4:style(animation: unset !important;)
+netzpolitik.org##.stoerer--k2022>h4::before:style(display: none;)
+netzpolitik.org##.stoerer--k2022>h4::after:style(display: none;)
 
 ! https://www.spiegel.de
 www.spiegel.de##.sm\:min-h-600.sm\:mb-24
