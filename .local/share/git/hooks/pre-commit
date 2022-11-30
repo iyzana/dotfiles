@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 
-git diff --cached --name-only | \
- xargs grep --color --with-filename --line-number --ignore-case --after-context 2 'nocheckin' >&2 \
+git --no-pager grep --cached --color --line-number --ignore-case --after-context 2 '[n]ocheckin' >&2 \
  && exit 1
 
 exit 0
