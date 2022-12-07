@@ -54,9 +54,12 @@ link_in_dir() {
 link_local_file() {
     if exists "$1"; then
         shift
-        ln -s "$2" "$1/$3" 
+        echo -e "\e[90mlinking $1/$3 to $2"
+        ln -sf "$2" "$1/$3"
     fi
 }
+
+host=$(hostname)
 
 link_file "zsh" ".zshenv"
 link_in_dir "zsh" ".config/zsh" ".zshenv" ".zshrc"
@@ -77,9 +80,10 @@ link_dir "nvim" ".config/nvim"
 link_dir "dunst" ".config/dunst"
 link_dir "mako" ".config/mako"
 link_dir "sway" ".config/sway"
-link_local_file "sway" ".config/sway" "$HOST.conf" "local.conf" 
+link_local_file "sway" ".config/sway" "$host.conf" "local.conf"
 link_dir "swaylock" ".config/swaylock"
 link_dir "waybar" ".config/waybar"
+link_local_file "waybar" ".config/waybar" "$host.conf" "config"
 link_dir "wob" ".config/wob"
 link_dir "zathura" ".config/zathura"
 link_dir "i3" ".config/i3"
