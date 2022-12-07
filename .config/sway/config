@@ -82,6 +82,7 @@ bindsym $wm_mod+q kill
 # program launchers
 bindsym $wm_mod+space fullscreen disable; exec pkill rofi || rofi -modi drun -show drun -run-command 'swaymsg exec -- {cmd}'
 bindsym $app_mod+p exec pkill rofi || ~/.config/sway/scripts/rofi-jetbrains.sh
+bindsym $app_mod+u exec ~/.config/sway/scripts/datatrash.sh
 
 # data pickers
 bindsym $wm_mod+c exec dmenu_path | bemenu | xargs swaymsg exec --
