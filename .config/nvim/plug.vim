@@ -36,10 +36,11 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'rakr/vim-one'
 Plug 'doums/darcula'
 Plug 'lifepillar/vim-gruvbox8'
+Plug 'mechatroner/rainbow_csv'
 
 " languages
 Plug 'lervag/vimtex'
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 Plug 'dense-analysis/ale', { 'for': ['tex', 'sh', 'zsh'], 'on': 'ALEEnable' }
 
 " completion
