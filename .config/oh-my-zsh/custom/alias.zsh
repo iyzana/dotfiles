@@ -27,6 +27,32 @@ vim() {
     fi
 }
 
+td() {
+  IFS=$'\n' files=($(fd --type file --type symlink --max-depth=3 --full-path ".*${1}.*/todo.*" "$HOME/projects"))
+  if [[ "${#files}" -gt 1 ]]; then
+    file=$(echo "$files" | fzf --prompt "Which file did you mean?" --reverse)
+    if [[ -z "$file" ]]; then
+      return
+    fi
+    vim "$file";
+  elif [[ "${#files}" -eq 0 ]]; then
+    IFS=$'\n' files=($(fd --type directory --max-depth=3 --full-path ".*${1}.*" "$HOME/projects"))
+    if [[ "${#files}" -gt 1 ]]; then
+      file=$(echo "$files" | fzf --prompt "Which project did you mean?" --reverse)
+      if [[ -z "$file" ]]; then
+        return
+      fi
+      vim "$file/todo.md";
+    elif [[ "${#files}" -eq 0 ]]; then
+      echo "No matching project found"
+    else
+      vim "$files/todo.md";
+    fi
+  else
+    vim "$files";
+  fi
+}
+
 alias ls='exa --long --group-directories-first --binary'
 alias la='exa --long --all --group-directories-first --binary'
 unalias l
