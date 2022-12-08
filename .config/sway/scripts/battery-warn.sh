@@ -1,28 +1,39 @@
 #!/bin/bash
 
 ALERTED=false
+NOTIFICATION_ID=0
 
 while true; do
-  STATUS=$(upower -i "$(upower -e | grep BAT)")
-
   if [[ "$ALERTED" == false ]]; then
+    sleep 1m
+    STATUS=$(upower -i "$(upower -e | grep BAT)")
     if echo "$STATUS" | grep -q 'state:\s*discharging'; then
       PERCENT=$(echo "$STATUS" | grep 'percentage: '| grep -Eo '[0-9]+')
-      REMAINING=$(echo "$STATUS" | grep 'time to empty' | awk '{ print $4,$5 }')
-      REMAINING_MIN=$(units -t -- "$REMAINING" "minutes")
-      # reduce time, because os shuts down at 5%
-      ACTUAL_REMAINING=$(echo "scale=1; $REMAINING_MIN / $PERCENT * ($PERCENT - 5)" | bc)
+      if [[ "$PERCENT" -ne "100" ]]; then
+        REMAINING=$(echo "$STATUS" | grep 'time to empty' | awk '{ print $4,$5 }')
+        REMAINING_MIN=$(units -t -- "$REMAINING" "minutes")
+        # reduce time, because os shuts down earlier
+        ACTUAL_REMAINING=$(echo "scale=1; $REMAINING_MIN / $PERCENT * ($PERCENT - 3)" | bc)
 
-      if (( $(echo "$ACTUAL_REMAINING <= 10.0" | bc -l) )); then
-        notify-send -a battery -u critical "battery low" "at $PERCENT%, ~$ACTUAL_REMAINING minutes remaining"
-        ALERTED=true
+        if (( $(echo "$ACTUAL_REMAINING <= 15.0" | bc -l) )); then
+          NOTIFICATION_ID=$(\
+            notify-send \
+              --app-name battery \
+              --urgency critical \
+              --print-id \
+              "battery low" \
+              "~$ACTUAL_REMAINING minutes remaining"
+          )
+          ALERTED=true
+        fi
       fi
     fi
   else
-    if echo "$STATUS" | grep -q 'state:\s*charging'; then
+    sleep 2s
+    STATUS=$(upower -i "$(upower -e | grep BAT)")
+    if echo "$STATUS" | grep -q 'state:\s*\(charging\|fully-charged\)'; then
+      notify-send --urgency critical --replace-id="$NOTIFICATION_ID" --expire-time=1 "battery low"
       ALERTED=false
     fi
   fi
-
-  sleep 1m
 done
