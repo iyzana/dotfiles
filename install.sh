@@ -2,10 +2,10 @@
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 link() {
-    if [[ -e "$DIR/$1" ]]; then
+    if [[ -e "$CURRENT_DIR/$1" ]]; then
         echo -e "\e[90mlinking $1"
-        mkdir -p "$(dirname "$HOME/$1")"
-        ln -sf "$DIR/$1" "$HOME/$1"
+        mkdir -p "$(dirname "$TARGET/$1")"
+        ln -sf "$CURRENT_DIR/$1" "$TARGET/$1"
     else
         echo -e "\e[91mcould not link $1"
     fi
@@ -35,7 +35,7 @@ link_file() {
 
 link_dir() {
     if exists "$1"; then
-        rm -rf "${HOME:?}/$2"
+        rm -rf "${TARGET:?}/$2"
         link "$2"
     fi
 }
@@ -55,11 +55,16 @@ link_local_file() {
     if exists "$1"; then
         shift
         echo -e "\e[90mlinking $1/$3 to $2"
-        ln -sf "$2" "$1/$3"
+        ln -sf "$2" "$TARGET/$1/$3"
     fi
 }
 
 host=$(hostname)
+
+CURRENT_DIR="$DIR/home"
+TARGET="$HOME"
+
+echo -e "\e[0mprocessing direcotry $TARGET"
 
 link_file "zsh" ".zshenv"
 link_in_dir "zsh" ".config/zsh" ".zshenv" ".zshrc"
@@ -100,7 +105,15 @@ if exists 'firefox'; then
     TO="${TO_GLOB[0]}"
     rm -rf "$TO"
     echo -e "\e[90mlinking $FROM"
-    ln -sf "$DIR/$FROM" "$TO"
+    ln -sf "$CURRENT_DIR/$FROM" "$TO"
 fi
+
+CURRENT_DIR="$DIR/etc"
+TARGET="/etc"
+
+echo -e "\e[0mprocessing direcotry $TARGET"
+
+link_file "pacman" "pacman.conf"
+link_dir "pacman" "pacman.d/hooks"
 
 echo -e "\e[32mdone"
