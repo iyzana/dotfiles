@@ -10,6 +10,8 @@ max_b=80
 
 # min_t->min_b, max_t->max_b
 brightness=$(( ($1 - min_t) * (max_b - min_b) / (max_t - min_t) + min_b ))
+# round to steps of 2
+brightness=$(( brightness / 2 * 2 ))
 
 # only use ddc when necessary
 ddc_cache="/tmp/ddc-brightness"

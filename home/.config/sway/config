@@ -11,17 +11,6 @@ set $audio pavucontrol
 
 xwayland force
 
-# ::: idle config :::
-# `man 1 swayidle`
-
-exec swayidle -w \
-  timeout 105 'brightnessctl --save; brightnessctl set 5%' \
-      resume 'brightnessctl --restore' \
-  timeout 120 '$lock &' \
-  before-sleep '$lock &' \
-  lock '$lock &' \
-  unlock 'pkill -SIGUSR1 swaylock' \
-  idlehint 120
 
 # ::: output config :::
 # `man 5 sway-output`
@@ -87,7 +76,7 @@ bindsym $app_mod+u exec ~/.config/sway/scripts/datatrash.sh
 # data pickers
 bindsym $wm_mod+c exec dmenu_path | bemenu | xargs swaymsg exec --
 bindsym $app_mod+m exec pkill rofi || rofimoji --skin-tone neutral --files emojis
-bindsym $app_mod+s exec pkill rofi || rofimoji --skin-tone neutral --files arrows basic_latin block_elements box_drawing braille_patterns control_pictures dingbats domino_tiles enclosed_alphanumeric_supplement enclosed_alphanumerics general_punctuation geometric_shapes geometric_shapes_extended ideographic_description_characters latin-1_supplement latin_extended-a latin_extended-b latin_extended-c latin_extended-d latin_extended-e latin_extended-f latin_extended-g latin_extended_additional letterlike_symbols mathematical_operators miscellaneous_mathematical_symbols-a miscellaneous_mathematical_symbols-b miscellaneous_symbols miscellaneous_symbols_and_arrows miscellaneous_technical musical_symbols phonetic_extensions phonetic_extensions_supplement playing_cards specials superscripts_and_subscripts supplemental_arrows-a supplemental_arrows-b supplemental_arrows-c supplemental_mathematical_operators supplemental_punctuation
+bindsym $app_mod+n exec pkill rofi || rofimoji --skin-tone neutral --files arrows basic_latin block_elements box_drawing braille_patterns control_pictures dingbats domino_tiles enclosed_alphanumeric_supplement enclosed_alphanumerics general_punctuation geometric_shapes geometric_shapes_extended ideographic_description_characters latin-1_supplement latin_extended-a latin_extended-b latin_extended-c latin_extended-d latin_extended-e latin_extended-f latin_extended-g latin_extended_additional letterlike_symbols mathematical_operators miscellaneous_mathematical_symbols-a miscellaneous_mathematical_symbols-b miscellaneous_symbols miscellaneous_symbols_and_arrows miscellaneous_technical musical_symbols phonetic_extensions phonetic_extensions_supplement playing_cards specials superscripts_and_subscripts supplemental_arrows-a supplemental_arrows-b supplemental_arrows-c supplemental_mathematical_operators supplemental_punctuation
 
 # ::: media keys :::
 
@@ -250,14 +239,9 @@ workspace_auto_back_and_forth yes
 
 # ::: startup :::
 
-# autostart
 exec mako
-exec sh ~/.config/sway/scripts/battery-warn.sh
-exec libinput-gestures-setup start
-exec 'sleep 1; keepassxc'
+exec keepassxc
 exec nm-applet --indicator
-exec blueman-applet
-exec ~/.config/sway/scripts/audio.sh setup-ui
 exec wlsunset -l 51 -L 7
 exec /usr/lib/kdeconnectd
 
