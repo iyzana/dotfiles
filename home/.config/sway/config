@@ -65,14 +65,14 @@ bindsym $wm_danger_mod+l exec $lock
 bindsym $wm_mod+d exec makoctl dismiss
 
 # calculator
-bindsym $app_mod+c fullscreen disable; exec pkill rofi || rofi -modi calc -show calc -no-show-match -no-sort -no-history -no-unicode -hint-welcome "" -calc-command "echo -n '{result}' | wl-copy"
+bindsym $app_mod+c fullscreen disable; exec kitty --class=calculator -e qalc
 bindsym $app_mod+o exec bash ~/.config/sway/scripts/ocr.sh
 
 # kill focused window
 bindsym $wm_mod+q kill
 
 # program launchers
-bindsym $wm_mod+space fullscreen disable; exec pkill rofi || rofi -modi drun -show drun -run-command 'swaymsg exec -- {cmd}'
+bindsym $wm_mod+space fullscreen disable; exec "$(tofi-drun)"
 bindsym $app_mod+p exec pkill rofi || ~/.config/sway/scripts/rofi-jetbrains.sh
 bindsym $app_mod+u exec ~/.config/sway/scripts/datatrash.sh
 
@@ -227,6 +227,7 @@ for_window [app_id="firefox" title="Picture-in-Picture"] border none, floating e
 for_window [app_id="org.pwmt.zathura"] resize shrink width 20 ppt
 for_window [app_id="nm-connection-editor"] floating enable
 for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="calculator"] floating enable, resize set width 50ppt, resize set height 50ppt
 
 # ::: ui theme :::
 
