@@ -54,7 +54,8 @@ td() {
 }
 
 alias ls='exa --long --group-directories-first --binary'
-alias la='exa --long --all --group-directories-first --binary'
+# use all twice to show . and ..
+alias la='exa --long --all --all --group-directories-first --binary'
 unalias l
 unalias ll
 
@@ -77,7 +78,6 @@ alias -g T='| tail'
 
 alias git='nocorrect git'
 alias cargo='nocorrect cargo'
-alias cuts='nocorrect cuts'
 
 # lazy loading
 
@@ -91,8 +91,6 @@ nvm() {
 }
 
 # otherwise too long
-
-markdown() { consolemd $* | less }
 
 alias lg='lazygit'
 alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
@@ -113,9 +111,12 @@ open() {
 }
 
 batch-rename() {
-    printf '%-60s\n' $(exa) > rename.sh
-    sed -ri -e 's/(.*)/mv "\1" "\1"/' rename.sh
-    sed -ri -e 's/(\s{2,})"/"\1/g' rename.sh
+    for f in *; do
+      if [[ "$f" == "rename.sh" ]]; then
+        continue
+      fi
+      printf 'mv %1$-80s %1$s\n' "\"$f\""
+    done > rename.sh
     vim rename.sh
     sh rename.sh
     rm rename.sh
