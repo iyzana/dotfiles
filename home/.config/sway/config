@@ -11,6 +11,9 @@ set $audio pavucontrol
 
 xwayland force
 
+# ::: distro config :::
+
+include /etc/sway/config.d/*
 
 # ::: output config :::
 # `man 5 sway-output`
@@ -251,5 +254,3 @@ exec wlsunset -l 51 -L 7
 exec /usr/lib/kdeconnectd
 
 include $HOME/.config/sway/local.conf
-
-include /etc/sway/config.d/*

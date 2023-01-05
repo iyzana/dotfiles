@@ -12,7 +12,7 @@ while true; do
       # reduce time, because os shuts down earlier
       ACTUAL_REMAINING=$(echo "scale=1; $REMAINING_MIN / $PERCENT * ($PERCENT - 3)" | bc)
 
-      if (( $(echo "$ACTUAL_REMAINING <= 15.0" | bc -l) )); then
+      if (( $(echo "$ACTUAL_REMAINING <= 15.0" | bc -l) )) || [[ -n "$NOTIFICATION_ID" ]]; then
         NOTIFICATION_ID=$(\
           notify-send \
             --app-name battery \

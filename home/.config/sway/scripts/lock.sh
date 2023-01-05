@@ -5,9 +5,11 @@ if pgrep swaylock; then
 fi
 
 swayidle \
-    timeout 5 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"' &
+    timeout 5 'swaymsg "output * power off"' \
+    resume 'swaymsg "output * power on"' &
 
-swaylock
+while ! swaylock; do
+    :
+done
 
 kill %%
