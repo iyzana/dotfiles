@@ -27,7 +27,7 @@ output * bg $HOME/images/background/colorful-life-balcony.jpg fill
 input type:keyboard {
     xkb_layout de
     xkb_variant nodeadkeys
-    xkb_options caps:escape,compose:menu
+    xkb_options caps:escape,compose:menu,kpdl:dot
     xkb_numlock enabled
 }
 
