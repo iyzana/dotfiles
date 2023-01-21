@@ -1,12 +1,14 @@
 #!/bin/env bash
 
+KEEP_SECONDS="86400"
+
 targets=$(wl-paste --list-types)
 if echo "$targets" | grep 'image/png'; then
     filename="screenshot-$(date +'%Y-%m-%dT%H%M%S').png"
     wl-paste --type 'image/png' \
         | curl \
             --form "file=@-;filename=$filename" \
-            --form 'keep_for=86400' \
+            --form "keep_for=$KEEP_SECONDS" \
             --form "password=$DATATRASH_PASSWORD" \
             https://trash.randomerror.de/upload \
         | wl-copy --trim-newline
@@ -25,7 +27,7 @@ elif echo "$targets" | grep 'text/uri-list'; then
     file_path=$(echo "$file_uris" | tail --bytes=+8)
     curl \
         --form "file=@$file_path" \
-        --form 'keep_for=86400' \
+        --form "keep_for=$KEEP_SECONDS" \
         --form "password=$DATATRASH_PASSWORD" \
         https://trash.randomerror.de/upload \
         | wl-copy --trim-newline
@@ -34,7 +36,7 @@ elif echo "$targets" | grep 'UTF8_STRING'; then
     wl-paste --type 'UTF8_STRING' \
         | curl \
             --form "text=@-" \
-            --form 'keep_for=86400' \
+            --form "keep_for=$KEEP_SECONDS" \
             --form "password=$DATATRASH_PASSWORD" \
             https://trash.randomerror.de/upload \
         | cut -f1-4 -d/ \
