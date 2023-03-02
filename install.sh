@@ -99,6 +99,7 @@ link_dir "i3status" ".config/i3status"
 link_dir "alacritty" ".config/alacritty"
 link_dir "rofi" ".config/rofi"
 link_dir "git" ".local/share/git/hooks"
+link_dir "direnv" ".config/direnv"
 
 if exists 'firefox'; then
     FROM='.mozilla/firefox/chrome'

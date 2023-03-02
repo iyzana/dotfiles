@@ -64,6 +64,7 @@ plugins=(
   docker
   docker-compose
   zsh-syntax-highlighting
+  direnv
 )
 
 source $ZSH/oh-my-zsh.sh
