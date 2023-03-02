@@ -8,12 +8,19 @@ function preexec() {
 
 function precmd() {
   err_code="$?"
-  if [ "$err_code" = 0 ] || [ ! $ran_command ]; then
+
+  if [ ! $ran_command ]; then
+    unset err_code
+    unset elapsed
+    return
+  fi
+  unset ran_command
+
+  if [ "$err_code" = 0 ]; then
     unset err_code
   else
     err_code="$err_code "
   fi
-  unset ran_command
 
   if [ $timer ]; then
     local now=$(date +%s%3N)
@@ -27,6 +34,7 @@ function precmd() {
     elif ((m > 0)); then elapsed=${m}m${s}s
     elif ((s >= 10)); then elapsed=${s}.$((ms / 100))s
     elif ((s > 0)); then elapsed=${s}.$((ms / 10))s
+    elif ((ms > 100)); then elapsed=${ms}ms
     else unset elapsed
     fi
 
