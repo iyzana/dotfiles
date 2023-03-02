@@ -3,9 +3,6 @@ alias more='less'
 
 alias shred='shred -f -n3 -z -u'
 
-alias gw='gw --console=rich'
-alias gradle='gradle --console=rich'
-
 alias unp='unp -U'
 
 alias ffmpeg='ffmpeg -hide_banner'
