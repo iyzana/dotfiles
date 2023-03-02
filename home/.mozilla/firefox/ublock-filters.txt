@@ -30,6 +30,8 @@ netzpolitik.org##.stoerer--k2022>h3::after:style(display: none;)
 netzpolitik.org##.stoerer--k2022>h4:style(animation: unset !important;)
 netzpolitik.org##.stoerer--k2022>h4::before:style(display: none;)
 netzpolitik.org##.stoerer--k2022>h4::after:style(display: none;)
+netzpolitik.org###vorschaltbanner
+netzpolitik.org###primary:style(padding-top: 8px !important;)
 
 ! https://www.spiegel.de
 www.spiegel.de##.sm\:min-h-600.sm\:mb-24
@@ -48,3 +50,4 @@ www.chefkoch.de##guj-ad
 ! https://www.youtube.com
 ! www.youtube.com##.opened
 ! www.youtube.com###lightbox > .ytd-consent-bump-v2-lightbox.style-scope
+
