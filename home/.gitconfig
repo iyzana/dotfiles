@@ -1,5 +1,3 @@
-[alias]
-	month = !bash ~/.local/git-month.sh
 [pull]
     rebase = true
 [rebase]
@@ -7,23 +5,17 @@
 [credential]
     helper = cache
 [include]
-    path = .local/.gitconfig
+    path = .local/share/git/config
 [init]
-	defaultBranch = main
+    defaultBranch = main
 
 [url "git@github.com:"]
     insteadOf = "gh:"
 [url "git@github.com:iyzana/"]
     insteadOf = "gh:/"
-[url "git@bitbucket.org:"]
-    insteadOf = "bb:"
-[url "git@bitbucket.org:succcubbus/"]
-    insteadOf = "bb:/"
+[url "git@git.sr.ht:~iyzana/"]
+    insteadOf = "sh:/"
 
-[merge]
-    tool = vscode
-[mergetool "vscode"]
-    cmd = "code --wait $MERGED"
 [diff]
     tool = kitty
 [difftool]
@@ -32,4 +24,5 @@
 [difftool "kitty"]
     cmd = kitty +kitten diff $LOCAL $REMOTE
 [core]
-	hooksPath = ~/.local/share/git/hooks
+    hooksPath = ~/.local/share/git/hooks
+    editor = nvim --cmd 'let g:unception_block_while_host_edits=1'
