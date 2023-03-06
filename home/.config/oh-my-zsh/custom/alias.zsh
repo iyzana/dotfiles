@@ -71,11 +71,6 @@ alias -g C='| choose'
 alias -g H='| head'
 alias -g T='| tail'
 
-# no I did not mean .config
-
-alias git='nocorrect git'
-alias cargo='nocorrect cargo'
-
 # lazy loading
 
 nvm() {
