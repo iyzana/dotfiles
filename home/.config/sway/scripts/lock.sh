@@ -9,7 +9,7 @@ swayidle \
     resume 'swaymsg "output * power on"' &
 
 while ! swaylock; do
-    :
+    true
 done
 
 kill %%
