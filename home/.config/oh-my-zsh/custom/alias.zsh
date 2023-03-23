@@ -50,11 +50,11 @@ td() {
   fi
 }
 
-alias ls='exa --long --group-directories-first --binary'
+alias ls='exa'
+alias ll='exa --long --group-directories-first --binary'
 # use all twice to show . and ..
-alias la='exa --long --all --all --group-directories-first --binary'
+alias la='exa --long --all --all --group --group-directories-first --binary --time-style=long-iso'
 unalias l
-unalias ll
 
 alias ip='ip --color'
 
