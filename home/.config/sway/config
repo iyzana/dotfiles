@@ -27,7 +27,7 @@ output * bg $HOME/images/background/colorful-life-balcony.jpg fill
 input type:keyboard {
     xkb_layout de
     xkb_variant nodeadkeys
-    xkb_options caps:escape,compose:menu,kpdl:dot
+    xkb_options ctrl:nocaps,compose:lctrl,shift:both_capslock,kpdl:dot
     xkb_numlock enabled
 }
 
@@ -187,6 +187,7 @@ mode "resize" {
     # return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
+    bindsym $wm_mod+r mode "default"
     bindsym $wm_mod+$left mode "default"; focus left
     bindsym $wm_mod+$down mode "default"; focus down
     bindsym $wm_mod+$up mode "default"; focus up
