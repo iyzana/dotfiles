@@ -5,7 +5,7 @@
   "rust-analyzer.server.path": "/usr/bin/rust-analyzer",
   "diagnostic.virtualText": false,
   "npm.binPath": "yarn",
-  "coc.preferences.formatOnSaveFiletypes": ["*"],
+  "coc.preferences.formatOnSave": true,
   "notification.disabledProgressSources": ["*"],
   "markdownlint.config": {
     "line-length": false
