@@ -1,8 +1,5 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-path+=($HOME/.yarn/bin)
-path+=($HOME/.local/bin)
-path+=($HOME/.local/share/cargo/bin)
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.config/oh-my-zsh"
@@ -77,17 +74,18 @@ plugins=(
   git
   sudo
   httpie
-  gradle
   systemd
   urltools
   docker
-  docker-compose
   zsh-syntax-highlighting
   direnv
   fzf
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# somehow this prevents a stray newline in new tiled terminal windows
+sleep .02
 
 # User configuration
 
