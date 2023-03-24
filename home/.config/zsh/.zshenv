@@ -2,6 +2,7 @@ typeset -TUx PATH path :
 path+=$HOME/.yarn/bin
 path+=$HOME/.local/bin
 path+=$HOME/.local/share/cargo/bin
+path+=/usr/share/bin
 
 export ZDOTDIR="$HOME/.config/zsh"
 export HISTFILE="$HOME/.config/zsh/.zsh_history"
