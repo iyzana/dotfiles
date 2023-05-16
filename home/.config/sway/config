@@ -229,6 +229,7 @@ for_window [app_id="org.pwmt.zathura"] resize shrink width 20 ppt
 for_window [app_id="nm-connection-editor"] floating enable
 for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="calculator"] floating enable, resize set width 50ppt, resize set height 50ppt
+for_window [app_id="org.keepassxc.KeePassXC" title="Unlock Database - KeePassXC"] floating enable
 
 # ::: ui theme :::
 
