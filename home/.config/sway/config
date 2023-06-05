@@ -45,7 +45,7 @@ input type:tablet_tool {
 }
 
 input type:pointer {
-  pointer_accel 1
+    pointer_accel 1
 }
 
 # ::: generic keys :::
