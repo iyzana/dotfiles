@@ -39,5 +39,6 @@ rm "$pidfile"
 
 echo "setting brightness to $brightness"
 
-ddcutil -d 1 setvcp 10 "$brightness"
-ddcutil -d 2 setvcp 10 "$brightness"
+for i2cdev in $(ddcutil detect | grep 'I2C' | grep --only-matching -E '[0-9]+$'); do
+  ddcutil -b "$i2cdev" setvcp 10 "$brightness" &
+done
