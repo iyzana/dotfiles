@@ -72,12 +72,12 @@ HIST_STAMPS="yyyy-mm-dd"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  sudo
   httpie
   systemd
   urltools
   docker
   zsh-syntax-highlighting
+  zsh-autosuggestions
   direnv
   fzf
 )
@@ -88,6 +88,9 @@ source $ZSH/oh-my-zsh.sh
 sleep .02
 
 # User configuration
+
+bindkey "^P" up-line-or-beginning-search
+bindkey "^N" down-line-or-beginning-search
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
