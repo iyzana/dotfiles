@@ -13,6 +13,11 @@ window#waybar {
   font-size: 13px;
 }
 
+window#waybar.empty {
+  /* color: #1c1c1c; */
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
 window#waybar.solo {
   background-color: #1c1c1c;
 }
@@ -32,7 +37,7 @@ window#waybar.jetbrains-idea {
 
 window#waybar.firefox,
 window#waybar.firefoxdeveloperedition {
-  background-color: #1c1b22;
+  background-color: #2b2a33;
 }
 
 window#waybar.microsoft\ teams\ \-\ preview {
@@ -40,7 +45,7 @@ window#waybar.microsoft\ teams\ \-\ preview {
 }
 
 window#waybar.spotify {
-  background-color: #1d2021;
+  background-color: #000000;
 }
 
 window#waybar.signal {
@@ -74,13 +79,21 @@ window#waybar.slack {
 window#waybar.element {
   background: linear-gradient(
     90deg,
-    #232528 0%,
-    #232528 68px,
-    #21262c 68px,
-    #21262c 321px,
+    #292c37 0%,
+    #292c37 68px,
+    #252a34 68px,
+    #252a34 321px,
     #15191e 321px,
     #15191e 100%
   );
+}
+
+window#waybar.gimp-2\.10 {
+  background-color: #484848;
+}
+
+window#waybar.org\.gnome\.Weather {
+  background-color: #242424;
 }
 
 #window {
@@ -158,9 +171,9 @@ window#waybar.element {
   }
 }
 
-#battery.top,
-#battery.full.charging,
-#battery.full.plugged {
+window#waybar:not(.empty) #battery.top,
+window#waybar:not(.empty) #battery.full.charging,
+window#waybar:not(.empty) #battery.full.plugged {
   color: #26a65b;
 }
 
@@ -242,6 +255,8 @@ label:focus {
 
 #tray menu {
   background-color: #1c1c1c;
+  border: 2px solid #999999;
+  padding: 2px;
 }
 
 /* #idle_inhibitor { */
