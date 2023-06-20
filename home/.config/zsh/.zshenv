@@ -5,7 +5,7 @@ path+=$HOME/.local/share/cargo/bin
 path+=/usr/share/bin
 
 export ZDOTDIR="$HOME/.config/zsh"
-export HISTFILE="$HOME/.config/zsh/.zsh_history"
+export HISTFILE="$HOME/.local/state/zsh/history"
 export HISTSIZE=1000000
 export SAVEHIST=1000000
 
@@ -14,7 +14,8 @@ export IPFS_PATH=$HOME/.local/share/ipfs
 
 export EDITOR=/usr/bin/nvim
 
-export LESS='-RmgiQ'
+export LESS='RmgiQ'
+export SYSTEMD_LESS='RmgiQ'
 export MANPAGER="less -R --use-color -Dd+b -Du+C"
 
 export FZF_DEFAULT_OPTS="--history=$HOME/.local/share/fzf-history/history"
