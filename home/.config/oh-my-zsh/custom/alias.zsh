@@ -53,7 +53,7 @@ td() {
 alias ls='exa'
 alias ll='exa --long --group-directories-first --binary'
 # use all twice to show . and ..
-alias la='exa --long --all --all --group --group-directories-first --binary --time-style=long-iso'
+alias la='exa --long --all --all --group --binary --time-style=long-iso'
 unalias l
 
 alias ip='ip --color'
@@ -74,7 +74,7 @@ alias -g T='| tail'
 # lazy loading
 
 nvm() {
-  source ~/.nvm/nvm.sh # redefines nvm
+  source /usr/share/nvm/init-nvm.sh # redefines nvm
   if [[ $# != 0 ]]; then
     nvm "$@"
   else
