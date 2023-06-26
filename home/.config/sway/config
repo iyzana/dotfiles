@@ -8,6 +8,7 @@ set $internet firefox
 set $files nemo
 set $lock "$HOME/.config/sway/scripts/lock.sh"
 set $audio pavucontrol
+set $calc kitty --class=calculator -e sh -c 'echo Qalculate; echo " "; qalc'
 
 xwayland force
 
@@ -65,7 +66,8 @@ bindsym $wm_danger_mod+l exec $lock
 bindsym $wm_mod+d exec makoctl dismiss
 
 # calculator
-bindsym $app_mod+c fullscreen disable; exec kitty --class=calculator -e qalc
+bindsym $app_mod+c fullscreen disable; exec $calc
+bindsym XF86Calculator fullscreen disable; exec $calc
 bindsym $app_mod+o exec bash ~/.config/sway/scripts/ocr.sh
 
 # kill focused window
