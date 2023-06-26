@@ -209,7 +209,7 @@ bar {
 
 # ::: ui decorations :::
 
-default_border pixel
+default_border pixel 3
 titlebar_border_thickness 0
 font 'SF Pro Display' 11
 title_align center
@@ -225,6 +225,8 @@ gaps inner 15
 gaps outer 10
 smart_gaps on
 smart_borders on
+
+floating_minimum_size 20 x 20
 
 # fix some windows
 for_window [class="jetbrains-idea" title="win0"] floating enable
