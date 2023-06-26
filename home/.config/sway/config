@@ -51,7 +51,7 @@ input type:pointer {
 # ::: generic keys :::
 
 set $wm_mod Mod4
-set $wm_danger_mod Mod4+Ctrl
+set $wm_danger_mod Mod4+Alt
 set $app_mod Mod4+Shift
 
 set $left h
