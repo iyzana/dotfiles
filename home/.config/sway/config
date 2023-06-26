@@ -249,7 +249,6 @@ exec gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 # allowed inactivity
 for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [app_id="mpv"] inhibit_idle fullscreen
-for_window [class="microsoft teams - preview" title="Meeting | Microsoft Teams"] inhibit_idle open
 
 floating_modifier $wm_mod normal
 seat seat0 hide_cursor 2000
