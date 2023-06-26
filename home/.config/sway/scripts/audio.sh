@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 
-sink="@DEFAULT_SINK@"
-source="@DEFAULT_SOURCE@"
 notification_id="/tmp/volume-ui.nid"
 notification_lock="/tmp/volume-ui.nid.lock"
 notification_lock_fd=99
@@ -29,16 +27,11 @@ setupUi() {
 }
 
 toggleOutputMute() {
-	pactl set-sink-mute "$sink" toggle
-	if [ "$(pamixer --get-mute)" = "true" ]; then
-		notifyVolumeChange "0"
-	else
-		notifyVolumeChange "$(pamixer --get-volume)"
-	fi
+	wpctl set-mute @DEFAULT_SINK@ toggle
 }
 
 toggleMicMute() {
-		pactl set-source-mute "$source" toggle
+	wpctl set-mute @DEFAULT_SOURCE@ toggle
 }
 
 changeVolumePulseaudio() {
