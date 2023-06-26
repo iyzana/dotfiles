@@ -261,5 +261,6 @@ exec keepassxc
 exec nm-applet --indicator
 exec wlsunset -l 51 -L 7
 exec /usr/lib/kdeconnectd
+exec easyeffects --gapplication-service
 
 include $HOME/.config/sway/local.conf
