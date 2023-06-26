@@ -74,11 +74,14 @@ alias -g T='| tail'
 # lazy loading
 
 nvm() {
+  setopt local_options no_aliases
   source /usr/share/nvm/init-nvm.sh # redefines nvm
   if [[ $# != 0 ]]; then
     nvm "$@"
   else
     echo "nvm initialized"
+    echo -n "node version: "
+    node --version
   fi
 }
 
