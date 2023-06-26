@@ -28,7 +28,7 @@ output * bg $HOME/images/background/colorful-life-balcony.jpg fill
 input type:keyboard {
     xkb_layout de
     xkb_variant nodeadkeys
-    xkb_options ctrl:nocaps,compose:lctrl,shift:both_capslock,kpdl:dot
+    xkb_options ctrl:nocaps,compose:lctrl-altgr,shift:both_capslock,kpdl:dot
     xkb_numlock enabled
 }
 
@@ -37,6 +37,7 @@ input type:touchpad {
     dwt enabled
     tap enabled
     natural_scroll enabled
+    scroll_factor 0.5
 }
 
 input type:tablet_tool {
