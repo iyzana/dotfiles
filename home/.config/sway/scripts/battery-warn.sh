@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 BATTERY_DEVICE=$(upower -e | grep BAT | head -n 1)
 
 while true; do
   STATUS=$(upower -i "$BATTERY_DEVICE")
   if echo "$STATUS" | grep -q 'state:\s*discharging'; then
-    PERCENT=$(echo "$STATUS" | grep 'percentage: '| grep -Eo '[0-9]+')
+    PERCENT=$(echo "$STATUS" | grep 'percentage: ' | grep -Eo '[0-9]+')
     if [[ "$PERCENT" -ne "100" ]]; then
       REMAINING=$(echo "$STATUS" | grep 'time to empty' | awk '{ print $4,$5 }')
       REMAINING_MIN=$(units -t -- "$REMAINING" "minutes")
@@ -23,6 +23,11 @@ while true; do
             "~$ACTUAL_REMAINING minutes remaining"
         )
       fi
+
+      if (( $(echo "$ACTUAL_REMAINING >= 30.0" | bc -l) )); then
+        notify-send --urgency critical --replace-id="$NOTIFICATION_ID" --expire-time=1 "battery low"
+        unset NOTIFICATION_ID
+      fi
     fi
   fi
 
@@ -34,6 +39,6 @@ while true; do
   if [[ -z "$NOTIFICATION_ID" ]]; then
     sleep 1m
   else
-    sleep 5s
+    sleep 2s
   fi
 done
