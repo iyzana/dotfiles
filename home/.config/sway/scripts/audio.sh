@@ -39,8 +39,8 @@ changeVolumePulseaudio() {
 	if [ "$volume" = "0.00" ] && [ "$plusminus" = "-" ]; then
 		new_volume="0"
 	else
-		# compute new volume, round to five
-		new_volume="$(echo "scale=0; (($volume*100)$plusminus$step+1)/5*5" | bc)"
+		# compute new volume, round to step
+		new_volume="$(echo "scale=0; (($volume*100)$plusminus$step+1)/$step*$step" | bc)"
 	fi
 	wpctl set-volume @DEFAULT_SINK@ "$new_volume%"
 }
@@ -49,8 +49,8 @@ changeVolumePlayerctl() {
 	if [ "$1" = "0" ] && [ "$plusminus" = "-" ]; then
 		new_volume="0"
 	else
-		# compute new volume, round to five
-		new_volume="$(echo "scale=0; ($1$plusminus$step+1)/5*5" | bc)"
+		# compute new volume, round to step
+		new_volume="$(echo "scale=0; ($1$plusminus$step+1)/$step*$step" | bc)"
 	fi
 	if ! playerctl volume "$(echo "scale=2; $new_volume/100" | bc)"; then
 		changeVolumePulseaudio
