@@ -6,14 +6,16 @@ border-color=#e6b450
 icon-path=/usr/share/icons/Papirus-Dark
 max-icon-size=32
 
-[urgency=high]
-background-color=#770000
-border-color=#bb0000
-default-timeout=0
+[category=volume]
+default-timeout=2000
+border-color=#999999
 
 [mode=do-not-disturb]
 invisible=1
 
-[category=volume]
-default-timeout=2000
-border-color=#999999
+[urgency=high]
+invisible=0
+background-color=#770000
+border-color=#bb0000
+default-timeout=0
+
