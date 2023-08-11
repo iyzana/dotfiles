@@ -124,9 +124,19 @@ alias jcue='journalctl --user -eu'
 alias jcuf='journalctl --user -fu'
 
 jwtdecode() {
-  jwt="$1"
+  input="$1"
+  if [ -z "$input" ]; then
+    read input
+  fi
+
+  jwt=$(echo "$input" | grep --only "ey[-_+/0-9a-zA-Z=.]*")
+
   if [ -z "$jwt" ]; then
-    read jwt
+    jwt="$input"
+  fi
+  if [ "$jwt" != "$input" ]; then
+    echo "\033[31mExtracted jwt from input\033[0m" >&2
+    echo >&2
   fi
 
   # https://unix.stackexchange.com/a/29748
@@ -137,14 +147,13 @@ jwtdecode() {
     return 1
   fi
 
-  echo "HEADER"
-  (echo "${jwtparts[1]}" | base64 -id | jq) 2> /dev/null || echo "${jwtparts[1]}" | fold -w 80
-  echo
-  echo "PAYLOAD"
-  (echo "${jwtparts[2]}" | base64 -id | jq) 2> /dev/null || echo "${jwtparts[2]}" | fold -w 80
-  echo
-  echo "SIGNATURE «unverified»"
-  echo "${jwtparts[3]}" | fold -w 80
+  (
+    echo -n '{"header":'
+    (echo -n "${jwtparts[1]}" | base64 -id | jq) 2> /dev/null || echo '"'${jwtparts[1]}'"'
+    echo -n ',"payload":'
+    (echo -n "${jwtparts[2]}" | base64 -id | jq) 2> /dev/null || echo '"'${jwtparts[2]}'"'
+    echo -n ',"signature":"'${jwtparts[3]}'"}'
+  ) | jq
 }
 
 # bad netizen
