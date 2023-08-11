@@ -14,12 +14,11 @@ Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-swap'
 Plug 'wellle/targets.vim'
 Plug 'jiangmiao/auto-pairs'
-
-" format
-Plug 'editorconfig/editorconfig-vim'
+Plug 'chiedo/vim-case-convert'
+Plug 'gbprod/substitute.nvim'
 
 " files
-Plug 'junegunn/fzf', { 'dir': '~/.local/share/fzf', 'do': './install --all --xdg --no-bash --no-fish' }
+Plug 'junegunn/fzf', { 'dir': '~/.local/share/fzf', 'do': './install --all --xdg --no-bash --no-fish --no-update-rc' }
 Plug 'junegunn/fzf.vim'
 Plug 'ton/vim-alternate'
 
@@ -40,13 +39,31 @@ Plug 'mechatroner/rainbow_csv'
 
 " languages
 Plug 'lervag/vimtex'
-" Plug 'sheerun/vim-polyglot'
-Plug 'dense-analysis/ale', { 'for': ['tex', 'sh', 'zsh'], 'on': 'ALEEnable' }
 
 " completion
+Plug 'neovim/nvim-lspconfig'
+
+" Plug 'hrsh7th/nvim-cmp'
+" Plug 'hrsh7th/cmp-nvim-lsp'
+" Plug 'hrsh7th/cmp-buffer'
+" Plug 'hrsh7th/cmp-path'
+
+" Plug 'hrsh7th/cmp-vsnip'
+" Plug 'hrsh7th/vim-vsnip'
+" Plug 'hrsh7th/vim-vsnip-integ'
+
+" Plug 'williamboman/mason.nvim'
+" Plug 'williamboman/mason-lspconfig.nvim'
+
+" Plug 'nvim-lua/lsp-status.nvim'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
+
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " integrations
+Plug 'samjwill/nvim-unception'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 call plug#end()
