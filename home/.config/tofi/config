@@ -1,0 +1,22 @@
+border-width = 0
+outline-width = 0
+corner-radius = 12
+text-cursor = true
+
+width = 660
+height = 440
+padding-top = 75
+padding-bottom = 75
+padding-left = 140
+padding-right = 140
+
+num-results = 7
+result-spacing = 5
+
+font = /usr/share/fonts/OTF/SF-Pro-Text-Regular.otf
+font-size = 20
+
+background-color = #E6C76C
+text-color = #000000
+selection-color = #000000
+default-result-color = #777766
