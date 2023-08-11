@@ -8,7 +8,7 @@ set $internet firefox
 set $files nemo
 set $lock "$HOME/.config/sway/scripts/lock.sh"
 set $audio pavucontrol
-set $calc kitty --class=calculator -e sh -c 'echo Qalculate; echo " "; qalc'
+set $calc alacritty --class=panel -e sh -c 'echo Qalculate; echo " "; qalc'
 
 xwayland force
 
@@ -76,15 +76,15 @@ bindsym $app_mod+o exec bash ~/.config/sway/scripts/ocr.sh
 bindsym $wm_mod+q kill
 
 # program launchers
-bindsym $wm_mod+space fullscreen disable; exec swaymsg exec -- "$(tofi-drun)"
+bindsym $wm_mod+space exec pkill tofi-drun || swaymsg exec -- "$(tofi-drun --prompt-text '» ')"
 bindsym $app_mod+p exec pkill rofi || ~/.config/sway/scripts/rofi-jetbrains.sh
 bindsym $app_mod+u exec ~/.config/sway/scripts/datatrash.sh
 
 # data pickers
 bindsym $wm_mod+c exec dmenu_path | bemenu | xargs swaymsg exec --
-bindsym $app_mod+m exec pkill rofi || rofimoji --skin-tone neutral --files emojis
-bindsym Mod4+period exec pkill rofi || rofimoji --skin-tone neutral --files emojis
-bindsym $app_mod+n exec pkill rofi || rofimoji --skin-tone neutral --files arrows basic_latin block_elements box_drawing braille_patterns control_pictures dingbats domino_tiles enclosed_alphanumeric_supplement enclosed_alphanumerics general_punctuation geometric_shapes geometric_shapes_extended ideographic_description_characters latin-1_supplement latin_extended-a latin_extended-b latin_extended-c latin_extended-d latin_extended-e latin_extended-f latin_extended-g latin_extended_additional letterlike_symbols mathematical_operators miscellaneous_mathematical_symbols-a miscellaneous_mathematical_symbols-b miscellaneous_symbols miscellaneous_symbols_and_arrows miscellaneous_technical musical_symbols phonetic_extensions phonetic_extensions_supplement playing_cards specials superscripts_and_subscripts supplemental_arrows-a supplemental_arrows-b supplemental_arrows-c supplemental_mathematical_operators supplemental_punctuation
+bindsym $app_mod+m exec alacritty --class=panel -e bash -c ~/.config/sway/scripts/emoji.sh
+bindsym Mod4+period exec alacritty --class=panel -e bash -c ~/.config/sway/scripts/emoji.sh
+bindsym $app_mod+n exec alacritty --class=panel -e bash -c ~/.config/sway/scripts/unicode.sh
 
 # ::: media keys :::
 
@@ -235,7 +235,7 @@ for_window [app_id="firefox" title="Picture-in-Picture"] border none, floating e
 for_window [app_id="org.pwmt.zathura"] resize shrink width 20 ppt
 for_window [app_id="nm-connection-editor"] floating enable
 for_window [app_id="pavucontrol"] floating enable
-for_window [app_id="calculator"] floating enable, resize set width 50ppt, resize set height 50ppt
+for_window [app_id="panel"] floating enable, resize set width 50ppt, resize set height 50ppt
 for_window [app_id="org.keepassxc.KeePassXC" title="Unlock Database - KeePassXC"] floating enable
 
 # ::: ui theme :::
