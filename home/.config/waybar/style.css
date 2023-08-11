@@ -15,7 +15,7 @@ window#waybar {
 
 window#waybar.empty {
   /* color: #1c1c1c; */
-  background-color: rgba(0, 0, 0, 0.2);
+  /* background-color: rgba(0, 0, 0, 0.2); */
 }
 
 window#waybar.solo {
@@ -35,9 +35,12 @@ window#waybar.jetbrains-idea {
   background-color: #2b2d30;
 }
 
-window#waybar.firefox,
-window#waybar.firefoxdeveloperedition {
+window#waybar.firefox {
   background-color: #2b2a33;
+}
+
+window#waybar.firefoxdeveloperedition {
+  background-color: #1c1b22;
 }
 
 window#waybar.microsoft\ teams\ \-\ preview {
@@ -94,6 +97,11 @@ window#waybar.gimp-2\.10 {
 
 window#waybar.org\.gnome\.Weather {
   background-color: #242424;
+}
+
+window#waybar.org\.gnome\.Nautilus,
+window#waybar.org\.gnome\.Epiphany {
+  background-color: #303030;
 }
 
 #window {
@@ -171,11 +179,15 @@ window#waybar.org\.gnome\.Weather {
   }
 }
 
-window#waybar:not(.empty) #battery.top,
-window#waybar:not(.empty) #battery.full.charging,
-window#waybar:not(.empty) #battery.full.plugged {
-  color: #26a65b;
-}
+/* #battery.top, */
+/* #battery.full.charging, */
+/* #battery.full.plugged { */
+/*   color: #26a65b; */
+/* } */
+
+/* window#waybar.empty #battery { */
+/*   color: inherit; */
+/* } */
 
 #battery.warning:not(.charging) {
   color: #fccc2d;
