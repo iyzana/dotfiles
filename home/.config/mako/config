@@ -6,7 +6,7 @@ border-color=#e6b450
 icon-path=/usr/share/icons/Papirus-Dark
 max-icon-size=32
 
-[category=volume]
+[category=music]
 default-timeout=2000
 border-color=#999999
 

@@ -15,12 +15,21 @@ usage() {
 	echo "  ./audio.sh toggle-mic-mute"
 	echo "  ./audio.sh volume raise|lower"
 	echo "  ./audio.sh system-volume raise|lower"
+	echo "  ./audio.sh play"
+	echo "  ./audio.sh pause"
+	echo "  ./audio.sh play-pause"
+	echo "  ./audio.sh next"
+	echo "  ./audio.sh prev"
 	exit 1
 }
 
 if [ "$#" = 0 ]; then
 	usage
 fi
+
+playerctl() {
+	command playerctl --ignore-player "chromium" "$@"
+}
 
 setupUi() {
 	true
@@ -63,15 +72,16 @@ changeVolumePlayerctl() {
 }
 
 getTitle() {
-	title=$(echo "$1" | grep 'xesam:title' | awk -F '[[:space:]][[:space:]]+' '{print $NF}')
-	artist=$(echo "$1" | grep 'xesam:artist' | awk -F '[[:space:]][[:space:]]+' '{print $NF}')
+	title=$(echo "$1" | grep 'xesam:title' | awk -F '[[:space:]]{4,}' '{print $NF}')
+	artist=$(echo "$1" | grep 'xesam:artist' | awk -F '[[:space:]]{4,}' '{print $NF}')
+	title=${title#"$artist - "}
 	if [ -n "$title" ] && [ -n "$artist" ]; then
 		echo "$artist - $title"
 	fi
 }
 
 getImage() {
-	url=$(echo "$1" | grep 'mpris:artUrl' | awk -F '[[:space:]][[:space:]]+' '{print $NF}')
+	url=$(echo "$1" | grep 'mpris:artUrl' | awk -F '[[:space:]]{4,}' '{print $NF}')
 	if [ -z "$url" ]; then
 		return
 	fi
@@ -80,7 +90,7 @@ getImage() {
 	if [ -e "$path" ]; then
 		echo "$path"
 	else
-		mkdir "/tmp/volume-ui"
+		mkdir -p "/tmp/volume-ui"
 		curl -Lo "$path" "$url" || return
 		echo "$path"
 	fi
@@ -92,10 +102,6 @@ unlock() {
 }
 
 notifyVolumeChange() {
-		eval "exec $notification_lock_fd>\"$notification_lock\""
-		trap unlock EXIT
-		flock -x $notification_lock_fd
-
 		if [ -n "$2" ] && [ -n "$3" ]; then
 			icon="$3"
 		elif [ "$1" -eq "0" ]; then
@@ -107,13 +113,20 @@ notifyVolumeChange() {
 		else
 			icon="audio-volume-high"
 		fi
-		nid="$(cat "$notification_id")"
 		if [ -n "$2" ]; then
-			nid=$(notify-send --category volume --icon "$icon" --print-id --replace-id "${nid:-0}" "$2" "Volume: $1%")
+			notify "$2" "Volume: $1%" "$icon"
 		else
-			nid=$(notify-send --category volume --icon "$icon" --print-id --replace-id "${nid:-0}" "$1%")
+			notify "$2" "$1%" "$icon"
 		fi
-		echo "$nid" > "$notification_id"
+}
+
+notify() {
+		eval "exec $notification_lock_fd>\"$notification_lock\""
+		trap unlock EXIT
+		flock -x $notification_lock_fd
+
+		nid="$(cat "$notification_id" || true)"
+		notify-send --category music --icon "$3" --print-id --replace-id "${nid:-0}" "$1" "$2" > "$notification_id"
 }
 
 setPlusMinus() {
@@ -147,12 +160,55 @@ changeVolume() {
 	changeVolumePulseaudio
 }
 
+play() {
+	playerctl play
+	metadata="$(playerctl metadata)"
+	title=$(getTitle "$metadata")
+	image_path=$(getImage "$metadata")
+	notify "$title" "" "$image_path"
+}
+
+playPause() {
+	playerctl play-pause
+	sleep .15
+	music_status=$(playerctl status || true)
+	if [ "$music_status" = "Playing" ]; then
+		metadata="$(playerctl metadata)"
+		title=$(getTitle "$metadata")
+		image_path=$(getImage "$metadata")
+		notify "$title" "" "$image_path"
+	fi
+}
+
+next() {
+	playerctl next
+	sleep .25
+	metadata="$(playerctl metadata)"
+	title=$(getTitle "$metadata")
+	image_path=$(getImage "$metadata")
+	notify "$title" "" "$image_path"
+}
+
+previous() {
+	playerctl previous
+	sleep .25
+	metadata="$(playerctl metadata)"
+	title=$(getTitle "$metadata")
+	image_path=$(getImage "$metadata")
+	notify "$title" "" "$image_path"
+}
+
 case "$1" in
 	setup-ui) setupUi ;;
 	toggle-output-mute) toggleOutputMute ;;
 	toggle-mic-mute) toggleMicMute ;;
 	volume) changeVolume "$@" ;;
 	system-volume) changeSystemVolume "$@" ;;
+	play) play ;;
+	pause) playerctl pause ;;
+	play-pause) playPause ;;
+	next) next ;;
+	previous) previous ;;
 	*) usage ;;
 esac
 
