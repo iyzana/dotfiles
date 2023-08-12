@@ -2,6 +2,8 @@
   "typescript.preferences.importModuleSpecifier": "project-relative",
   "rust-analyzer.check.command": "clippy",
   "rust-analyzer.inlayHints.parameterHints.enable": false,
+  "html.format.enable": false,
+  "css.format.enable": false,
   "diagnostic.virtualText": false,
   "npm.binPath": "yarn",
   "coc.preferences.formatOnSave": false,
