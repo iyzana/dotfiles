@@ -7,11 +7,18 @@ browser {
 /* {{{ hide_single_tab.css */
 
 #tabbrowser-tabs .tabbrowser-tab:only-of-type,
+/* also hide only two tabs */
+#tabbrowser-tabs .tabbrowser-tab[pinned]:first-of-type:nth-last-of-type(2),
+#tabbrowser-tabs .tabbrowser-tab[pinned]:first-of-type:nth-last-of-type(2) ~ .tabbrowser-tab,
 #tabbrowser-tabs
   .tabbrowser-tab:only-of-type
-  + #tabbrowser-arrowscrollbox-periphery {
+  + #tabbrowser-arrowscrollbox-periphery,
+#tabbrowser-tabs
+	.tabbrowser-tab[pinned]:first-of-type:nth-last-of-type(2)
+	~ #tabbrowser-arrowscrollbox-periphery {
   display: none !important;
 }
+
 #tabbrowser-tabs,
 #tabbrowser-arrowscrollbox {
   min-height: 0 !important;
