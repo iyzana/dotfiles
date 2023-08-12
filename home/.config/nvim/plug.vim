@@ -18,7 +18,7 @@ Plug 'chiedo/vim-case-convert'
 Plug 'gbprod/substitute.nvim'
 
 " files
-Plug 'junegunn/fzf', { 'dir': '~/.local/share/fzf', 'do': './install --all --xdg --no-bash --no-fish --no-update-rc' }
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'ton/vim-alternate'
 
