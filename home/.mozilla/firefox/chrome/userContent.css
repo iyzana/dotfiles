@@ -5,6 +5,18 @@
   }
 }
 
+@-moz-document url("about:newtab") {
+  body {
+    background-color: #1c1b22 !important;
+  }
+}
+
+@-moz-document url("about:home") {
+  body {
+    background-color: #1c1b22 !important;
+  }
+}
+
 @-moz-document url-prefix(about:reader) {
   body.serif {
     font-family: Merriweather !important;
