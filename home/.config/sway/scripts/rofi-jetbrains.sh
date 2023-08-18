@@ -1,10 +1,19 @@
 #!/bin/env sh
 
+# shellcheck disable=SC2010 # ls is used for sorting by version number
 config_dir=$(ls -v "$HOME/.config/JetBrains" | grep "IntelliJIdea" | tail -n 1)
 config_path="$HOME/.config/JetBrains/$config_dir"
 recents_path="$config_path/options/recentProjects.xml"
 
-projects=$(xq '.application.component.option | .[] | select(.["@name"] == "additionalInfo").map.entry | .[] | { project: .["@key"], lastOpenend: .value.RecentProjectMetaInfo.option | .[] | select(type == "object" and .["@name"] == "projectOpenTimestamp") | .["@value"] }' "$recents_path")
+query=".application.component.option | .[] \
+	| select(.[\"@name\"] == \"additionalInfo\").map.entry | .[] \
+	| { \
+	  project: .[\"@key\"], \
+		lastOpenend: .value.RecentProjectMetaInfo.option | .[] \
+			| select(type == \"object\" and .[\"@name\"] == \"projectOpenTimestamp\") \
+			| .[\"@value\"] \
+	}"
+projects=$(xq "$query" "$recents_path")
 
 paths=$(echo "$projects" \
     | jq --raw-output '.lastOpenend + " " + .project' \
