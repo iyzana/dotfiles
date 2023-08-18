@@ -10,6 +10,8 @@ padding-bottom = 75
 padding-left = 140
 padding-right = 140
 
+prompt-text="» "
+
 num-results = 7
 result-spacing = 5
 

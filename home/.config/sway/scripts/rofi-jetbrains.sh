@@ -14,7 +14,7 @@ paths=$(echo "$projects" \
     | grep --invert-match --fixed-strings "\$USER_HOME\$"
 )
 
-selected=$(echo "$paths" | tofi --prompt-text "open: " --fuzzy-match true)
+selected=$(echo "$paths" | tofi --config ~/.config/tofi/jetbrains)
 if [ -n "$selected" ]; then
     swaymsg exec -- intellij-idea-ultimate-edition "$HOME/projects/$selected"
 fi

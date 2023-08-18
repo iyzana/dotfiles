@@ -76,7 +76,7 @@ bindsym $app_mod+o exec bash ~/.config/sway/scripts/ocr.sh
 bindsym $wm_mod+q kill
 
 # program launchers
-bindsym $wm_mod+space exec pkill tofi-drun || swaymsg exec -- "$(tofi-drun --prompt-text '» ')"
+bindsym $wm_mod+space exec pkill tofi-drun || swaymsg exec -- "$(tofi-drun)"
 bindsym $app_mod+p exec pkill rofi || ~/.config/sway/scripts/rofi-jetbrains.sh
 bindsym $app_mod+u exec ~/.config/sway/scripts/datatrash.sh
 

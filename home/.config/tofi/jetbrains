@@ -1,0 +1,7 @@
+include=config
+
+fuzzy-match = true
+clip-to-padding = false
+
+padding-left = 40
+padding-right = 40
