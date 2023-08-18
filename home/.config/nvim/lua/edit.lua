@@ -13,7 +13,7 @@ vim.opt.autowriteall = true
 
 vim.api.nvim_create_autocmd(
   { "FocusLost" },
-  { pattern = { "*" }, command = "silent! wa" }
+  { command = "silent! wa" }
 )
 vim.api.nvim_create_autocmd(
   { "BufEnter" },

@@ -13,7 +13,7 @@ vim.keymap.set("n", "<leader>C", "<cmd>sp +terminal<cr>a", { silent = true })
 vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w><C-h>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.api.nvim_create_autocmd("BufEnter", { pattern = { "term://*" }, command = "startinsert" })
-vim.api.nvim_create_autocmd("TermOpen", { command = "setlocal nonumber norelativenumber nospell" })
+vim.api.nvim_create_autocmd("TermOpen", { command = "setlocal nonumber norelativenumber nospell scrolloff=0" })
 
 -- clear screen
 vim.keymap.set("n", "<C-c>", "<cmd>nohlsearch<cr>", { silent = true })
