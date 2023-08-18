@@ -24,14 +24,14 @@ while true; do
         )
       fi
 
-      if (( $(echo "$ACTUAL_REMAINING >= 30.0" | bc -l) )); then
+      if (( $(echo "$ACTUAL_REMAINING >= 30.0" | bc -l) )) && [ -n "$NOTIFICATION_ID" ]; then
         notify-send --urgency critical --replace-id="$NOTIFICATION_ID" --expire-time=1 "battery low"
         unset NOTIFICATION_ID
       fi
     fi
   fi
 
-  if echo "$STATUS" | grep -q 'state:\s*\(charging\|fully-charged\)'; then
+  if echo "$STATUS" | grep -q 'state:\s*\(charging\|fully-charged\)' && [ -n "$NOTIFICATION_ID" ]; then
     notify-send --urgency critical --replace-id="$NOTIFICATION_ID" --expire-time=1 "battery low"
     unset NOTIFICATION_ID
   fi
