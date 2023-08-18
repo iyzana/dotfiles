@@ -33,4 +33,5 @@ nl "$hist_file.tmp" |sort -k2 -k 1,1n|uniq -f1|sort -n|cut -f2| head -n 30 > "$h
 rm "$hist_file.tmp"
 
 swaymsg move scratchpad
+sleep .05 # quickly accepting focus is seemingly too hard for an electron app
 echo "$selection" | cut -d' ' -f1 | tr -d '\n' | wtype -
